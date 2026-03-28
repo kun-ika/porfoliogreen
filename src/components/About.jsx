@@ -18,21 +18,18 @@ const AccordionItem = ({ number, title, text, tags, image }) => {
     const top = useSpring(mouseY, scaleConfig);
 
     const handleMouseMove = (e) => {
-        // Center the landscape image exactly on the cursor
-        mouseX.set(e.clientX - 160); // Half of 320px width
-        mouseY.set(e.clientY - 95);  // Half of 190px height
+        // Offset to the RIGHT of the cursor so it doesn't cover the arrow or text
+        mouseX.set(e.clientX + 40);
+        mouseY.set(e.clientY - 95);
     };
 
     return (
         <div 
             className="border-t border-gray-200/20 group cursor-pointer relative" 
             onClick={() => setIsOpen(!isOpen)}
-            onMouseMove={handleMouseMove}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseLeave={() => setIsHovered(false)}
         >
             
-            {/* Floating Image Preview (Exactly matching reference: Landscape, centered, slight left rotation) */}
+            {/* Floating Image Preview (Offset to the right) */}
             <motion.div
                 style={{ left, top }}
                 initial={{ opacity: 0, scale: 0.8, rotate: 0 }}
@@ -51,7 +48,13 @@ const AccordionItem = ({ number, title, text, tags, image }) => {
                 <Image src={image} alt={title} fill className="object-cover" />
             </motion.div>
 
-            <div className="py-6 md:py-8 flex items-center justify-between">
+            {/* Hover event ONLY triggers when mouse is on this header row, avoiding the expanded text */}
+            <div 
+                className="py-6 md:py-8 flex items-center justify-between"
+                onMouseMove={handleMouseMove}
+                onMouseEnter={() => setIsHovered(true)}
+                onMouseLeave={() => setIsHovered(false)}
+            >
                 <div className="flex items-center gap-6 md:gap-8">
                     <span className={`text-lg md:text-xl font-light font-sans transition-colors duration-400 ${isOpen ? 'text-[#5662F6]' : 'text-slate-400 group-hover:text-slate-600 dark:group-hover:text-gray-300'}`}>
                         {number}.
