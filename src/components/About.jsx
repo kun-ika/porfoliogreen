@@ -319,47 +319,7 @@ const About = () => {
                                 </div>
                             </motion.div>
 
-                            {/* BLOCK 3: Experience Journey */}
-                            <motion.div 
-                                onViewportEnter={() => setActiveSection(3)}
-                                viewport={{ amount: 0.3 }}
-                                initial="hidden"
-                                whileInView="visible"
-                                variants={staggerContainer}
-                                className="flex flex-col items-start w-full pt-12 md:pt-0 pb-[10vh]"
-                            >
-                                <motion.h3 
-                                    variants={slideUp} 
-                                    className="text-[50px] md:text-[70px] lg:text-[80px] leading-[0.9] font-[700] text-slate-950 mb-6 font-[family-name:var(--font-headline)] tracking-tight"
-                                >
-                                    DISCOVER MY<br/>JOURNEY IN<br/>DESIGN
-                                </motion.h3>
-                                <motion.p variants={slideUp} className="text-base md:text-lg text-slate-700 leading-[1.6] font-[400] max-w-xl mb-12">
-                                    From curious creator to full-time designer, my path has been shaped by a passion for crafting purposeful, user-centered digital experiences.
-                                </motion.p>
-                                
-                                <div className="w-full flex flex-col gap-0 text-left border-t border-gray-200 pt-4">
-                                    {experiences.map((exp, idx) => (
-                                        <motion.div 
-                                            key={idx}
-                                            variants={slideUp}
-                                            className="flex flex-col lg:flex-row lg:items-center justify-between border-b border-gray-200 py-6 md:py-8"
-                                        >
-                                            <h4 className="text-[24px] md:text-[32px] leading-[1] font-[400] text-slate-900 mb-4 lg:mb-0 font-[family-name:var(--font-headline)]">
-                                                {exp.role}
-                                            </h4>
-                                            <div className="flex flex-col lg:items-end">
-                                                <span className="text-lg font-[600] text-[#0d9488] font-[family-name:var(--font-jakarta)] mb-1">
-                                                    {exp.company}
-                                                </span>
-                                                <span className="text-slate-500 font-[400] text-xs font-sans uppercase tracking-wider">
-                                                    {exp.period}
-                                                </span>
-                                            </div>
-                                        </motion.div>
-                                    ))}
-                                </div>
-                            </motion.div>
+
 
                         </div>
 
