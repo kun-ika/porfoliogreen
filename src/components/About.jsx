@@ -194,7 +194,7 @@ const About = () => {
 
     return (
         <React.Fragment>
-            <section id="about" className="relative font-sans pt-24 md:pt-32 pb-16 overflow-hidden">
+            <section id="about" className="relative font-sans pt-24 md:pt-32 pb-16">
                 <div className="container max-w-[1200px] mx-auto px-6 md:px-12 flex flex-col gap-24 md:gap-32 w-full">
                     
                     {/* 1. Hero Section (Scale UNCHANGED) */}
@@ -254,7 +254,7 @@ const About = () => {
                             {/* BLOCK 1: Expertise */}
                             <motion.div 
                                 onViewportEnter={() => setActiveSection(1)}
-                                viewport={{ margin: "-30% 0px -30% 0px" }}
+                                viewport={{ margin: "-20% 0px -20% 0px" }}
                                 initial="hidden"
                                 whileInView="visible"
                                 variants={staggerContainer}
@@ -288,7 +288,7 @@ const About = () => {
                             {/* BLOCK 2: Tech Stack */}
                             <motion.div 
                                 onViewportEnter={() => setActiveSection(2)}
-                                viewport={{ margin: "-30% 0px -30% 0px" }}
+                                viewport={{ margin: "-20% 0px -20% 0px" }}
                                 initial="hidden"
                                 whileInView="visible"
                                 variants={staggerContainer}
@@ -330,7 +330,7 @@ const About = () => {
                             {/* BLOCK 3: Experience Journey */}
                             <motion.div 
                                 onViewportEnter={() => setActiveSection(3)}
-                                viewport={{ margin: "-40% 0px -40% 0px" }}
+                                viewport={{ margin: "-20% 0px -20% 0px" }}
                                 initial="hidden"
                                 whileInView="visible"
                                 variants={staggerContainer}
