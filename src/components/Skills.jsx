@@ -84,9 +84,6 @@ const SkillCard = ({ skill, index, gradient }) => {
                 <div className="w-16 h-16 rounded-2xl bg-slate-50 flex items-center justify-center text-slate-400 group-hover:text-teal-600 transition-colors shadow-inner border border-slate-100 group-hover:scale-110 duration-500">
                     {skill.icon}
                 </div>
-                <span className="text-5xl font-[900] text-slate-200 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-teal-400 group-hover:to-emerald-500 transition-all duration-500 tracking-tighter">
-                    {skill.level}<span className="text-2xl">%</span>
-                </span>
             </div>
 
             <h4 className="text-2xl font-bold text-slate-800 mb-6 tracking-wider relative z-10 font-[family-name:var(--font-headline)]">
