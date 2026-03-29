@@ -12,7 +12,7 @@ const projects = [
         type: "Hardware & IoT",
         tags: ["Arduino", "IoT", "C++", "Sensors"],
         icon: <Box size={28} className="text-teal-600" />,
-        image: "/projects/robot.png",
+        image: "/projects/robot.jpeg",
         description: "An autonomous solar-powered grass cutter reducing manual effort via ultrasonic sensors and Bluetooth control."
     },
     {

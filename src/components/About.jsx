@@ -11,7 +11,7 @@ const AccordionItem = ({ number, title, text, tags, image }) => {
     // Smooth cursor tracking for the floating image preview
     const mouseX = useMotionValue(0);
     const mouseY = useMotionValue(0);
-    
+
     // Spring physics for the image following the cursor precisely
     const scaleConfig = { damping: 25, stiffness: 300, mass: 0.5 };
     const left = useSpring(mouseX, scaleConfig);
@@ -24,22 +24,22 @@ const AccordionItem = ({ number, title, text, tags, image }) => {
     };
 
     return (
-        <div 
-            className="border-t border-gray-200 group cursor-pointer relative" 
+        <div
+            className="border-t border-gray-200 group cursor-pointer relative"
             onClick={() => setIsOpen(!isOpen)}
         >
-            
+
             {/* Floating Image Preview (Offset to the right) */}
             <motion.div
                 style={{ left, top }}
                 initial={{ opacity: 0, scale: 0.8, rotate: 0 }}
-                animate={{ 
-                    opacity: isHovered ? 1 : 0, 
+                animate={{
+                    opacity: isHovered ? 1 : 0,
                     scale: isHovered ? 1 : 0.8,
                     rotate: isHovered ? -8 : -4
                 }}
-                transition={{ 
-                    opacity: { duration: 0.3 }, 
+                transition={{
+                    opacity: { duration: 0.3 },
                     scale: { duration: 0.3, type: "spring", bounce: 0.4 },
                     rotate: { duration: 0.5, type: "spring", bounce: 0.5 }
                 }}
@@ -49,7 +49,7 @@ const AccordionItem = ({ number, title, text, tags, image }) => {
             </motion.div>
 
             {/* Hover event ONLY triggers when mouse is on this header row, avoiding the expanded text */}
-            <div 
+            <div
                 className="py-6 md:py-8 flex items-center justify-between"
                 onMouseMove={handleMouseMove}
                 onMouseEnter={() => setIsHovered(true)}
@@ -63,17 +63,17 @@ const AccordionItem = ({ number, title, text, tags, image }) => {
                         {title}
                     </h4>
                 </div>
-                <motion.div 
-                    animate={{ rotate: isOpen ? 180 : 0 }} 
+                <motion.div
+                    animate={{ rotate: isOpen ? 180 : 0 }}
                     transition={{ type: "spring", stiffness: 200, damping: 20 }}
                 >
                     <ChevronDown className={`text-gray-400 transition-colors duration-400 ${isOpen || isHovered ? 'text-[#0d9488]' : ''}`} size={28} />
                 </motion.div>
             </div>
-            
+
             <AnimatePresence>
                 {isOpen && (
-                    <motion.div 
+                    <motion.div
                         initial={{ height: 0, opacity: 0 }}
                         animate={{ height: "auto", opacity: 1 }}
                         exit={{ height: 0, opacity: 0 }}
@@ -84,7 +84,7 @@ const AccordionItem = ({ number, title, text, tags, image }) => {
                             <p className="text-base text-slate-700 dark:text-gray-300 leading-[1.6]">
                                 {text}
                             </p>
-                            
+
                             {/* Inner Dropdown Tag Design from Reference */}
                             {tags && (
                                 <div className="flex flex-wrap gap-3 mt-2">
@@ -147,29 +147,29 @@ const About = () => {
     };
 
     const expertise = [
-        { 
-            title: "UI/UX DESIGN", 
+        {
+            title: "UI/UX DESIGN",
             text: "Creating intuitive and user-centered interfaces that balance aesthetics with functionality. Every interaction is mapped to ensure seamless experiences across all devices and touchpoints.",
             tags: ["Wireframing", "Prototyping", "User Research", "Interaction Design"],
-            image: "/kunika.png"
+            image: "/kunikacutee.png"
         },
-        { 
-            title: "GRAPHIC DESIGN", 
+        {
+            title: "GRAPHIC DESIGN",
             text: "Crafting visual identities, marketing assets, and cohesive branding that effectively communicates your core message and engages your target audience.",
             tags: ["Brand Identity", "Marketing Assets", "Typography", "Visual Language"],
-            image: "/kunika.png"
+            image: "/kunikacutee.png"
         },
-        { 
-            title: "WEB DESIGN", 
+        {
+            title: "WEB DESIGN",
             text: "Building responsive, accessible, and high-performance websites. Combining structured development with advanced design principles to output premium digital platforms.",
             tags: ["Responsive Layouts", "Web Accessibility", "Framer", "Next.js"],
-            image: "/kunika.png"
+            image: "/kunikacutee.png"
         },
-        { 
-            title: "BRANDING", 
+        {
+            title: "BRANDING",
             text: "Establishing a strong brand voice and visual language that resonates deeply with users. Focusing on consistent representation across multiple channels.",
             tags: ["Brand Strategy", "Logo Design", "Style Guides", "Art Direction"],
-            image: "/kunika.png"
+            image: "/kunikacutee.png"
         }
     ];
 
@@ -196,7 +196,7 @@ const About = () => {
     // Dummy array of images that crossfade during the sticky scroll
     // In a real project, replace these paths with unique assets for each section.
     const stickyImages = {
-        0: "/kunika.png",
+        0: "/kunikacutee.png",
         1: "/illustrations/expertise.png",
         2: "/illustrations/techstack.png",
         3: "/illustrations/journey.png"
@@ -206,15 +206,15 @@ const About = () => {
         <React.Fragment>
             <section id="about" className="relative font-sans pt-24 md:pt-32 pb-16 bg-white">
                 <div className="container max-w-[1200px] mx-auto px-6 md:px-12 flex flex-col gap-20 md:gap-24 w-full">
-                    
+
                     {/* 1. UNIFIED STICKY SCROLL CONTAINER */}
                     <div className="grid grid-cols-1 lg:grid-cols-[1fr_0.8fr] gap-[50px] relative w-full">
-                        
+
                         {/* LEFT COLUMN: Scrollable Text Content Blocks */}
                         <div className="flex flex-col gap-32 w-full h-full relative z-10">
-                            
+
                             {/* BLOCK 0: Hero / About Me */}
-                            <motion.div 
+                            <motion.div
                                 onViewportEnter={() => setActiveSection(0)}
                                 viewport={{ amount: 0.3 }}
                                 initial="hidden"
@@ -222,16 +222,16 @@ const About = () => {
                                 variants={staggerContainer}
                                 className="flex flex-col items-start w-full pb-[20vh] md:pb-[30vh]"
                             >
-                                <motion.h1 
-                                    variants={slideUp} 
+                                <motion.h1
+                                    variants={slideUp}
                                     className="text-[100px] md:text-[140px] lg:text-[160px] leading-[0.85] font-[700] text-slate-950 mb-6 font-[family-name:var(--font-headline)] tracking-tight flex items-center md:items-end flex-wrap gap-4"
                                 >
                                     ABOUT ME
                                     <motion.span
                                         animate={{ rotate: [0, 14, -8, 14, -4, 10, 0, 0] }}
-                                        transition={{ 
-                                            duration: 2.5, 
-                                            repeat: Infinity, 
+                                        transition={{
+                                            duration: 2.5,
+                                            repeat: Infinity,
                                             ease: "easeInOut",
                                             times: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 1]
                                         }}
@@ -248,16 +248,16 @@ const About = () => {
                                     <p className="mb-6">I’m a digital designer passionate about crafting meaningful, user-centered experiences.</p>
                                     <p>With a strong foundation in visual design and a deep understanding of interactive systems, I bring ideas to life through thoughtful design, smooth animations, and responsive layouts.</p>
                                 </motion.div>
-                                
+
                                 <motion.div variants={slideUp} className="flex items-center gap-6">
                                     <a href="#" className="w-12 h-12 flex items-center justify-center rounded-full bg-slate-950 text-white outline outline-1 outline-gray-200 hover:scale-110 transition-transform duration-300"><Instagram size={20} /></a>
                                     <a href="#" className="w-12 h-12 flex items-center justify-center rounded-full bg-slate-950 text-white outline outline-1 outline-gray-200 hover:scale-110 transition-transform duration-300"><PenBox size={20} /></a>
                                     <a href="#" className="w-12 h-12 flex items-center justify-center rounded-full bg-slate-950 text-white outline outline-1 outline-gray-200 hover:scale-110 transition-transform duration-300"><Dribbble size={20} /></a>
                                 </motion.div>
                             </motion.div>
-                            
+
                             {/* BLOCK 1: Expertise */}
-                            <motion.div 
+                            <motion.div
                                 onViewportEnter={() => setActiveSection(1)}
                                 viewport={{ amount: 0.3 }}
                                 initial="hidden"
@@ -265,22 +265,22 @@ const About = () => {
                                 variants={staggerContainer}
                                 className="flex flex-col items-start w-full pb-[20vh] md:pb-[30vh]"
                             >
-                                <motion.h3 
-                                    variants={slideUp} 
+                                <motion.h3
+                                    variants={slideUp}
                                     className="text-[50px] md:text-[70px] lg:text-[80px] leading-[0.9] font-[700] text-slate-950 mb-6 font-[family-name:var(--font-headline)] tracking-tight"
                                 >
-                                    WHAT I CAN DO<br/>FOR YOU
+                                    WHAT I CAN DO<br />FOR YOU
                                 </motion.h3>
                                 <motion.p variants={slideUp} className="text-base md:text-lg text-slate-700 leading-[1.6] font-[400] max-w-xl mb-12">
                                     As a digital designer, I am a visual storyteller, crafting experiences that connect deeply and spark creativity.
                                 </motion.p>
-                                
+
                                 <div className="w-full flex flex-col pt-4 border-b border-gray-200">
                                     {expertise.map((item, idx) => (
                                         <motion.div key={idx} variants={slideUp}>
-                                            <AccordionItem 
-                                                number={idx + 1} 
-                                                title={item.title} 
+                                            <AccordionItem
+                                                number={idx + 1}
+                                                title={item.title}
                                                 text={item.text}
                                                 tags={item.tags}
                                                 image={item.image}
@@ -291,7 +291,7 @@ const About = () => {
                             </motion.div>
 
                             {/* BLOCK 2: Tech Stack */}
-                            <motion.div 
+                            <motion.div
                                 onViewportEnter={() => setActiveSection(2)}
                                 viewport={{ amount: 0.3 }}
                                 initial="hidden"
@@ -299,8 +299,8 @@ const About = () => {
                                 variants={staggerContainer}
                                 className="flex flex-col items-start w-full pt-12 md:pt-0 pb-[20vh] md:pb-[30vh]"
                             >
-                                <motion.h3 
-                                    variants={slideUp} 
+                                <motion.h3
+                                    variants={slideUp}
                                     className="text-[50px] md:text-[70px] lg:text-[80px] leading-[0.9] font-[700] text-slate-950 mb-6 font-[family-name:var(--font-headline)] tracking-tight"
                                 >
                                     MY TECH STACK
@@ -308,10 +308,10 @@ const About = () => {
                                 <motion.p variants={slideUp} className="text-base md:text-lg text-slate-700 leading-[1.6] font-[400] max-w-xl mb-12">
                                     I build with intention. Framer for fast, interactive web design. Figma for clean interfaces. Custom code for complex logic. Each tool supports how I think and design.
                                 </motion.p>
-                                
+
                                 <div className="w-full flex flex-col gap-0 border-t border-gray-200 pt-4">
                                     {techStack.map((tech, idx) => (
-                                        <motion.div 
+                                        <motion.div
                                             key={idx}
                                             variants={slideUp}
                                             className="flex items-center gap-6 border-b border-gray-200 py-6"
@@ -333,7 +333,7 @@ const About = () => {
                             </motion.div>
 
                             {/* BLOCK 3: Experience Journey */}
-                            <motion.div 
+                            <motion.div
                                 onViewportEnter={() => setActiveSection(3)}
                                 viewport={{ amount: 0.3 }}
                                 initial="hidden"
@@ -341,19 +341,19 @@ const About = () => {
                                 variants={staggerContainer}
                                 className="flex flex-col items-start w-full pt-12 md:pt-0 pb-[10vh]"
                             >
-                                <motion.h3 
-                                    variants={slideUp} 
+                                <motion.h3
+                                    variants={slideUp}
                                     className="text-[50px] md:text-[70px] lg:text-[80px] leading-[0.9] font-[700] text-slate-950 mb-6 font-[family-name:var(--font-headline)] tracking-tight"
                                 >
-                                    DISCOVER MY<br/>JOURNEY IN<br/>DESIGN
+                                    DISCOVER MY<br />JOURNEY IN<br />DESIGN
                                 </motion.h3>
                                 <motion.p variants={slideUp} className="text-base md:text-lg text-slate-700 leading-[1.6] font-[400] max-w-xl mb-12">
                                     From curious creator to full-time designer, my path has been shaped by a passion for crafting purposeful, user-centered digital experiences.
                                 </motion.p>
-                                
+
                                 <div className="w-full flex flex-col gap-0 text-left border-t border-gray-200 pt-4">
                                     {experiences.map((exp, idx) => (
-                                        <motion.div 
+                                        <motion.div
                                             key={idx}
                                             variants={slideUp}
                                             className="flex flex-col lg:flex-row lg:items-center justify-between border-b border-gray-200 py-6 md:py-8"
@@ -390,10 +390,10 @@ const About = () => {
                                             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                                             className="absolute inset-0 w-full h-full"
                                         >
-                                            <Image 
-                                                src={stickyImages[activeSection]} 
-                                                alt={`Scroll Preview ${activeSection}`} 
-                                                fill 
+                                            <Image
+                                                src={stickyImages[activeSection]}
+                                                alt={`Scroll Preview ${activeSection}`}
+                                                fill
                                                 className="object-cover opacity-90 saturate-50 mix-blend-multiply"
                                             />
                                         </motion.div>
@@ -406,7 +406,7 @@ const About = () => {
 
                     {/* 5. Design With Strategy Banner & Bento Grid */}
                     <div className="flex flex-col w-full gap-12 md:gap-16 relative z-10 pt-10">
-                        <motion.div 
+                        <motion.div
                             onViewportEnter={() => setActiveSection(0)}
                             initial="hidden"
                             whileInView="visible"
@@ -414,8 +414,8 @@ const About = () => {
                             variants={staggerContainer}
                             className="flex flex-col items-start w-full"
                         >
-                            <motion.h3 
-                                variants={slideUp} 
+                            <motion.h3
+                                variants={slideUp}
                                 className="text-[60px] md:text-[80px] lg:text-[100px] leading-[0.9] font-[700] text-slate-950 mb-6 font-[family-name:var(--font-headline)] max-w-[800px] tracking-tight"
                             >
                                 DESIGN WITH STRATEGY AND CREATIVITY
@@ -425,7 +425,7 @@ const About = () => {
                             </motion.p>
                         </motion.div>
 
-                        <motion.div 
+                        <motion.div
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, amount: 0.1 }}
@@ -463,7 +463,7 @@ const About = () => {
 
                     {/* 6. Let's Work Together PRO FORM */}
                     <div className="flex flex-col w-full gap-8 relative z-10 pt-24 pb-16">
-                        <motion.div 
+                        <motion.div
                             initial={{ opacity: 0, y: 50 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true, amount: 0.3 }}
@@ -480,7 +480,7 @@ const About = () => {
 
                         <div className="grid grid-cols-1 lg:grid-cols-[0.8fr_1fr] gap-[60px] lg:gap-[100px] items-start w-full">
                             {/* Left Image Side */}
-                            <motion.div 
+                            <motion.div
                                 initial={{ opacity: 0, x: -30 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
@@ -488,7 +488,7 @@ const About = () => {
                                 className="relative w-full max-w-[450px] aspect-[4/5] mx-auto lg:mx-0"
                             >
                                 <div className="absolute inset-0 rounded-[32px] overflow-hidden shadow-sm">
-                                    <Image src="/kunika.png" alt="Let's work together" fill className="object-cover" />
+                                    <Image src="/kunikacutee.png" alt="Let's work together" fill className="object-cover" />
                                 </div>
                                 {/* Blue Hand Bubble Overlay */}
                                 <div className="absolute -left-6 -bottom-6 md:-left-8 md:-bottom-8 w-24 h-24 md:w-32 md:h-32 bg-[#0d9488] rounded-full flex items-center justify-center shadow-2xl">
@@ -509,10 +509,10 @@ const About = () => {
                                                     style={{ transformOrigin: "70% 70%" }}
                                                 >
                                                     <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="md:w-[50px] md:h-[50px]">
-                                                        <path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"/>
-                                                        <path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2"/>
-                                                        <path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8"/>
-                                                        <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/>
+                                                        <path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0" />
+                                                        <path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2" />
+                                                        <path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8" />
+                                                        <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15" />
                                                     </svg>
                                                 </motion.div>
                                             </motion.div>
@@ -533,7 +533,7 @@ const About = () => {
                             </motion.div>
 
                             {/* Right Contact Form Side */}
-                            <motion.div 
+                            <motion.div
                                 initial={{ opacity: 0, x: 30 }}
                                 whileInView={{ opacity: 1, x: 0 }}
                                 viewport={{ once: true }}
@@ -551,7 +551,7 @@ const About = () => {
                                             <input type="email" placeholder="johnsmith@gmail.com" className="w-full bg-[#F5F5F5] placeholder:text-gray-400 border border-transparent rounded-full px-6 md:px-8 py-4 outline-none focus:border-[#0d9488] transition-all text-slate-950" />
                                         </div>
                                     </div>
-                                    
+
                                     <div className="flex flex-col gap-3 w-full mt-2">
                                         <label className="text-[#0d9488] text-sm md:text-base ml-4 font-medium">Service Needed ?</label>
                                         <div className="relative w-full">

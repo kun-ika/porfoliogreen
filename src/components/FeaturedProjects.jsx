@@ -10,7 +10,7 @@ const featuredProjects = [
         id: "smart-solar",
         title: "Smart Solar Cutter",
         category: "Hardware & IoT",
-        image: "/projects/robot.png",
+        image: "/projects/robot.jpeg",
         icon: <Box size={24} className="text-teal-400" />
     },
     {
@@ -24,7 +24,7 @@ const featuredProjects = [
         id: "quick-salon",
         title: "Quick Salon",
         category: "Mobile App",
-        image: "/projects/robot.png", // Reusing robot for demo, real projects would have unique images
+        image: "/projects/robot.jpeg", // Reusing robot for demo, real projects would have unique images
         icon: <Layers size={24} className="text-teal-400" />
     }
 ];
