@@ -172,7 +172,7 @@ const About = () => {
     return (
         <React.Fragment>
             <section id="about" className="relative font-sans pt-24 md:pt-32 pb-16 bg-white">
-                <div className="container max-w-[1200px] mx-auto px-6 md:px-12 flex flex-col gap-20 md:gap-24 w-full">
+                <div className="container max-w-[1200px] mx-auto px-6 md:px-12 flex flex-col gap-8 md:gap-12 w-full">
 
                     {/* 1. UNIFIED STICKY SCROLL CONTAINER */}
                     <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-[50px] relative w-full">
@@ -257,7 +257,7 @@ const About = () => {
                                 initial="hidden"
                                 whileInView="visible"
                                 variants={staggerContainer}
-                                className="flex flex-col items-start w-full pt-12 md:pt-0 pb-[20vh] md:pb-[30vh]"
+                                className="flex flex-col items-start w-full pt-12 md:pt-0 pb-12 md:pb-20"
                             >
                                 <motion.h3
                                     variants={slideUp}
@@ -336,7 +336,7 @@ const About = () => {
                     </div>
 
                     {/* 5. Design With Strategy Banner & Bento Grid */}
-                    <div className="flex flex-col w-full gap-12 md:gap-16 relative z-10 pt-10">
+                    <div className="flex flex-col w-full gap-12 md:gap-16 relative z-10 pt-0">
                         <motion.div
                             onViewportEnter={() => setActiveSection(0)}
                             initial="hidden"
