@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence, useMotionValue, useSpring } from 'framer-motion';
-import { ChevronDown, Instagram, Dribbble, Figma, Component, PenBox, Layers, MousePointer2, Palette, Code, Sparkles, Smartphone } from 'lucide-react';
+import { ChevronDown, Instagram, Dribbble, Figma, Component, PenBox, Layers, MousePointer2, Palette, Code, Sparkles, Smartphone, Linkedin } from 'lucide-react';
 
 const AccordionItem = ({ number, title, text, tags, Icon }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -237,9 +237,9 @@ const About = () => {
                                 </motion.div>
 
                                 <motion.div variants={slideUp} className="flex items-center gap-6">
-                                    <a href="#" className="w-12 h-12 flex items-center justify-center rounded-full bg-slate-950 text-white outline outline-1 outline-gray-200 hover:scale-110 transition-transform duration-300"><Instagram size={20} /></a>
-                                    <a href="#" className="w-12 h-12 flex items-center justify-center rounded-full bg-slate-950 text-white outline outline-1 outline-gray-200 hover:scale-110 transition-transform duration-300"><PenBox size={20} /></a>
-                                    <a href="#" className="w-12 h-12 flex items-center justify-center rounded-full bg-slate-950 text-white outline outline-1 outline-gray-200 hover:scale-110 transition-transform duration-300"><Dribbble size={20} /></a>
+                                    <a href="https://linkedin.com/in/kunikajain" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex items-center justify-center rounded-full bg-slate-950 text-white outline outline-1 outline-gray-200 hover:scale-110 transition-transform duration-300">
+                                        <Linkedin size={20} />
+                                    </a>
                                 </motion.div>
                             </motion.div>
 
