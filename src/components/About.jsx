@@ -2,9 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence, useMotionValue, useSpring } from 'framer-motion';
-import { ChevronDown, Instagram, Dribbble, Figma, Component, PenBox, Layers } from 'lucide-react';
+import { ChevronDown, Instagram, Dribbble, Figma, Component, PenBox, Layers, MousePointer2, Palette, Code, Sparkles, Smartphone } from 'lucide-react';
 
-const AccordionItem = ({ number, title, text, tags, image }) => {
+const AccordionItem = ({ number, title, text, tags, Icon }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
 
@@ -29,7 +29,7 @@ const AccordionItem = ({ number, title, text, tags, image }) => {
             onClick={() => setIsOpen(!isOpen)}
         >
 
-            {/* Floating Image Preview (Offset to the right) */}
+            {/* Floating Icon Card Preview (Offset to the right) */}
             <motion.div
                 style={{ left, top }}
                 initial={{ opacity: 0, scale: 0.8, rotate: 0 }}
@@ -43,9 +43,9 @@ const AccordionItem = ({ number, title, text, tags, image }) => {
                     scale: { duration: 0.3, type: "spring", bounce: 0.4 },
                     rotate: { duration: 0.5, type: "spring", bounce: 0.5 }
                 }}
-                className="fixed z-50 w-[320px] h-[190px] rounded-[16px] overflow-hidden pointer-events-none shadow-2xl"
+                className="fixed z-50 w-[120px] h-[120px] md:w-[140px] md:h-[140px] rounded-[32px] overflow-hidden pointer-events-none shadow-2xl bg-gradient-to-br from-[#0d9488] to-[#10b981] flex items-center justify-center p-6 border border-white/20 backdrop-blur-md"
             >
-                <Image src={image} alt={title} fill className="object-cover" />
+                {Icon && <Icon size={64} className="text-white drop-shadow-lg" />}
             </motion.div>
 
             {/* Hover event ONLY triggers when mouse is on this header row, avoiding the expanded text */}
@@ -151,25 +151,25 @@ const About = () => {
             title: "UI/UX DESIGN", 
             text: "Creating intuitive and user-centered interfaces that balance aesthetics with functionality. Every interaction is mapped to ensure seamless experiences across all devices and touchpoints.",
             tags: ["Wireframing", "Prototyping", "User Research", "Interaction Design"],
-            image: "/illustrations/ui_ux.png"
+            Icon: MousePointer2
         },
         { 
             title: "GRAPHIC DESIGN", 
             text: "Crafting visual identities, marketing assets, and cohesive branding that effectively communicates your core message and engages your target audience.",
             tags: ["Brand Identity", "Marketing Assets", "Typography", "Visual Language"],
-            image: "/illustrations/graphic_design.png"
+            Icon: Palette
         },
         { 
             title: "WEB DESIGN", 
             text: "Building responsive, accessible, and high-performance websites. Combining structured development with advanced design principles to output premium digital platforms.",
             tags: ["Responsive Layouts", "Web Accessibility", "Framer", "Next.js"],
-            image: "/illustrations/web_design.png"
+            Icon: Code
         },
         { 
             title: "BRANDING", 
             text: "Establishing a strong brand voice and visual language that resonates deeply with users. Focusing on consistent representation across multiple channels.",
             tags: ["Brand Strategy", "Logo Design", "Style Guides", "Art Direction"],
-            image: "/illustrations/branding.png"
+            Icon: Sparkles
         }
     ];
 
