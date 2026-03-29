@@ -56,10 +56,10 @@ const AccordionItem = ({ number, title, text, tags, image }) => {
                 onMouseLeave={() => setIsHovered(false)}
             >
                 <div className="flex items-center gap-6 md:gap-8">
-                    <span className={`text-lg md:text-xl font-light font-sans transition-colors duration-400 ${isOpen ? 'text-[#5662F6]' : 'text-slate-400 group-hover:text-slate-600 dark:group-hover:text-gray-300'}`}>
+                    <span className={`text-lg md:text-xl font-light font-sans transition-colors duration-400 ${isOpen ? 'text-[#0d9488]' : 'text-slate-400 group-hover:text-slate-600 dark:group-hover:text-gray-300'}`}>
                         {number}.
                     </span>
-                    <h4 className={`text-[28px] md:text-[36px] font-[400] transition-colors duration-400 font-[family-name:var(--font-headline)] uppercase leading-[1] ${isOpen || isHovered ? 'text-[#5662F6]' : 'text-slate-800 dark:text-gray-200'}`}>
+                    <h4 className={`text-[28px] md:text-[36px] font-[400] transition-colors duration-400 font-[family-name:var(--font-headline)] uppercase leading-[1] ${isOpen || isHovered ? 'text-[#0d9488]' : 'text-slate-800 dark:text-gray-200'}`}>
                         {title}
                     </h4>
                 </div>
@@ -67,7 +67,7 @@ const AccordionItem = ({ number, title, text, tags, image }) => {
                     animate={{ rotate: isOpen ? 180 : 0 }} 
                     transition={{ type: "spring", stiffness: 200, damping: 20 }}
                 >
-                    <ChevronDown className={`text-gray-400 transition-colors duration-400 ${isOpen || isHovered ? 'text-[#5662F6]' : ''}`} size={28} />
+                    <ChevronDown className={`text-gray-400 transition-colors duration-400 ${isOpen || isHovered ? 'text-[#0d9488]' : ''}`} size={28} />
                 </motion.div>
             </div>
             
@@ -178,9 +178,9 @@ const About = () => {
 
     const processes = [
         { num: "01.", title: "RESEARCH & STRATEGY", text: "In this phase, I dive deep into understanding your business, target audience, and project goals. Through research and strategic planning, I create a clear roadmap to guide the entire design process.", bgClass: "bg-[#1A1A1A] dark:bg-[#0A0A0A]", textClass: "text-white" },
-        { num: "02.", title: "CONCEPT & IDEATION", text: "Here, I brainstorm and develop creative concepts that align with your vision. Initial sketches and ideas are refined into tangible wireframes, setting the direction for design and functionality.", bgClass: "bg-[#5662F6]", textClass: "text-white" },
+        { num: "02.", title: "CONCEPT & IDEATION", text: "Here, I brainstorm and develop creative concepts that align with your vision. Initial sketches and ideas are refined into tangible wireframes, setting the direction for design and functionality.", bgClass: "bg-[#0d9488]", textClass: "text-white" },
         { num: "03.", title: "FEEDBACK & REFINEMENT", text: "Collaboration is key. I review the design with you, gather feedback, and refine the work to align with your expectations and goals. This ensures the design reflects your vision.", bgClass: "bg-[#F1F1F1] dark:bg-slate-200", textClass: "text-slate-900", isSpan: true },
-        { num: "04.", title: "TESTING & OPTIMIZATION", text: "I conduct thorough testing to identify and resolve any performance or usability issues. This phase ensures the design works seamlessly across devices and meets user experience standards.", bgClass: "bg-[#5662F6]", textClass: "text-white" },
+        { num: "04.", title: "TESTING & OPTIMIZATION", text: "I conduct thorough testing to identify and resolve any performance or usability issues. This phase ensures the design works seamlessly across devices and meets user experience standards.", bgClass: "bg-[#0d9488]", textClass: "text-white" },
         { num: "05.", title: "LAUNCH & DELIVERY", text: "Once everything is finalized, the project is launched and delivered to you. I also provide guidance or support for ongoing maintenance to ensure long-term success.", bgClass: "bg-[#1A1A1A] dark:bg-[#0A0A0A]", textClass: "text-white" }
     ];
 
@@ -345,7 +345,7 @@ const About = () => {
                                                 {exp.role}
                                             </h4>
                                             <div className="flex flex-col lg:items-end">
-                                                <span className="text-lg font-[600] text-[#5662F6] font-[family-name:var(--font-jakarta)] mb-1">
+                                                <span className="text-lg font-[600] text-[#0d9488] font-[family-name:var(--font-jakarta)] mb-1">
                                                     {exp.company}
                                                 </span>
                                                 <span className="text-slate-400 font-[400] text-xs font-sans uppercase tracking-wider">
@@ -471,7 +471,7 @@ const About = () => {
                                     <Image src="/kunika.png" alt="Let's work together" fill className="object-cover" />
                                 </div>
                                 {/* Blue Hand Bubble Overlay */}
-                                <div className="absolute -left-6 -bottom-6 md:-left-8 md:-bottom-8 w-24 h-24 md:w-32 md:h-32 bg-[#5662F6] rounded-full flex items-center justify-center shadow-2xl">
+                                <div className="absolute -left-6 -bottom-6 md:-left-8 md:-bottom-8 w-24 h-24 md:w-32 md:h-32 bg-[#0d9488] rounded-full flex items-center justify-center shadow-2xl">
                                     {/* Using SVG similar to the waving hand illustration */}
                                     <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="md:w-[50px] md:h-[50px]">
                                         <path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"/>
@@ -493,19 +493,19 @@ const About = () => {
                                 <form className="flex flex-col gap-6 w-full">
                                     <div className="flex flex-col md:flex-row gap-6 w-full">
                                         <div className="flex flex-col w-full gap-3">
-                                            <label className="text-[#5662F6] text-sm md:text-base ml-4 font-medium">Name :</label>
-                                            <input type="text" placeholder="John Smith" className="w-full bg-[#EAEAEA] placeholder:text-gray-400 dark:bg-[#111111] border border-transparent rounded-full px-6 md:px-8 py-4 outline-none focus:border-[#5662F6] transition-all text-slate-800 dark:text-gray-200" />
+                                            <label className="text-[#0d9488] text-sm md:text-base ml-4 font-medium">Name :</label>
+                                            <input type="text" placeholder="John Smith" className="w-full bg-[#EAEAEA] placeholder:text-gray-400 dark:bg-[#111111] border border-transparent rounded-full px-6 md:px-8 py-4 outline-none focus:border-[#0d9488] transition-all text-slate-800 dark:text-gray-200" />
                                         </div>
                                         <div className="flex flex-col w-full gap-3">
-                                            <label className="text-[#5662F6] text-sm md:text-base ml-4 font-medium">Email :</label>
-                                            <input type="email" placeholder="johnsmith@gmail.com" className="w-full bg-[#EAEAEA] placeholder:text-gray-400 dark:bg-[#111111] border border-transparent rounded-full px-6 md:px-8 py-4 outline-none focus:border-[#5662F6] transition-all text-slate-800 dark:text-gray-200" />
+                                            <label className="text-[#0d9488] text-sm md:text-base ml-4 font-medium">Email :</label>
+                                            <input type="email" placeholder="johnsmith@gmail.com" className="w-full bg-[#EAEAEA] placeholder:text-gray-400 dark:bg-[#111111] border border-transparent rounded-full px-6 md:px-8 py-4 outline-none focus:border-[#0d9488] transition-all text-slate-800 dark:text-gray-200" />
                                         </div>
                                     </div>
                                     
                                     <div className="flex flex-col gap-3 w-full mt-2">
-                                        <label className="text-[#5662F6] text-sm md:text-base ml-4 font-medium">Service Needed ?</label>
+                                        <label className="text-[#0d9488] text-sm md:text-base ml-4 font-medium">Service Needed ?</label>
                                         <div className="relative w-full">
-                                            <select defaultValue="" className="w-full appearance-none bg-[#EAEAEA] dark:bg-[#111111] border border-transparent rounded-full px-6 md:px-8 py-4 outline-none focus:border-[#5662F6] transition-all text-gray-500 cursor-pointer">
+                                            <select defaultValue="" className="w-full appearance-none bg-[#EAEAEA] dark:bg-[#111111] border border-transparent rounded-full px-6 md:px-8 py-4 outline-none focus:border-[#0d9488] transition-all text-gray-500 cursor-pointer">
                                                 <option value="" disabled>Select...</option>
                                                 <option value="uiux">UI / UX Design</option>
                                                 <option value="web">Web Design</option>
@@ -519,12 +519,12 @@ const About = () => {
                                     </div>
 
                                     <div className="flex flex-col gap-3 w-full mt-2">
-                                        <label className="text-[#5662F6] text-sm md:text-base ml-4 font-medium">What Can I Help You...</label>
-                                        <textarea placeholder="Hello, I'd like to enquire about..." className="w-full bg-[#EAEAEA] placeholder:text-gray-400 dark:bg-[#111111] border border-transparent rounded-[32px] px-6 md:px-8 py-6 h-[180px] resize-none outline-none focus:border-[#5662F6] transition-all text-slate-800 dark:text-gray-200"></textarea>
+                                        <label className="text-[#0d9488] text-sm md:text-base ml-4 font-medium">What Can I Help You...</label>
+                                        <textarea placeholder="Hello, I'd like to enquire about..." className="w-full bg-[#EAEAEA] placeholder:text-gray-400 dark:bg-[#111111] border border-transparent rounded-[32px] px-6 md:px-8 py-6 h-[180px] resize-none outline-none focus:border-[#0d9488] transition-all text-slate-800 dark:text-gray-200"></textarea>
                                     </div>
 
                                     <div className="mt-4">
-                                        <button type="submit" className="border border-[#5662F6] text-[#5662F6] bg-transparent rounded-full px-10 py-3 md:px-12 md:py-4 uppercase tracking-[0.05em] font-medium hover:bg-[#5662F6] hover:text-white transition-colors duration-400 w-auto inline-block">
+                                        <button type="submit" className="border border-[#0d9488] text-[#0d9488] bg-transparent rounded-full px-10 py-3 md:px-12 md:py-4 uppercase tracking-[0.05em] font-medium hover:bg-[#0d9488] hover:text-white transition-colors duration-400 w-auto inline-block">
                                             SUBMIT
                                         </button>
                                     </div>
@@ -537,7 +537,7 @@ const About = () => {
             </section>
 
             {/* 7. Solid Blue Footer (Full Width) */}
-            <div className="w-full bg-[#5662F6] pt-20 pb-12 px-6 md:px-12 text-white">
+            <div className="w-full bg-[#0d9488] pt-20 pb-12 px-6 md:px-12 text-white">
                 <div className="container max-w-[1200px] mx-auto w-full">
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 justify-between items-start mb-20">
                         <div className="flex flex-col gap-2">
