@@ -341,7 +341,15 @@ const About = () => {
                                                 src={stickyImages[activeSection]}
                                                 alt={`Scroll Preview ${activeSection}`}
                                                 fill
-                                                className="object-cover opacity-90 saturate-50 mix-blend-multiply"
+                                                className={`object-cover ${activeSection === 0 ? '' : 'opacity-90 saturate-50 mix-blend-multiply'}`}
+                                                style={activeSection === 0 ? {
+                                                    maskImage: 'url(/kunika-mask.png)',
+                                                    WebkitMaskImage: 'url(/kunika-mask.png)',
+                                                    maskMode: 'luminance',
+                                                    WebkitMaskMode: 'luminance',
+                                                    maskSize: 'cover',
+                                                    WebkitMaskSize: 'cover'
+                                                } : {}}
                                             />
                                         </motion.div>
                                     </AnimatePresence>
@@ -435,7 +443,20 @@ const About = () => {
                                 className="relative w-full max-w-[450px] aspect-[4/5] mx-auto lg:mx-0"
                             >
                                 <div className="absolute inset-0 rounded-[32px] overflow-hidden shadow-sm">
-                                    <Image src="/kunika-main.png" alt="Let's work together" fill className="object-cover" />
+                                    <Image 
+                                        src="/kunika-main.png" 
+                                        alt="Let's work together" 
+                                        fill 
+                                        className="object-cover" 
+                                        style={{
+                                            maskImage: 'url(/kunika-mask.png)',
+                                            WebkitMaskImage: 'url(/kunika-mask.png)',
+                                            maskMode: 'luminance',
+                                            WebkitMaskMode: 'luminance',
+                                            maskSize: 'cover',
+                                            WebkitMaskSize: 'cover'
+                                        }}
+                                    />
                                 </div>
                                 {/* Blue Hand Bubble Overlay */}
                                 <div className="absolute -left-6 -bottom-6 md:-left-8 md:-bottom-8 w-24 h-24 md:w-32 md:h-32 bg-[#0d9488] rounded-full flex items-center justify-center shadow-2xl">

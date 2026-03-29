@@ -69,6 +69,16 @@ const Hero = () => {
                             src="/kunika-main.png"
                             alt="Kunika Jain"
                             className="w-full h-auto object-contain drop-shadow-2xl relative z-20"
+                            style={{
+                                maskImage: 'url(/kunika-mask.png)',
+                                WebkitMaskImage: 'url(/kunika-mask.png)',
+                                maskMode: 'luminance',
+                                WebkitMaskMode: 'luminance',
+                                maskSize: 'contain',
+                                WebkitMaskSize: 'contain',
+                                maskRepeat: 'no-repeat',
+                                WebkitMaskRepeat: 'no-repeat'
+                            }}
                         />
                     </motion.div>
                 </motion.div>
