@@ -33,6 +33,7 @@ const projects = [
         type: "Mobile App",
         tags: ["React Native", "Firebase"],
         icon: <Layers size={28} className="text-teal-500" />,
+        image: "/projects/quick-salon.jpg",
         description: "Mobile application for salon bookings with user authentication and appointment scheduling."
     },
     {
