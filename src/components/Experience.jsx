@@ -124,7 +124,7 @@ const Experience = () => {
 
             <div className="container relative z-10 max-w-7xl mx-auto px-6 lg:px-12 flex flex-col items-center">
                 <motion.div 
-                    className="flex flex-col items-center mb-20 text-center"
+                    className="flex flex-col items-center mb-32 text-center"
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
