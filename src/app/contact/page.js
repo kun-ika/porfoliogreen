@@ -3,7 +3,7 @@ import Contact from '@/components/Contact';
 
 export default function ContactPage() {
   return (
-    <main className="pt-12 pb-12 w-full flex-grow">
+    <main className="w-full flex-grow">
       <Contact />
     </main>
   );
