@@ -1,4 +1,4 @@
-"use client";
+"use client"; // reload trigger
 import React, { useRef } from 'react';
 import { ExternalLink, MonitorPlay, Layers, FileText, LayoutTemplate, Box } from 'lucide-react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
