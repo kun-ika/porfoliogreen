@@ -18,15 +18,6 @@ const projects = [
         description: "An autonomous solar-powered grass cutter reducing manual effort via ultrasonic sensors and Bluetooth control."
     },
     {
-        id: "shabdayudh",
-        title: "ShabdaYudh",
-        subtitle: "Typing Speed App",
-        type: "Desktop App",
-        tags: ["Python", "Tkinter", "SQLite"],
-        icon: <MonitorPlay size={28} className="text-emerald-600" />,
-        description: "A Python desktop application designed to improve typing speed and accuracy with live WPM calculation and leaderboards."
-    },
-    {
         id: "quick-salon",
         title: "Quick Salon",
         subtitle: "Booking App",
