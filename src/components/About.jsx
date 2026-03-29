@@ -206,7 +206,7 @@ const About = () => {
                             variants={staggerContainer}
                             className="flex flex-col items-start"
                         >
-                            <motion.h1 variants={slideUp} className="text-[120px] md:text-[160px] leading-[0.9] font-[400] text-slate-900 dark:text-white mb-6 font-[family-name:var(--font-headline)]">
+                            <motion.h1 variants={slideUp} className="text-[120px] md:text-[160px] leading-[0.9] font-[400] text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500 mb-6 font-[family-name:var(--font-headline)]">
                                 ABOUT ME
                             </motion.h1>
                             <motion.h2 variants={slideUp} className="text-3xl md:text-4xl font-[400] uppercase text-slate-800 dark:text-gray-300 mb-8 font-[family-name:var(--font-headline)]">
@@ -257,7 +257,7 @@ const About = () => {
                                 variants={staggerContainer}
                                 className="flex flex-col items-start w-full"
                             >
-                                <motion.h3 variants={slideUp} className="text-[60px] md:text-[80px] leading-[0.9] font-[400] text-slate-900 dark:text-white mb-6 font-[family-name:var(--font-headline)]">
+                                <motion.h3 variants={slideUp} className="text-[60px] md:text-[80px] leading-[0.9] font-[400] text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500 mb-6 font-[family-name:var(--font-headline)]">
                                     WHAT I CAN DO<br/>FOR YOU
                                 </motion.h3>
                                 <motion.p variants={slideUp} className="text-base md:text-lg text-slate-500 dark:text-gray-400 leading-[1.6] font-[400] max-w-xl mb-12">
@@ -288,7 +288,7 @@ const About = () => {
                                 variants={staggerContainer}
                                 className="flex flex-col items-start w-full pt-12 md:pt-0"
                             >
-                                <motion.h3 variants={slideUp} className="text-[60px] md:text-[80px] leading-[0.9] font-[400] text-slate-900 dark:text-white mb-6 font-[family-name:var(--font-headline)]">
+                                <motion.h3 variants={slideUp} className="text-[60px] md:text-[80px] leading-[0.9] font-[400] text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500 mb-6 font-[family-name:var(--font-headline)]">
                                     MY TECH STACK
                                 </motion.h3>
                                 <motion.p variants={slideUp} className="text-base md:text-lg text-slate-500 dark:text-gray-400 leading-[1.6] font-[400] max-w-xl mb-12">
@@ -327,7 +327,7 @@ const About = () => {
                                 variants={staggerContainer}
                                 className="flex flex-col items-start w-full pt-12 md:pt-0 pb-12"
                             >
-                                <motion.h3 variants={slideUp} className="text-[60px] md:text-[80px] leading-[0.9] font-[400] text-slate-900 dark:text-white mb-6 font-[family-name:var(--font-headline)]">
+                                <motion.h3 variants={slideUp} className="text-[60px] md:text-[80px] leading-[0.9] font-[400] text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500 mb-6 font-[family-name:var(--font-headline)]">
                                     DISCOVER MY<br/>JOURNEY IN<br/>DESIGN
                                 </motion.h3>
                                 <motion.p variants={slideUp} className="text-base md:text-lg text-slate-500 dark:text-gray-400 leading-[1.6] font-[400] max-w-xl mb-12">
@@ -397,7 +397,7 @@ const About = () => {
                             variants={staggerContainer}
                             className="flex flex-col items-start w-full"
                         >
-                            <motion.h3 variants={slideUp} className="text-[70px] md:text-[100px] leading-[0.9] font-[400] text-slate-900 dark:text-white mb-6 font-[family-name:var(--font-headline)] max-w-[800px]">
+                            <motion.h3 variants={slideUp} className="text-[70px] md:text-[100px] leading-[0.9] font-[400] text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500 mb-6 font-[family-name:var(--font-headline)] max-w-[800px]">
                                 DESIGN WITH STRATEGY AND CREATIVITY
                             </motion.h3>
                             <motion.p variants={slideUp} className="text-lg md:text-xl text-slate-500 dark:text-gray-400 leading-[1.6] max-w-2xl">
@@ -450,7 +450,7 @@ const About = () => {
                             transition={{ duration: 0.8 }}
                             className="flex flex-col items-start w-full mb-8"
                         >
-                            <h3 className="text-[70px] md:text-[100px] leading-[0.9] font-[400] text-slate-900 dark:text-white mb-6 font-[family-name:var(--font-headline)]">
+                            <h3 className="text-[70px] md:text-[100px] leading-[0.9] font-[400] text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500 mb-6 font-[family-name:var(--font-headline)]">
                                 LET'S WORK TOGETHER
                             </h3>
                             <p className="text-base md:text-lg text-slate-500 dark:text-gray-400 leading-[1.6] max-w-xl">
@@ -524,7 +524,7 @@ const About = () => {
                                     </div>
 
                                     <div className="mt-4">
-                                        <button type="submit" className="border border-[#0d9488] text-[#0d9488] bg-transparent rounded-full px-10 py-3 md:px-12 md:py-4 uppercase tracking-[0.05em] font-medium hover:bg-[#0d9488] hover:text-white transition-colors duration-400 w-auto inline-block">
+                                        <button type="submit" className="bg-gradient-to-r from-teal-600 to-emerald-500 text-white rounded-full px-10 py-3 md:px-12 md:py-4 uppercase tracking-[0.05em] font-medium hover:scale-105 transition-transform duration-400 w-auto inline-block shadow-lg">
                                             SUBMIT
                                         </button>
                                     </div>
@@ -532,43 +532,8 @@ const About = () => {
                             </motion.div>
                         </div>
                     </div>
-
                 </div>
             </section>
-
-            {/* 7. Solid Blue Footer (Full Width) */}
-            <div className="w-full bg-[#0d9488] pt-20 pb-12 px-6 md:px-12 text-white">
-                <div className="container max-w-[1200px] mx-auto w-full">
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8 justify-between items-start mb-20">
-                        <div className="flex flex-col gap-2">
-                            <span className="text-white/80 text-sm font-medium tracking-wide">Email :</span>
-                            <a href="mailto:designer@example.com" className="text-xl md:text-2xl font-medium hover:opacity-80 transition-opacity">designer@example.com</a>
-                        </div>
-                        <div className="flex flex-col gap-2">
-                            <span className="text-white/80 text-sm font-medium tracking-wide">Call Today :</span>
-                            <a href="tel:+15551234567" className="text-xl md:text-2xl font-medium hover:opacity-80 transition-opacity">+1 (555) 123-4567</a>
-                        </div>
-                        <div className="flex flex-col gap-4 md:items-end w-full">
-                            <span className="text-white/80 text-sm font-medium tracking-wide">Social :</span>
-                            <div className="flex items-center gap-6">
-                                {/* X/Twitter Icon SVG */}
-                                <a href="#" className="hover:opacity-80 transition-opacity">
-                                    <svg viewBox="0 0 24 24" width="24" height="24" fill="currentColor">
-                                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.008 3.974H5.078z"/>
-                                    </svg>
-                                </a>
-                                <a href="#" className="hover:opacity-80 transition-opacity"><Instagram size={24} /></a>
-                                <a href="#" className="hover:opacity-80 transition-opacity"><Dribbble size={24} /></a>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div className="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-white/80 font-light">
-                        <p>© Copyright 2026. All Rights Reserved by <span className="underline decoration-white/30 underline-offset-4 cursor-pointer hover:text-white transition-colors">Kunika Jain</span></p>
-                        <p>Created by <span className="underline decoration-white/30 underline-offset-4 font-medium text-white cursor-pointer hover:opacity-80 transition-colors">Kunika Jain</span></p>
-                    </div>
-                </div>
-            </div>
         </React.Fragment>
     );
 };
