@@ -69,7 +69,7 @@ const ExperienceCard = ({ type, title, subtitle, date, location, description, gr
                     <span className="text-xl md:text-2xl font-black text-slate-300 uppercase tracking-widest">{type}</span>
                 </div>
 
-                <h3 className="text-3xl md:text-4xl font-[900] text-slate-800 tracking-tight mb-2 font-[family-name:var(--font-headline)]">{title}</h3>
+                <h3 className="text-3xl md:text-4xl font-[900] text-slate-800 tracking-wider mb-2 font-[family-name:var(--font-headline)]">{title}</h3>
                 <h4 className="text-xl md:text-2xl font-bold mb-6 pb-6 border-b border-slate-100">
                     <span className={`bg-gradient-to-r ${gradient} bg-clip-text text-transparent`}>{subtitle}</span>
                 </h4>
@@ -89,7 +89,7 @@ const ExperienceCard = ({ type, title, subtitle, date, location, description, gr
                         initial="hidden"
                         whileInView="visible"
                         viewport={{ once: true, amount: 0.1 }}
-                        className="space-y-4 text-slate-600 font-medium text-lg leading-relaxed"
+                        className="space-y-4 text-slate-600 font-medium text-lg leading-relaxed tracking-wide"
                     >
                         {description.map((item, i) => (
                             <motion.li key={i} variants={itemVariants} className="flex items-start gap-4">
@@ -103,7 +103,7 @@ const ExperienceCard = ({ type, title, subtitle, date, location, description, gr
                         initial={{ opacity: 0 }}
                         whileInView={{ opacity: 1 }}
                         transition={{ delay: 0.4 }}
-                        className="text-slate-600 font-medium text-lg leading-relaxed pt-2"
+                        className="text-slate-600 font-medium text-lg leading-relaxed pt-2 tracking-wide"
                     >
                         {description}
                     </motion.p>
@@ -124,12 +124,12 @@ const Experience = () => {
 
             <div className="container relative z-10 max-w-7xl mx-auto px-6 lg:px-12 flex flex-col items-center">
                 <motion.div 
-                    className="flex flex-col items-center mb-32 text-center"
+                    className="flex flex-col items-center mb-20 text-center"
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
                 >
-                    <h2 className="text-[60px] md:text-[80px] lg:text-[100px] leading-[0.9] font-[700] text-slate-950 mb-6 font-[family-name:var(--font-headline)] tracking-tighter">
+                    <h2 className="text-[60px] md:text-[80px] lg:text-[100px] leading-[0.9] font-[700] text-slate-950 mb-6 font-[family-name:var(--font-headline)] tracking-[0.05em] uppercase">
                         MY <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500">JOURNEY</span>
                     </h2>
                     <p className="text-lg md:text-xl text-slate-600 max-w-3xl font-medium leading-[1.6]">
