@@ -30,7 +30,7 @@ const Hero = () => {
             </div>
 
             <motion.div 
-                className="container relative z-10 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-6 lg:px-12 pt-24 pb-12 md:pt-32"
+                className="container relative z-10 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-6 lg:px-12 pt-24 pb-32 md:pb-12 md:pt-32"
                 variants={containerVariants}
                 initial="hidden"
                 animate="visible"
@@ -62,20 +62,20 @@ const Hero = () => {
                     variants={itemVariants}
                 >
                     <motion.div 
-                        className="relative w-full max-w-sm flex items-center justify-center my-4 md:my-8 transform scale-110 md:scale-125 lg:scale-150 origin-center z-10"
+                        className="relative w-full max-w-sm flex items-center justify-center my-4 md:my-8 transform scale-110 md:scale-125 lg:scale-150 origin-center z-10 overflow-visible"
                     >
                         <div className="absolute inset-0 bg-teal-500/10 rounded-full filter blur-[60px] transform scale-75 animate-pulse"></div>
                         <img
                             src="/kunika.png"
                             alt="Kunika Jain"
-                            className="w-full h-auto object-contain drop-shadow-2xl relative z-10"
+                            className="w-full h-auto object-contain drop-shadow-2xl relative z-20"
                         />
                     </motion.div>
                 </motion.div>
 
                 {/* Right Side: Description */}
                 <motion.div 
-                    className="w-full md:w-1/3 flex flex-col justify-center items-center md:items-end text-center md:text-right z-20 order-3 mt-12 md:mt-0 pl-0 md:pl-8"
+                    className="w-full md:w-1/3 flex flex-col justify-center items-center md:items-end text-center md:text-right z-20 order-3 mt-12 md:mt-0 pl-0 md:pl-8 mb-16 md:mb-0"
                     variants={itemVariants}
                 >
                     <p className="text-slate-600 text-lg md:text-xl max-w-[260px] font-medium leading-relaxed">
@@ -89,6 +89,39 @@ const Hero = () => {
                     ></motion.div>
                 </motion.div>
             </motion.div>
+
+            {/* Full Width Animated Clouds Base */}
+            <div className="absolute bottom-0 left-0 w-full h-[300px] pointer-events-none z-30 flex justify-center items-end opacity-100 overflow-hidden">
+                {/* Massive Drifting Green Cloud Layers */}
+                <motion.div 
+                    className="absolute bottom-[-20px] left-[-20%] w-[70%] h-[200px] bg-emerald-400 rounded-[100%] filter blur-[50px] opacity-80 z-10"
+                    animate={{ x: [0, 100, 0] }}
+                    transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+                />
+                <motion.div 
+                    className="absolute bottom-[20px] right-[-20%] w-[80%] h-[250px] bg-teal-400 rounded-[100%] filter blur-[60px] opacity-70 z-0"
+                    animate={{ x: [0, -120, 0] }}
+                    transition={{ duration: 25, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+                />
+                <motion.div 
+                    className="absolute bottom-[40px] left-[10%] w-[60%] h-[150px] bg-emerald-500 rounded-[100%] filter blur-[40px] opacity-60 z-10"
+                    animate={{ x: [0, 80, 0] }}
+                    transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                />
+                <motion.div 
+                    className="absolute bottom-[-10px] left-[40%] w-[70%] h-[180px] bg-teal-500 rounded-[100%] filter blur-[55px] opacity-60 z-0"
+                    animate={{ x: [0, -90, 0] }}
+                    transition={{ duration: 22, repeat: Infinity, ease: "easeInOut", delay: 3 }}
+                />
+                <motion.div 
+                    className="absolute bottom-[60px] left-[30%] w-[40%] h-[120px] bg-emerald-300 rounded-[100%] filter blur-[35px] opacity-70 z-10"
+                    animate={{ x: [0, 50, 0], scale: [1, 1.1, 1] }}
+                    transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 4 }}
+                />
+
+                {/* Bottom Anchor Gradient to merge with the next section smoothly */}
+                <div className="absolute bottom-0 w-full h-[80px] bg-gradient-to-t from-[#0a0f1c] to-transparent z-20 opacity-30"></div>
+            </div>
         </section>
     );
 };

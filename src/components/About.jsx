@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence, useMotionValue, useSpring } from 'framer-motion';
 import { ChevronDown, Instagram, Dribbble, Figma, Component, PenBox, Layers } from 'lucide-react';
@@ -25,7 +25,7 @@ const AccordionItem = ({ number, title, text, tags, image }) => {
 
     return (
         <div 
-            className="border-t border-gray-200/20 group cursor-pointer relative" 
+            className="border-t border-gray-200 group cursor-pointer relative" 
             onClick={() => setIsOpen(!isOpen)}
         >
             
@@ -56,10 +56,10 @@ const AccordionItem = ({ number, title, text, tags, image }) => {
                 onMouseLeave={() => setIsHovered(false)}
             >
                 <div className="flex items-center gap-6 md:gap-8">
-                    <span className={`text-lg md:text-xl font-light font-sans transition-colors duration-400 ${isOpen ? 'text-[#0d9488]' : 'text-slate-500 group-hover:text-slate-700 dark:group-hover:text-gray-300'}`}>
+                    <span className={`text-lg md:text-xl font-light font-sans transition-colors duration-400 ${isOpen ? 'text-[#0d9488]' : 'text-slate-500 group-hover:text-slate-800'}`}>
                         {number}.
                     </span>
-                    <h4 className={`text-[28px] md:text-[36px] font-[400] transition-colors duration-400 font-[family-name:var(--font-headline)] uppercase leading-[1] ${isOpen || isHovered ? 'text-[#0d9488]' : 'text-slate-800 dark:text-gray-200'}`}>
+                    <h4 className={`text-[28px] md:text-[36px] font-[400] transition-colors duration-400 font-[family-name:var(--font-headline)] uppercase leading-[1] ${isOpen || isHovered ? 'text-[#0d9488]' : 'text-slate-950'}`}>
                         {title}
                     </h4>
                 </div>
@@ -113,7 +113,7 @@ const ProcessCard = ({ num, title, text, bgClass, textClass, isSpan }) => (
             <h4 className="text-[24px] md:text-[32px] leading-[1] font-[400] font-[family-name:var(--font-headline)] uppercase">
                 {title}
             </h4>
-            <p className={`text-sm md:text-base leading-[1.6] ${bgClass.includes('F1F1F1') ? 'text-slate-700 dark:text-gray-800' : 'text-white/90'} ${isSpan ? 'max-w-2xl' : ''}`}>
+            <p className={`text-sm md:text-base leading-[1.6] ${bgClass.includes('F1F1F1') || bgClass.includes('white') ? 'text-slate-700' : 'text-white/90'} ${isSpan ? 'max-w-2xl' : ''}`}>
                 {text}
             </p>
         </div>
@@ -121,8 +121,17 @@ const ProcessCard = ({ num, title, text, bgClass, textClass, isSpan }) => (
 );
 
 const About = () => {
-    // State to track which left-column section is currently dominating the viewport
-    const [activeSection, setActiveSection] = useState(1);
+    // State to track which left-column section is currently dominating the viewport (0 = hero/hidden)
+    const [activeSection, setActiveSection] = useState(0);
+
+    const [showGreeting, setShowGreeting] = useState(false);
+
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setShowGreeting(prev => !prev);
+        }, 3000); // 3s loop
+        return () => clearInterval(interval);
+    }, []);
 
     const slideUp = {
         hidden: { opacity: 0, y: 50 },
@@ -177,16 +186,17 @@ const About = () => {
     ];
 
     const processes = [
-        { num: "01.", title: "RESEARCH & STRATEGY", text: "In this phase, I dive deep into understanding your business, target audience, and project goals. Through research and strategic planning, I create a clear roadmap to guide the entire design process.", bgClass: "bg-[#1A1A1A] dark:bg-[#0A0A0A]", textClass: "text-white" },
+        { num: "01.", title: "RESEARCH & STRATEGY", text: "In this phase, I dive deep into understanding your business, target audience, and project goals. Through research and strategic planning, I create a clear roadmap to guide the entire design process.", bgClass: "bg-slate-950", textClass: "text-white" },
         { num: "02.", title: "CONCEPT & IDEATION", text: "Here, I brainstorm and develop creative concepts that align with your vision. Initial sketches and ideas are refined into tangible wireframes, setting the direction for design and functionality.", bgClass: "bg-[#0d9488]", textClass: "text-white" },
-        { num: "03.", title: "FEEDBACK & REFINEMENT", text: "Collaboration is key. I review the design with you, gather feedback, and refine the work to align with your expectations and goals. This ensures the design reflects your vision.", bgClass: "bg-[#F1F1F1] dark:bg-slate-200", textClass: "text-slate-900", isSpan: true },
+        { num: "03.", title: "FEEDBACK & REFINEMENT", text: "Collaboration is key. I review the design with you, gather feedback, and refine the work to align with your expectations and goals. This ensures the design reflects your vision.", bgClass: "bg-[#F1F1F1]", textClass: "text-slate-900", isSpan: true },
         { num: "04.", title: "TESTING & OPTIMIZATION", text: "I conduct thorough testing to identify and resolve any performance or usability issues. This phase ensures the design works seamlessly across devices and meets user experience standards.", bgClass: "bg-[#0d9488]", textClass: "text-white" },
-        { num: "05.", title: "LAUNCH & DELIVERY", text: "Once everything is finalized, the project is launched and delivered to you. I also provide guidance or support for ongoing maintenance to ensure long-term success.", bgClass: "bg-[#1A1A1A] dark:bg-[#0A0A0A]", textClass: "text-white" }
+        { num: "05.", title: "LAUNCH & DELIVERY", text: "Once everything is finalized, the project is launched and delivered to you. I also provide guidance or support for ongoing maintenance to ensure long-term success.", bgClass: "bg-slate-950", textClass: "text-white" }
     ];
 
     // Dummy array of images that crossfade during the sticky scroll
     // In a real project, replace these paths with unique assets for each section.
     const stickyImages = {
+        0: "/kunika.png",
         1: "/illustrations/expertise.png",
         2: "/illustrations/techstack.png",
         3: "/illustrations/journey.png"
@@ -194,67 +204,62 @@ const About = () => {
 
     return (
         <React.Fragment>
-            <section id="about" className="relative font-sans pt-24 md:pt-32 pb-16">
-                <div className="container max-w-[1200px] mx-auto px-6 md:px-12 flex flex-col gap-24 md:gap-32 w-full">
+            <section id="about" className="relative font-sans pt-24 md:pt-32 pb-16 bg-white">
+                <div className="container max-w-[1200px] mx-auto px-6 md:px-12 flex flex-col gap-20 md:gap-24 w-full">
                     
-                    {/* 1. Hero Section (Scale UNCHANGED) */}
-                    <div className="grid grid-cols-1 lg:grid-cols-[1fr_0.8fr] gap-[50px] items-center">
-                        <motion.div 
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true, amount: 0.3 }}
-                            variants={staggerContainer}
-                            className="flex flex-col items-start"
-                        >
-                            <motion.h1 
-                                variants={slideUp} 
-                                className="text-[100px] md:text-[140px] lg:text-[160px] leading-[0.85] font-[700] text-slate-900 dark:text-white mb-6 font-[family-name:var(--font-headline)] tracking-tighter"
-                            >
-                                ABOUT ME
-                            </motion.h1>
-                            <motion.h2 variants={slideUp} className="text-3xl md:text-4xl font-[400] uppercase text-slate-800 dark:text-gray-300 mb-8 font-[family-name:var(--font-headline)]">
-                                KUNIKA JAIN
-                            </motion.h2>
-                            <motion.div variants={slideUp} className="text-lg md:text-xl text-slate-700 dark:text-gray-300 leading-[1.6] font-[400] max-w-xl mb-12">
-                                <p className="mb-6">I’m a digital designer passionate about crafting meaningful, user-centered experiences.</p>
-                                <p>With a strong foundation in visual design and a deep understanding of interactive systems, I bring ideas to life through thoughtful design, smooth animations, and responsive layouts.</p>
-                            </motion.div>
-                            
-                            <motion.div variants={slideUp} className="flex items-center gap-6">
-                                <a href="#" className="w-12 h-12 flex items-center justify-center rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 outline outline-1 outline-gray-200/20 hover:scale-110 transition-transform duration-300"><Instagram size={20} /></a>
-                                <a href="#" className="w-12 h-12 flex items-center justify-center rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 outline outline-1 outline-gray-200/20 hover:scale-110 transition-transform duration-300"><PenBox size={20} /></a>
-                                <a href="#" className="w-12 h-12 flex items-center justify-center rounded-full bg-slate-900 dark:bg-white text-white dark:text-slate-900 outline outline-1 outline-gray-200/20 hover:scale-110 transition-transform duration-300"><Dribbble size={20} /></a>
-                            </motion.div>
-                        </motion.div>
-
-                        <div className="flex justify-start lg:justify-end w-full">
-                            <motion.div 
-                                initial={{ opacity: 0, scale: 0.95 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                viewport={{ once: true }}
-                                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                                className="relative w-full max-w-[450px] aspect-[4/5] rounded-[32px] overflow-hidden group shadow-sm bg-slate-100 dark:bg-slate-900"
-                            >
-                                <Image 
-                                    src="/kunika.png" 
-                                    alt="Kunika Jain Profile" 
-                                    fill 
-                                    className="object-cover transition-transform duration-[1.5s] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]"
-                                />
-                            </motion.div>
-                        </div>
-                    </div>
-
-                    {/* UNIFIED STICKY SCROLL CONTAINER (Sections 2, 3, 4) */}
+                    {/* 1. UNIFIED STICKY SCROLL CONTAINER */}
                     <div className="grid grid-cols-1 lg:grid-cols-[1fr_0.8fr] gap-[50px] relative w-full">
                         
                         {/* LEFT COLUMN: Scrollable Text Content Blocks */}
                         <div className="flex flex-col gap-32 w-full h-full relative z-10">
                             
+                            {/* BLOCK 0: Hero / About Me */}
+                            <motion.div 
+                                onViewportEnter={() => setActiveSection(0)}
+                                viewport={{ amount: 0.3 }}
+                                initial="hidden"
+                                whileInView="visible"
+                                variants={staggerContainer}
+                                className="flex flex-col items-start w-full pb-[20vh] md:pb-[30vh]"
+                            >
+                                <motion.h1 
+                                    variants={slideUp} 
+                                    className="text-[100px] md:text-[140px] lg:text-[160px] leading-[0.85] font-[700] text-slate-950 mb-6 font-[family-name:var(--font-headline)] tracking-tight flex items-center md:items-end flex-wrap gap-4"
+                                >
+                                    ABOUT ME
+                                    <motion.span
+                                        animate={{ rotate: [0, 14, -8, 14, -4, 10, 0, 0] }}
+                                        transition={{ 
+                                            duration: 2.5, 
+                                            repeat: Infinity, 
+                                            ease: "easeInOut",
+                                            times: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 1]
+                                        }}
+                                        className="inline-block origin-bottom-right text-[80px] md:text-[110px] lg:text-[130px] leading-none"
+                                        style={{ transformOrigin: "70% 70%" }}
+                                    >
+                                        👋
+                                    </motion.span>
+                                </motion.h1>
+                                <motion.h2 variants={slideUp} className="text-3xl md:text-4xl font-[400] uppercase text-slate-800 mb-8 font-[family-name:var(--font-headline)]">
+                                    KUNIKA JAIN
+                                </motion.h2>
+                                <motion.div variants={slideUp} className="text-lg md:text-xl text-slate-700 leading-[1.6] font-[400] max-w-xl mb-12">
+                                    <p className="mb-6">I’m a digital designer passionate about crafting meaningful, user-centered experiences.</p>
+                                    <p>With a strong foundation in visual design and a deep understanding of interactive systems, I bring ideas to life through thoughtful design, smooth animations, and responsive layouts.</p>
+                                </motion.div>
+                                
+                                <motion.div variants={slideUp} className="flex items-center gap-6">
+                                    <a href="#" className="w-12 h-12 flex items-center justify-center rounded-full bg-slate-950 text-white outline outline-1 outline-gray-200 hover:scale-110 transition-transform duration-300"><Instagram size={20} /></a>
+                                    <a href="#" className="w-12 h-12 flex items-center justify-center rounded-full bg-slate-950 text-white outline outline-1 outline-gray-200 hover:scale-110 transition-transform duration-300"><PenBox size={20} /></a>
+                                    <a href="#" className="w-12 h-12 flex items-center justify-center rounded-full bg-slate-950 text-white outline outline-1 outline-gray-200 hover:scale-110 transition-transform duration-300"><Dribbble size={20} /></a>
+                                </motion.div>
+                            </motion.div>
+                            
                             {/* BLOCK 1: Expertise */}
                             <motion.div 
                                 onViewportEnter={() => setActiveSection(1)}
-                                viewport={{ margin: "-20% 0px -20% 0px" }}
+                                viewport={{ amount: 0.3 }}
                                 initial="hidden"
                                 whileInView="visible"
                                 variants={staggerContainer}
@@ -262,15 +267,15 @@ const About = () => {
                             >
                                 <motion.h3 
                                     variants={slideUp} 
-                                    className="text-[50px] md:text-[70px] lg:text-[80px] leading-[0.9] font-[700] text-slate-900 dark:text-white mb-6 font-[family-name:var(--font-headline)] tracking-tighter"
+                                    className="text-[50px] md:text-[70px] lg:text-[80px] leading-[0.9] font-[700] text-slate-950 mb-6 font-[family-name:var(--font-headline)] tracking-tight"
                                 >
                                     WHAT I CAN DO<br/>FOR YOU
                                 </motion.h3>
-                                <motion.p variants={slideUp} className="text-base md:text-lg text-slate-700 dark:text-gray-300 leading-[1.6] font-[400] max-w-xl mb-12">
+                                <motion.p variants={slideUp} className="text-base md:text-lg text-slate-700 leading-[1.6] font-[400] max-w-xl mb-12">
                                     As a digital designer, I am a visual storyteller, crafting experiences that connect deeply and spark creativity.
                                 </motion.p>
                                 
-                                <div className="w-full flex flex-col pt-4 border-b border-gray-200/20">
+                                <div className="w-full flex flex-col pt-4 border-b border-gray-200">
                                     {expertise.map((item, idx) => (
                                         <motion.div key={idx} variants={slideUp}>
                                             <AccordionItem 
@@ -288,7 +293,7 @@ const About = () => {
                             {/* BLOCK 2: Tech Stack */}
                             <motion.div 
                                 onViewportEnter={() => setActiveSection(2)}
-                                viewport={{ margin: "-20% 0px -20% 0px" }}
+                                viewport={{ amount: 0.3 }}
                                 initial="hidden"
                                 whileInView="visible"
                                 variants={staggerContainer}
@@ -296,29 +301,29 @@ const About = () => {
                             >
                                 <motion.h3 
                                     variants={slideUp} 
-                                    className="text-[50px] md:text-[70px] lg:text-[80px] leading-[0.9] font-[700] text-slate-900 dark:text-white mb-6 font-[family-name:var(--font-headline)] tracking-tighter"
+                                    className="text-[50px] md:text-[70px] lg:text-[80px] leading-[0.9] font-[700] text-slate-950 mb-6 font-[family-name:var(--font-headline)] tracking-tight"
                                 >
                                     MY TECH STACK
                                 </motion.h3>
-                                <motion.p variants={slideUp} className="text-base md:text-lg text-slate-700 dark:text-gray-300 leading-[1.6] font-[400] max-w-xl mb-12">
+                                <motion.p variants={slideUp} className="text-base md:text-lg text-slate-700 leading-[1.6] font-[400] max-w-xl mb-12">
                                     I build with intention. Framer for fast, interactive web design. Figma for clean interfaces. Custom code for complex logic. Each tool supports how I think and design.
                                 </motion.p>
                                 
-                                <div className="w-full flex flex-col gap-0 border-t border-gray-200/20 pt-4">
+                                <div className="w-full flex flex-col gap-0 border-t border-gray-200 pt-4">
                                     {techStack.map((tech, idx) => (
                                         <motion.div 
                                             key={idx}
                                             variants={slideUp}
-                                            className="flex items-center gap-6 border-b border-gray-200/20 py-6"
+                                            className="flex items-center gap-6 border-b border-gray-200 py-6"
                                         >
-                                            <div className="w-[64px] h-[64px] min-w-[64px] rounded-[20px] bg-slate-900 dark:bg-slate-800 flex items-center justify-center shadow-md">
+                                            <div className="w-[64px] h-[64px] min-w-[64px] rounded-[20px] bg-slate-950 flex items-center justify-center shadow-md">
                                                 {tech.icon}
                                             </div>
                                             <div className="flex flex-col gap-1">
-                                                <h4 className="text-[20px] md:text-[24px] font-[400] text-slate-900 dark:text-white font-[family-name:var(--font-headline)] uppercase leading-[1]">
+                                                <h4 className="text-[20px] md:text-[24px] font-[400] text-slate-950 font-[family-name:var(--font-headline)] uppercase leading-[1]">
                                                     {tech.title}
                                                 </h4>
-                                                <p className="text-slate-700 dark:text-gray-300 text-base">
+                                                <p className="text-slate-700 text-base">
                                                     {tech.desc}
                                                 </p>
                                             </div>
@@ -330,7 +335,7 @@ const About = () => {
                             {/* BLOCK 3: Experience Journey */}
                             <motion.div 
                                 onViewportEnter={() => setActiveSection(3)}
-                                viewport={{ margin: "-20% 0px -20% 0px" }}
+                                viewport={{ amount: 0.3 }}
                                 initial="hidden"
                                 whileInView="visible"
                                 variants={staggerContainer}
@@ -338,22 +343,22 @@ const About = () => {
                             >
                                 <motion.h3 
                                     variants={slideUp} 
-                                    className="text-[50px] md:text-[70px] lg:text-[80px] leading-[0.9] font-[700] text-slate-900 dark:text-white mb-6 font-[family-name:var(--font-headline)] tracking-tighter"
+                                    className="text-[50px] md:text-[70px] lg:text-[80px] leading-[0.9] font-[700] text-slate-950 mb-6 font-[family-name:var(--font-headline)] tracking-tight"
                                 >
                                     DISCOVER MY<br/>JOURNEY IN<br/>DESIGN
                                 </motion.h3>
-                                <motion.p variants={slideUp} className="text-base md:text-lg text-slate-700 dark:text-gray-300 leading-[1.6] font-[400] max-w-xl mb-12">
+                                <motion.p variants={slideUp} className="text-base md:text-lg text-slate-700 leading-[1.6] font-[400] max-w-xl mb-12">
                                     From curious creator to full-time designer, my path has been shaped by a passion for crafting purposeful, user-centered digital experiences.
                                 </motion.p>
                                 
-                                <div className="w-full flex flex-col gap-0 text-left border-t border-gray-200/20 pt-4">
+                                <div className="w-full flex flex-col gap-0 text-left border-t border-gray-200 pt-4">
                                     {experiences.map((exp, idx) => (
                                         <motion.div 
                                             key={idx}
                                             variants={slideUp}
-                                            className="flex flex-col lg:flex-row lg:items-center justify-between border-b border-gray-200/20 py-6 md:py-8"
+                                            className="flex flex-col lg:flex-row lg:items-center justify-between border-b border-gray-200 py-6 md:py-8"
                                         >
-                                            <h4 className="text-[24px] md:text-[32px] leading-[1] font-[400] text-slate-800 dark:text-white mb-4 lg:mb-0 font-[family-name:var(--font-headline)]">
+                                            <h4 className="text-[24px] md:text-[32px] leading-[1] font-[400] text-slate-900 mb-4 lg:mb-0 font-[family-name:var(--font-headline)]">
                                                 {exp.role}
                                             </h4>
                                             <div className="flex flex-col lg:items-end">
@@ -373,24 +378,23 @@ const About = () => {
 
                         {/* RIGHT COLUMN: The Sticky Element Viewport */}
                         <div className="hidden lg:flex flex-col items-end w-full h-full relative">
-                            {/* Sticky Box tracking scroll bounds */}
-                            <div className="sticky top-24 pt-8 w-full max-w-[400px] flex justify-end pb-[10vh]">
-                                <div className="relative w-full aspect-[4/5] rounded-[32px] overflow-hidden shadow-sm bg-slate-100 dark:bg-slate-900 border border-gray-100 dark:border-white/5">
+                            {/* Sticky Box tracking scroll bounds - Centered vertically in viewport */}
+                            <div className="sticky top-1/2 -translate-y-1/2 w-full max-w-[400px] flex justify-end">
+                                <div className="relative w-full aspect-[4/5] rounded-[32px] overflow-hidden shadow-sm bg-slate-100 border border-gray-100">
                                     <AnimatePresence mode="wait">
                                         <motion.div
-                                            key={activeSection} // changing this animates the crossfade
+                                            key={activeSection}
                                             initial={{ opacity: 0, scale: 1.05 }}
                                             animate={{ opacity: 1, scale: 1 }}
                                             exit={{ opacity: 0, scale: 0.95 }}
                                             transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                                             className="absolute inset-0 w-full h-full"
                                         >
-                                            {/* Re-using same image for structure but keys force morph transition effect */}
                                             <Image 
                                                 src={stickyImages[activeSection]} 
                                                 alt={`Scroll Preview ${activeSection}`} 
                                                 fill 
-                                                className="object-cover opacity-90 saturate-50 mix-blend-multiply dark:mix-blend-normal"
+                                                className="object-cover opacity-90 saturate-50 mix-blend-multiply"
                                             />
                                         </motion.div>
                                     </AnimatePresence>
@@ -403,6 +407,7 @@ const About = () => {
                     {/* 5. Design With Strategy Banner & Bento Grid */}
                     <div className="flex flex-col w-full gap-12 md:gap-16 relative z-10 pt-10">
                         <motion.div 
+                            onViewportEnter={() => setActiveSection(0)}
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true, amount: 0.3 }}
@@ -411,11 +416,11 @@ const About = () => {
                         >
                             <motion.h3 
                                 variants={slideUp} 
-                                className="text-[60px] md:text-[80px] lg:text-[100px] leading-[0.9] font-[700] text-slate-900 dark:text-white mb-6 font-[family-name:var(--font-headline)] max-w-[800px] tracking-tighter"
+                                className="text-[60px] md:text-[80px] lg:text-[100px] leading-[0.9] font-[700] text-slate-950 mb-6 font-[family-name:var(--font-headline)] max-w-[800px] tracking-tight"
                             >
                                 DESIGN WITH STRATEGY AND CREATIVITY
                             </motion.h3>
-                            <motion.p variants={slideUp} className="text-lg md:text-xl text-slate-700 dark:text-gray-300 leading-[1.6] max-w-2xl">
+                            <motion.p variants={slideUp} className="text-lg md:text-xl text-slate-700 leading-[1.6] max-w-2xl">
                                 My process blends strategy and creativity to address challenges, craft solutions, and deliver designs that effectively communicate your message.
                             </motion.p>
                         </motion.div>
@@ -431,14 +436,14 @@ const About = () => {
                                 <ProcessCard {...processes[0]} />
                             </motion.div>
                             <motion.div variants={slideUp} className="relative w-full min-h-[440px] rounded-[32px] overflow-hidden group">
-                                <Image src="/kunika.png" alt="Process Step 1" fill className="object-cover group-hover:scale-105 transition-transform duration-[1.5s]" />
+                                <Image src="/illustrations/expertise.png" alt="Research & Strategy" fill className="object-cover group-hover:scale-105 transition-transform duration-[1.5s]" />
                             </motion.div>
                             <motion.div variants={slideUp} className="w-full">
                                 <ProcessCard {...processes[1]} />
                             </motion.div>
 
                             <motion.div variants={slideUp} className="relative w-full min-h-[440px] rounded-[32px] overflow-hidden group">
-                                <Image src="/kunika.png" alt="Process Step 2" fill className="object-cover group-hover:scale-105 transition-transform duration-[1.5s]" />
+                                <Image src="/illustrations/techstack.png" alt="Concept & Ideation" fill className="object-cover group-hover:scale-105 transition-transform duration-[1.5s]" />
                             </motion.div>
                             <motion.div variants={slideUp} className="w-full md:col-span-2">
                                 <ProcessCard {...processes[2]} />
@@ -451,7 +456,7 @@ const About = () => {
                                 <ProcessCard {...processes[4]} />
                             </motion.div>
                             <motion.div variants={slideUp} className="relative w-full min-h-[440px] rounded-[32px] overflow-hidden group">
-                                <Image src="/kunika.png" alt="Process Step 3" fill className="object-cover group-hover:scale-105 transition-transform duration-[1.5s]" />
+                                <Image src="/illustrations/journey.png" alt="Launch & Delivery" fill className="object-cover group-hover:scale-105 transition-transform duration-[1.5s]" />
                             </motion.div>
                         </motion.div>
                     </div>
@@ -465,10 +470,10 @@ const About = () => {
                             transition={{ duration: 0.8 }}
                             className="flex flex-col items-start w-full mb-8"
                         >
-                            <h3 className="text-[60px] md:text-[80px] lg:text-[100px] leading-[0.9] font-[700] text-slate-900 dark:text-white mb-6 font-[family-name:var(--font-headline)] tracking-tighter">
+                            <h3 className="text-[60px] md:text-[80px] lg:text-[100px] leading-[0.9] font-[700] text-slate-950 mb-6 font-[family-name:var(--font-headline)] tracking-tighter">
                                 LET'S WORK TOGETHER
                             </h3>
-                            <p className="text-base md:text-lg text-slate-700 dark:text-gray-300 leading-[1.6] max-w-xl">
+                            <p className="text-base md:text-lg text-slate-700 leading-[1.6] max-w-xl">
                                 Let's build something impactful together—whether it's your brand, your website, or your next big idea.
                             </p>
                         </motion.div>
@@ -487,13 +492,43 @@ const About = () => {
                                 </div>
                                 {/* Blue Hand Bubble Overlay */}
                                 <div className="absolute -left-6 -bottom-6 md:-left-8 md:-bottom-8 w-24 h-24 md:w-32 md:h-32 bg-[#0d9488] rounded-full flex items-center justify-center shadow-2xl">
-                                    {/* Using SVG similar to the waving hand illustration */}
-                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="md:w-[50px] md:h-[50px]">
-                                        <path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"/>
-                                        <path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2"/>
-                                        <path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8"/>
-                                        <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/>
-                                    </svg>
+                                    <AnimatePresence mode="wait">
+                                        {!showGreeting ? (
+                                            <motion.div
+                                                key="hand"
+                                                initial={{ opacity: 0, scale: 0.5 }}
+                                                animate={{ opacity: 1, scale: 1 }}
+                                                exit={{ opacity: 0, scale: 0.5 }}
+                                                transition={{ duration: 0.3 }}
+                                                className="flex items-center justify-center"
+                                            >
+                                                <motion.div
+                                                    animate={{ rotate: [0, 14, -8, 14, -4, 10, 0, 0] }}
+                                                    transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut", times: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 1] }}
+                                                    className="origin-bottom-right"
+                                                    style={{ transformOrigin: "70% 70%" }}
+                                                >
+                                                    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="md:w-[50px] md:h-[50px]">
+                                                        <path d="M18 11V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v0"/>
+                                                        <path d="M14 10V4a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v2"/>
+                                                        <path d="M10 10.5V6a2 2 0 0 0-2-2v0a2 2 0 0 0-2 2v8"/>
+                                                        <path d="M18 8a2 2 0 1 1 4 0v6a8 8 0 0 1-8 8h-2c-2.8 0-4.5-.86-5.99-2.34l-3.6-3.6a2 2 0 0 1 2.83-2.82L7 15"/>
+                                                    </svg>
+                                                </motion.div>
+                                            </motion.div>
+                                        ) : (
+                                            <motion.div
+                                                key="text"
+                                                initial={{ opacity: 0, scale: 0.5, y: 10 }}
+                                                animate={{ opacity: 1, scale: 1, y: 0 }}
+                                                exit={{ opacity: 0, scale: 0.5, y: -10 }}
+                                                transition={{ duration: 0.3 }}
+                                                className="text-white font-[family-name:var(--font-headline)] tracking-wider text-2xl md:text-[40px] font-bold leading-none"
+                                            >
+                                                Hi
+                                            </motion.div>
+                                        )}
+                                    </AnimatePresence>
                                 </div>
                             </motion.div>
 
@@ -509,18 +544,18 @@ const About = () => {
                                     <div className="flex flex-col md:flex-row gap-6 w-full">
                                         <div className="flex flex-col w-full gap-3">
                                             <label className="text-[#0d9488] text-sm md:text-base ml-4 font-medium">Name :</label>
-                                            <input type="text" placeholder="John Smith" className="w-full bg-[#EAEAEA] placeholder:text-gray-400 dark:bg-[#111111] border border-transparent rounded-full px-6 md:px-8 py-4 outline-none focus:border-[#0d9488] transition-all text-slate-800 dark:text-gray-200" />
+                                            <input type="text" placeholder="John Smith" className="w-full bg-[#F5F5F5] placeholder:text-gray-400 border border-transparent rounded-full px-6 md:px-8 py-4 outline-none focus:border-[#0d9488] transition-all text-slate-950" />
                                         </div>
                                         <div className="flex flex-col w-full gap-3">
                                             <label className="text-[#0d9488] text-sm md:text-base ml-4 font-medium">Email :</label>
-                                            <input type="email" placeholder="johnsmith@gmail.com" className="w-full bg-[#EAEAEA] placeholder:text-gray-400 dark:bg-[#111111] border border-transparent rounded-full px-6 md:px-8 py-4 outline-none focus:border-[#0d9488] transition-all text-slate-800 dark:text-gray-200" />
+                                            <input type="email" placeholder="johnsmith@gmail.com" className="w-full bg-[#F5F5F5] placeholder:text-gray-400 border border-transparent rounded-full px-6 md:px-8 py-4 outline-none focus:border-[#0d9488] transition-all text-slate-950" />
                                         </div>
                                     </div>
                                     
                                     <div className="flex flex-col gap-3 w-full mt-2">
                                         <label className="text-[#0d9488] text-sm md:text-base ml-4 font-medium">Service Needed ?</label>
                                         <div className="relative w-full">
-                                            <select defaultValue="" className="w-full appearance-none bg-[#EAEAEA] dark:bg-[#111111] border border-transparent rounded-full px-6 md:px-8 py-4 outline-none focus:border-[#0d9488] transition-all text-gray-500 cursor-pointer">
+                                            <select defaultValue="" className="w-full appearance-none bg-[#F5F5F5] border border-transparent rounded-full px-6 md:px-8 py-4 outline-none focus:border-[#0d9488] transition-all text-slate-600 cursor-pointer">
                                                 <option value="" disabled>Select...</option>
                                                 <option value="uiux">UI / UX Design</option>
                                                 <option value="web">Web Design</option>
@@ -535,7 +570,7 @@ const About = () => {
 
                                     <div className="flex flex-col gap-3 w-full mt-2">
                                         <label className="text-[#0d9488] text-sm md:text-base ml-4 font-medium">What Can I Help You...</label>
-                                        <textarea placeholder="Hello, I'd like to enquire about..." className="w-full bg-[#EAEAEA] placeholder:text-gray-400 dark:bg-[#111111] border border-transparent rounded-[32px] px-6 md:px-8 py-6 h-[180px] resize-none outline-none focus:border-[#0d9488] transition-all text-slate-800 dark:text-gray-200"></textarea>
+                                        <textarea placeholder="Hello, I'd like to enquire about..." className="w-full bg-[#F5F5F5] placeholder:text-gray-400 border border-transparent rounded-[32px] px-6 md:px-8 py-6 h-[180px] resize-none outline-none focus:border-[#0d9488] transition-all text-slate-950"></textarea>
                                     </div>
 
                                     <div className="mt-4">
