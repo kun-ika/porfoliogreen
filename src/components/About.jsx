@@ -8,20 +8,6 @@ const AccordionItem = ({ number, title, text, tags, Icon }) => {
     const [isOpen, setIsOpen] = useState(false);
     const [isHovered, setIsHovered] = useState(false);
 
-    // Smooth cursor tracking for the floating image preview
-    const mouseX = useMotionValue(0);
-    const mouseY = useMotionValue(0);
-
-    // Spring physics for the image following the cursor precisely
-    const scaleConfig = { damping: 25, stiffness: 300, mass: 0.5 };
-    const left = useSpring(mouseX, scaleConfig);
-    const top = useSpring(mouseY, scaleConfig);
-
-    const handleMouseMove = (e) => {
-        // Offset to the RIGHT of the cursor so it doesn't cover the arrow or text
-        mouseX.set(e.clientX + 40);
-        mouseY.set(e.clientY - 95);
-    };
 
     return (
         <div
@@ -29,29 +15,10 @@ const AccordionItem = ({ number, title, text, tags, Icon }) => {
             onClick={() => setIsOpen(!isOpen)}
         >
 
-            {/* Floating Icon Card Preview (Offset to the right) */}
-            <motion.div
-                style={{ left, top }}
-                initial={{ opacity: 0, scale: 0.8, rotate: 0 }}
-                animate={{
-                    opacity: isHovered ? 1 : 0,
-                    scale: isHovered ? 1 : 0.8,
-                    rotate: isHovered ? -8 : -4
-                }}
-                transition={{
-                    opacity: { duration: 0.3 },
-                    scale: { duration: 0.3, type: "spring", bounce: 0.4 },
-                    rotate: { duration: 0.5, type: "spring", bounce: 0.5 }
-                }}
-                className="fixed z-50 w-[120px] h-[120px] md:w-[140px] md:h-[140px] rounded-[32px] overflow-hidden pointer-events-none shadow-2xl bg-gradient-to-br from-[#0d9488] to-[#10b981] flex items-center justify-center p-6 border border-white/20 backdrop-blur-md"
-            >
-                {Icon && <Icon size={64} className="text-white drop-shadow-lg" />}
-            </motion.div>
 
             {/* Hover event ONLY triggers when mouse is on this header row, avoiding the expanded text */}
             <div
                 className="py-6 md:py-8 flex items-center justify-between"
-                onMouseMove={handleMouseMove}
                 onMouseEnter={() => setIsHovered(true)}
                 onMouseLeave={() => setIsHovered(false)}
             >
