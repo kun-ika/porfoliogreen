@@ -165,7 +165,7 @@ const About = () => {
     const stickyImages = {
         0: "/kunika-main.png",
         1: "/illustrations/expertise.png",
-        2: "/illustrations/techstack.png",
+        2: "/illustrations/web_design.png",
         3: "/illustrations/journey.png"
     };
 
@@ -374,7 +374,7 @@ const About = () => {
                             </motion.div>
 
                             <motion.div variants={slideUp} className="relative w-full min-h-[440px] rounded-[32px] overflow-hidden group">
-                                <Image src="/illustrations/techstack.png" alt="Concept & Ideation" fill className="object-cover group-hover:scale-105 transition-transform duration-[1.5s]" />
+                                <Image src="/illustrations/ui_ux.png" alt="Concept & Ideation" fill className="object-cover group-hover:scale-105 transition-transform duration-[1.5s]" />
                             </motion.div>
                             <motion.div variants={slideUp} className="w-full md:col-span-2">
                                 <ProcessCard {...processes[2]} />
