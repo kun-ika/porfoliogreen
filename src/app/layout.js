@@ -13,13 +13,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className="antialiased" suppressHydrationWarning>
-        <SmoothScrolling>
-          <div className="min-h-screen bg-gray-50 flex flex-col font-sans">
-            <Navbar />
-            {children}
-            <Footer />
-          </div>
-        </SmoothScrolling>
+        <div className="min-h-screen bg-gray-50 flex flex-col font-sans">
+          <Navbar />
+          {children}
+          <Footer />
+        </div>
       </body>
     </html>
   );

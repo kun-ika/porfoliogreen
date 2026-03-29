@@ -56,7 +56,7 @@ const AccordionItem = ({ number, title, text, tags, image }) => {
                 onMouseLeave={() => setIsHovered(false)}
             >
                 <div className="flex items-center gap-6 md:gap-8">
-                    <span className={`text-lg md:text-xl font-light font-sans transition-colors duration-400 ${isOpen ? 'text-[#0d9488]' : 'text-slate-400 group-hover:text-slate-600 dark:group-hover:text-gray-300'}`}>
+                    <span className={`text-lg md:text-xl font-light font-sans transition-colors duration-400 ${isOpen ? 'text-[#0d9488]' : 'text-slate-500 group-hover:text-slate-700 dark:group-hover:text-gray-300'}`}>
                         {number}.
                     </span>
                     <h4 className={`text-[28px] md:text-[36px] font-[400] transition-colors duration-400 font-[family-name:var(--font-headline)] uppercase leading-[1] ${isOpen || isHovered ? 'text-[#0d9488]' : 'text-slate-800 dark:text-gray-200'}`}>
@@ -81,7 +81,7 @@ const AccordionItem = ({ number, title, text, tags, image }) => {
                         className="overflow-hidden"
                     >
                         <div className="flex flex-col gap-6 max-w-2xl pl-[3.5rem] md:pl-[4.5rem] pb-10">
-                            <p className="text-base text-slate-500 dark:text-gray-400 leading-[1.6]">
+                            <p className="text-base text-slate-700 dark:text-gray-300 leading-[1.6]">
                                 {text}
                             </p>
                             
@@ -113,7 +113,7 @@ const ProcessCard = ({ num, title, text, bgClass, textClass, isSpan }) => (
             <h4 className="text-[24px] md:text-[32px] leading-[1] font-[400] font-[family-name:var(--font-headline)] uppercase">
                 {title}
             </h4>
-            <p className={`text-sm md:text-base leading-[1.6] ${bgClass.includes('F1F1F1') ? 'text-slate-600 dark:text-gray-800' : 'text-gray-300'} ${isSpan ? 'max-w-2xl' : ''}`}>
+            <p className={`text-sm md:text-base leading-[1.6] ${bgClass.includes('F1F1F1') ? 'text-slate-700 dark:text-gray-800' : 'text-white/90'} ${isSpan ? 'max-w-2xl' : ''}`}>
                 {text}
             </p>
         </div>
@@ -206,13 +206,13 @@ const About = () => {
                             variants={staggerContainer}
                             className="flex flex-col items-start"
                         >
-                            <motion.h1 variants={slideUp} className="text-[120px] md:text-[160px] leading-[0.9] font-[400] text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500 mb-6 font-[family-name:var(--font-headline)]">
+                            <motion.h1 variants={slideUp} className="text-[120px] md:text-[160px] leading-[0.9] font-[400] text-teal-900 dark:text-white text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500 mb-6 font-[family-name:var(--font-headline)]">
                                 ABOUT ME
                             </motion.h1>
                             <motion.h2 variants={slideUp} className="text-3xl md:text-4xl font-[400] uppercase text-slate-800 dark:text-gray-300 mb-8 font-[family-name:var(--font-headline)]">
                                 KUNIKA JAIN
                             </motion.h2>
-                            <motion.div variants={slideUp} className="text-lg md:text-xl text-slate-500 dark:text-gray-400 leading-[1.6] font-[400] max-w-xl mb-12">
+                            <motion.div variants={slideUp} className="text-lg md:text-xl text-slate-700 dark:text-gray-300 leading-[1.6] font-[400] max-w-xl mb-12">
                                 <p className="mb-6">I’m a digital designer passionate about crafting meaningful, user-centered experiences.</p>
                                 <p>With a strong foundation in visual design and a deep understanding of interactive systems, I bring ideas to life through thoughtful design, smooth animations, and responsive layouts.</p>
                             </motion.div>
@@ -257,10 +257,10 @@ const About = () => {
                                 variants={staggerContainer}
                                 className="flex flex-col items-start w-full"
                             >
-                                <motion.h3 variants={slideUp} className="text-[60px] md:text-[80px] leading-[0.9] font-[400] text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500 mb-6 font-[family-name:var(--font-headline)]">
+                                <motion.h3 variants={slideUp} className="text-[60px] md:text-[80px] leading-[0.9] font-[400] text-teal-900 dark:text-white text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500 mb-6 font-[family-name:var(--font-headline)]">
                                     WHAT I CAN DO<br/>FOR YOU
                                 </motion.h3>
-                                <motion.p variants={slideUp} className="text-base md:text-lg text-slate-500 dark:text-gray-400 leading-[1.6] font-[400] max-w-xl mb-12">
+                                <motion.p variants={slideUp} className="text-base md:text-lg text-slate-700 dark:text-gray-300 leading-[1.6] font-[400] max-w-xl mb-12">
                                     As a digital designer, I am a visual storyteller, crafting experiences that connect deeply and spark creativity.
                                 </motion.p>
                                 
@@ -288,10 +288,10 @@ const About = () => {
                                 variants={staggerContainer}
                                 className="flex flex-col items-start w-full pt-12 md:pt-0"
                             >
-                                <motion.h3 variants={slideUp} className="text-[60px] md:text-[80px] leading-[0.9] font-[400] text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500 mb-6 font-[family-name:var(--font-headline)]">
+                                <motion.h3 variants={slideUp} className="text-[60px] md:text-[80px] leading-[0.9] font-[400] text-teal-900 dark:text-white text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500 mb-6 font-[family-name:var(--font-headline)]">
                                     MY TECH STACK
                                 </motion.h3>
-                                <motion.p variants={slideUp} className="text-base md:text-lg text-slate-500 dark:text-gray-400 leading-[1.6] font-[400] max-w-xl mb-12">
+                                <motion.p variants={slideUp} className="text-base md:text-lg text-slate-700 dark:text-gray-300 leading-[1.6] font-[400] max-w-xl mb-12">
                                     I build with intention. Framer for fast, interactive web design. Figma for clean interfaces. Custom code for complex logic. Each tool supports how I think and design.
                                 </motion.p>
                                 
@@ -309,7 +309,7 @@ const About = () => {
                                                 <h4 className="text-[20px] md:text-[24px] font-[400] text-slate-900 dark:text-white font-[family-name:var(--font-headline)] uppercase leading-[1]">
                                                     {tech.title}
                                                 </h4>
-                                                <p className="text-slate-500 dark:text-gray-400 text-base">
+                                                <p className="text-slate-700 dark:text-gray-300 text-base">
                                                     {tech.desc}
                                                 </p>
                                             </div>
@@ -327,10 +327,10 @@ const About = () => {
                                 variants={staggerContainer}
                                 className="flex flex-col items-start w-full pt-12 md:pt-0 pb-12"
                             >
-                                <motion.h3 variants={slideUp} className="text-[60px] md:text-[80px] leading-[0.9] font-[400] text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500 mb-6 font-[family-name:var(--font-headline)]">
+                                <motion.h3 variants={slideUp} className="text-[60px] md:text-[80px] leading-[0.9] font-[400] text-teal-900 dark:text-white text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500 mb-6 font-[family-name:var(--font-headline)]">
                                     DISCOVER MY<br/>JOURNEY IN<br/>DESIGN
                                 </motion.h3>
-                                <motion.p variants={slideUp} className="text-base md:text-lg text-slate-500 dark:text-gray-400 leading-[1.6] font-[400] max-w-xl mb-12">
+                                <motion.p variants={slideUp} className="text-base md:text-lg text-slate-700 dark:text-gray-300 leading-[1.6] font-[400] max-w-xl mb-12">
                                     From curious creator to full-time designer, my path has been shaped by a passion for crafting purposeful, user-centered digital experiences.
                                 </motion.p>
                                 
@@ -348,7 +348,7 @@ const About = () => {
                                                 <span className="text-lg font-[600] text-[#0d9488] font-[family-name:var(--font-jakarta)] mb-1">
                                                     {exp.company}
                                                 </span>
-                                                <span className="text-slate-400 font-[400] text-xs font-sans uppercase tracking-wider">
+                                                <span className="text-slate-500 font-[400] text-xs font-sans uppercase tracking-wider">
                                                     {exp.period}
                                                 </span>
                                             </div>
@@ -397,10 +397,10 @@ const About = () => {
                             variants={staggerContainer}
                             className="flex flex-col items-start w-full"
                         >
-                            <motion.h3 variants={slideUp} className="text-[70px] md:text-[100px] leading-[0.9] font-[400] text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500 mb-6 font-[family-name:var(--font-headline)] max-w-[800px]">
+                            <motion.h3 variants={slideUp} className="text-[70px] md:text-[100px] leading-[0.9] font-[400] text-teal-900 dark:text-white text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500 mb-6 font-[family-name:var(--font-headline)] max-w-[800px]">
                                 DESIGN WITH STRATEGY AND CREATIVITY
                             </motion.h3>
-                            <motion.p variants={slideUp} className="text-lg md:text-xl text-slate-500 dark:text-gray-400 leading-[1.6] max-w-2xl">
+                            <motion.p variants={slideUp} className="text-lg md:text-xl text-slate-700 dark:text-gray-300 leading-[1.6] max-w-2xl">
                                 My process blends strategy and creativity to address challenges, craft solutions, and deliver designs that effectively communicate your message.
                             </motion.p>
                         </motion.div>
@@ -450,10 +450,10 @@ const About = () => {
                             transition={{ duration: 0.8 }}
                             className="flex flex-col items-start w-full mb-8"
                         >
-                            <h3 className="text-[70px] md:text-[100px] leading-[0.9] font-[400] text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500 mb-6 font-[family-name:var(--font-headline)]">
+                            <h3 className="text-[70px] md:text-[100px] leading-[0.9] font-[400] text-teal-900 dark:text-white text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500 mb-6 font-[family-name:var(--font-headline)]">
                                 LET'S WORK TOGETHER
                             </h3>
-                            <p className="text-base md:text-lg text-slate-500 dark:text-gray-400 leading-[1.6] max-w-xl">
+                            <p className="text-base md:text-lg text-slate-700 dark:text-gray-300 leading-[1.6] max-w-xl">
                                 Let's build something impactful together—whether it's your brand, your website, or your next big idea.
                             </p>
                         </motion.div>
