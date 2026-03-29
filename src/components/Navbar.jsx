@@ -28,7 +28,7 @@ const Navbar = () => {
         { name: 'Skills', href: '/skills' },
         { name: 'Projects', href: '/projects' },
         { name: 'Experience', href: '/experience' },
-        { name: 'Resume', href: '/resume.pdf', isExternal: true },
+        { name: 'Resume', href: 'https://drive.google.com/uc?export=download&id=1pdx9AJ4WVwtI7ky34wldsFMXBwxgLZ9l', isExternal: true },
     ];
 
     return (
