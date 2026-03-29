@@ -1,7 +1,8 @@
 "use client";
-import React from 'react';
+import React, { useRef } from 'react';
 import { ExternalLink, MonitorPlay, Layers, FileText, LayoutTemplate, Box } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import Image from 'next/image';
 
 const projects = [
     {
@@ -11,6 +12,7 @@ const projects = [
         type: "Hardware & IoT",
         tags: ["Arduino", "IoT", "C++", "Sensors"],
         icon: <Box size={28} className="text-teal-600" />,
+        image: "/projects/robot.png",
         description: "An autonomous solar-powered grass cutter reducing manual effort via ultrasonic sensors and Bluetooth control."
     },
     {
@@ -51,27 +53,112 @@ const projects = [
     }
 ];
 
-const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: { 
-        opacity: 1, 
-        transition: { staggerChildren: 0.15, delayChildren: 0.2 } 
-    }
-};
+const ProjectCard = ({ project }) => {
+    const cardRef = useRef(null);
+    const x = useMotionValue(0);
+    const y = useMotionValue(0);
 
-const cardVariants = {
-    hidden: { opacity: 0, y: 50 },
-    visible: { 
-        opacity: 1, 
-        y: 0, 
-        transition: { type: "spring", stiffness: 100, damping: 20 } 
-    }
+    const mouseXSpring = useSpring(x);
+    const mouseYSpring = useSpring(y);
+
+    const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
+    const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
+
+    const handleMouseMove = (e) => {
+        if (!cardRef.current) return;
+        const rect = cardRef.current.getBoundingClientRect();
+        const width = rect.width;
+        const height = rect.height;
+        const mouseX = e.clientX - rect.left;
+        const mouseY = e.clientY - rect.top;
+        const xPct = mouseX / width - 0.5;
+        const yPct = mouseY / height - 0.5;
+        x.set(xPct);
+        y.set(yPct);
+    };
+
+    const handleMouseLeave = () => {
+        x.set(0);
+        y.set(0);
+    };
+
+    return (
+        <motion.div
+            ref={cardRef}
+            onMouseMove={handleMouseMove}
+            onMouseLeave={handleMouseLeave}
+            style={{ 
+                rotateX, 
+                rotateY, 
+                transformStyle: "preserve-3d",
+            }}
+            initial={{ opacity: 0, y: 50 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.2 }}
+            transition={{ type: "spring", stiffness: 100, damping: 20 }}
+            className="group relative h-full w-full rounded-2xl bg-white border border-slate-200/60 p-6 shadow-xl transition-shadow duration-500 hover:shadow-2xl hover:shadow-teal-500/10"
+        >
+            {/* 3D Content Container */}
+            <div style={{ transform: "translateZ(50px)", transformStyle: "preserve-3d" }} className="flex flex-col h-full items-start relative z-10">
+                
+                {/* Image Section (For First Card or Any that has an image) */}
+                {project.image && (
+                    <div className="relative w-full aspect-video rounded-xl overflow-hidden mb-6 shadow-md border border-slate-100 group-hover:scale-[1.02] transition-transform duration-500">
+                        <Image 
+                            src={project.image} 
+                            alt={project.title} 
+                            fill 
+                            className="object-cover" 
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                    </div>
+                )}
+
+                <div className="flex items-center gap-4 mb-5" style={{ transform: "translateZ(30px)" }}>
+                    <div className="p-3 bg-teal-50 rounded-xl group-hover:bg-teal-100 transition-colors">
+                        {project.icon}
+                    </div>
+                    <div>
+                        <p className="text-xs font-bold text-teal-600 tracking-wider uppercase mb-0.5">{project.type}</p>
+                        <h3 className="text-xl font-bold text-slate-900 group-hover:text-teal-700 transition-colors leading-tight">{project.title}</h3>
+                    </div>
+                </div>
+
+                <h4 className="text-sm font-semibold text-slate-500 mb-4" style={{ transform: "translateZ(20px)" }}>{project.subtitle}</h4>
+
+                <p className="text-slate-600 text-sm leading-relaxed mb-6 flex-grow" style={{ transform: "translateZ(10px)" }}>
+                    {project.description}
+                </p>
+
+                <div className="flex flex-wrap gap-2 mb-6 mt-auto" style={{ transform: "translateZ(40px)" }}>
+                    {project.tags.map((tag, i) => (
+                        <span key={i} className="px-2.5 py-1 bg-slate-100 text-slate-700 text-xs font-bold rounded-md group-hover:bg-teal-50 group-hover:text-teal-700 transition-colors">
+                            {tag}
+                        </span>
+                    ))}
+                </div>
+
+                <div className="w-full pt-4 border-t border-slate-100/50" style={{ transform: "translateZ(20px)" }}>
+                    <motion.button 
+                        whileHover={{ scale: 1.05 }}
+                        whileTap={{ scale: 0.95 }}
+                        className="w-full flex items-center justify-center gap-2 py-2.5 bg-gradient-to-r from-teal-500 to-emerald-500 text-white font-bold rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                    >
+                        <ExternalLink size={18} /> View Project
+                    </motion.button>
+                </div>
+            </div>
+
+            {/* Background Accent */}
+            <div className="absolute top-0 right-0 w-32 h-32 bg-teal-500/5 rounded-full filter blur-3xl group-hover:bg-teal-500/10 transition-all duration-500 -z-10"></div>
+        </motion.div>
+    );
 };
 
 const Projects = () => {
     return (
-        <section id="projects" className="section relative py-20 bg-white">
-            <div className="container relative z-10 flex flex-col items-center">
+        <section id="projects" className="section relative py-20 bg-slate-50/50 overflow-hidden">
+            <div className="container relative z-10 flex flex-col items-center mx-auto px-6">
                 <motion.div 
                     className="flex flex-col items-center mb-16 text-center"
                     initial={{ opacity: 0, y: 20 }}
@@ -79,72 +166,25 @@ const Projects = () => {
                     viewport={{ once: true, amount: 0.5 }}
                     transition={{ duration: 0.6 }}
                 >
-                    <h2 className="text-4xl md:text-5xl font-extrabold mb-6 text-slate-800 tracking-tight">
-                        Featured <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-emerald-500">Projects</span>
+                    <h2 className="text-4xl md:text-5xl font-[700] text-slate-900 mb-6 font-[family-name:var(--font-headline)] tracking-tighter">
+                        MY FEATURED <span className="text-teal-600">PROJECTS</span>
                     </h2>
-                    <div className="w-24 h-1.5 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-full"></div>
-                    <p className="mt-8 text-lg md:text-xl text-slate-600 max-w-2xl font-medium">
-                        A selection of my recent work across physical computing, software development, and UI/UX design.
+                    <div className="w-24 h-1 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-full"></div>
+                    <p className="mt-8 text-lg text-slate-600 max-w-2xl font-medium">
+                        Explore a collection of my creative work spanning across multiple disciplines and technologies.
                     </p>
                 </motion.div>
 
-                <motion.div 
-                    className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 w-full max-w-7xl"
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true, amount: 0.1 }}
-                >
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 w-full max-w-7xl">
                     {projects.map((project) => (
-                        <motion.div 
-                            key={project.id} 
-                            variants={cardVariants}
-                            whileHover={{ y: -8, scale: 1.02 }}
-                            transition={{ type: "spring", stiffness: 200, damping: 15 }}
-                            className="bg-white rounded-2xl p-6 flex flex-col items-start border-t-4 border-t-teal-500 relative overflow-hidden group shadow-lg hover:shadow-2xl hover:shadow-teal-500/10 cursor-pointer"
-                        >
-                            <div className="absolute top-0 right-0 w-32 h-32 bg-teal-500/5 rounded-full filter blur-xl group-hover:bg-teal-500/20 transition-all duration-500 scale-150 group-hover:scale-100"></div>
-
-                            <div className="flex items-center gap-4 mb-5 relative z-10">
-                                <motion.div 
-                                    className="p-3 bg-teal-50 rounded-xl"
-                                    whileHover={{ rotate: 5, scale: 1.1 }}
-                                    transition={{ type: "spring", stiffness: 300, damping: 10 }}
-                                >
-                                    {project.icon}
-                                </motion.div>
-                                <div>
-                                    <p className="text-xs font-bold text-teal-600 tracking-wider uppercase mb-0.5">{project.type}</p>
-                                    <h3 className="text-xl font-bold text-slate-800 leading-tight group-hover:text-teal-700 transition-colors">{project.title}</h3>
-                                </div>
-                            </div>
-
-                            <h4 className="text-sm font-semibold text-slate-500 mb-4 relative z-10">{project.subtitle}</h4>
-
-                            <p className="text-slate-600 text-sm leading-relaxed mb-6 flex-grow relative z-10">
-                                {project.description}
-                            </p>
-
-                            <div className="flex flex-wrap gap-2 mb-6 mt-auto relative z-10">
-                                {project.tags.map((tag, i) => (
-                                    <span key={i} className="px-2.5 py-1 bg-slate-100 text-slate-600 text-xs font-bold rounded-md group-hover:bg-teal-50 transition-colors">
-                                        {tag}
-                                    </span>
-                                ))}
-                            </div>
-
-                            <div className="flex gap-3 w-full pt-4 border-t border-slate-100/50 relative z-10">
-                                <motion.button 
-                                    whileTap={{ scale: 0.95 }}
-                                    className="w-full flex items-center justify-center gap-2 py-2.5 bg-slate-50 hover:bg-emerald-50 text-slate-700 hover:text-emerald-600 font-semibold rounded-lg transition-colors border border-slate-200"
-                                >
-                                    <ExternalLink size={18} /> View
-                                </motion.button>
-                            </div>
-                        </motion.div>
+                        <ProjectCard key={project.id} project={project} />
                     ))}
-                </motion.div>
+                </div>
             </div>
+            
+            {/* Background elements */}
+            <div className="absolute top-1/4 -left-32 w-96 h-96 bg-teal-500/5 rounded-full filter blur-[120px] -z-10"></div>
+            <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-emerald-500/5 rounded-full filter blur-[120px] -z-10"></div>
         </section>
     );
 };
