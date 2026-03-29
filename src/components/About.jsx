@@ -208,7 +208,7 @@ const About = () => {
                 <div className="container max-w-[1200px] mx-auto px-6 md:px-12 flex flex-col gap-20 md:gap-24 w-full">
 
                     {/* 1. UNIFIED STICKY SCROLL CONTAINER */}
-                    <div className="grid grid-cols-1 lg:grid-cols-[1fr_0.8fr] gap-[50px] relative w-full">
+                    <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.1fr] gap-[50px] relative w-full">
 
                         {/* LEFT COLUMN: Scrollable Text Content Blocks */}
                         <div className="flex flex-col gap-32 w-full h-full relative z-10">
@@ -341,7 +341,7 @@ const About = () => {
                                                 src={stickyImages[activeSection]}
                                                 alt={`Scroll Preview ${activeSection}`}
                                                 fill
-                                                className={`object-cover ${activeSection === 0 ? '' : 'opacity-90 saturate-50 mix-blend-multiply'}`}
+                                                className={`object-cover transition-transform duration-700 ${activeSection === 0 ? 'scale-[1.4]' : 'opacity-90 saturate-50 mix-blend-multiply'}`}
                                                 style={activeSection === 0 ? {
                                                     maskImage: 'url(/kunika-mask.png)',
                                                     WebkitMaskImage: 'url(/kunika-mask.png)',
@@ -450,7 +450,7 @@ const About = () => {
                                         src="/kunika-main.png" 
                                         alt="Let's work together" 
                                         fill 
-                                        className="object-cover" 
+                                        className="object-cover scale-[1.4]" 
                                         style={{
                                             maskImage: 'url(/kunika-mask.png)',
                                             WebkitMaskImage: 'url(/kunika-mask.png)',
