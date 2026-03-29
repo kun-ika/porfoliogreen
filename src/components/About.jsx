@@ -224,22 +224,9 @@ const About = () => {
                             >
                                 <motion.h1 
                                     variants={slideUp} 
-                                    className="text-[100px] md:text-[140px] lg:text-[160px] leading-[0.85] font-[700] text-slate-950 mb-6 font-[family-name:var(--font-headline)] tracking-tight flex items-center md:items-end flex-wrap gap-4"
+                                    className="text-[100px] md:text-[140px] lg:text-[160px] leading-[0.85] font-[700] text-slate-950 mb-6 font-[family-name:var(--font-headline)] tracking-tight"
                                 >
                                     ABOUT ME
-                                    <motion.span
-                                        animate={{ rotate: [0, 14, -8, 14, -4, 10, 0, 0] }}
-                                        transition={{ 
-                                            duration: 2.5, 
-                                            repeat: Infinity, 
-                                            ease: "easeInOut",
-                                            times: [0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 1]
-                                        }}
-                                        className="inline-block origin-bottom-right text-[80px] md:text-[110px] lg:text-[130px] leading-none"
-                                        style={{ transformOrigin: "70% 70%" }}
-                                    >
-                                        👋
-                                    </motion.span>
                                 </motion.h1>
                                 <motion.h2 variants={slideUp} className="text-3xl md:text-4xl font-[400] uppercase text-slate-800 mb-8 font-[family-name:var(--font-headline)]">
                                     KUNIKA JAIN
