@@ -46,13 +46,13 @@ const Hero = () => {
                     </motion.h1>
 
                     <motion.a
-                        href="mailto:kunikajain@gmail.com"
+                        href="mailto:jainkunika91@gmail.com"
                         variants={itemVariants}
                         whileHover={{ scale: 1.05, originX: 0 }}
                         whileTap={{ scale: 0.95 }}
                         className="text-teal-600 font-semibold text-lg hover:text-emerald-700 transition-colors inline-block relative border-b-2 border-transparent hover:border-emerald-600 pb-1"
                     >
-                        kunikajain@gmail.com
+                        jainkunika91@gmail.com
                     </motion.a>
                 </div>
 

@@ -16,7 +16,7 @@ const Footer = () => {
     const socialLinks = [
         { icon: <Linkedin size={20} />, href: '#', label: 'LinkedIn' },
         { icon: <Github size={20} />, href: '#', label: 'GitHub' },
-        { icon: <Mail size={20} />, href: 'mailto:kunikajain@gmail.com', label: 'Email' },
+        { icon: <Mail size={20} />, href: 'mailto:jainkunika91@gmail.com', label: 'Email' },
     ];
 
     return (
@@ -50,7 +50,7 @@ const Footer = () => {
                         transition={{ delay: 0.2 }}
                     >
                         <a 
-                            href="mailto:kunikajain@gmail.com"
+                            href="mailto:jainkunika91@gmail.com"
                             className="inline-flex items-center gap-4 text-xl md:text-3xl font-bold pb-2 border-b-2 border-teal-500/30 hover:border-teal-400 transition-colors group text-slate-300 hover:text-white"
                         >
                             Let's build it together 
