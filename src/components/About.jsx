@@ -187,9 +187,9 @@ const About = () => {
     // Dummy array of images that crossfade during the sticky scroll
     // In a real project, replace these paths with unique assets for each section.
     const stickyImages = {
-        1: "/kunika.png",
-        2: "/kunika.png",
-        3: "/kunika.png"
+        1: "/illustrations/expertise.png",
+        2: "/illustrations/techstack.png",
+        3: "/illustrations/journey.png"
     };
 
     return (
@@ -206,7 +206,10 @@ const About = () => {
                             variants={staggerContainer}
                             className="flex flex-col items-start"
                         >
-                            <motion.h1 variants={slideUp} className="text-[120px] md:text-[160px] leading-[0.9] font-[400] text-teal-900 dark:text-white text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500 mb-6 font-[family-name:var(--font-headline)]">
+                            <motion.h1 
+                                variants={slideUp} 
+                                className="text-[100px] md:text-[140px] lg:text-[160px] leading-[0.85] font-[700] text-slate-900 dark:text-white mb-6 font-[family-name:var(--font-headline)] tracking-tighter"
+                            >
                                 ABOUT ME
                             </motion.h1>
                             <motion.h2 variants={slideUp} className="text-3xl md:text-4xl font-[400] uppercase text-slate-800 dark:text-gray-300 mb-8 font-[family-name:var(--font-headline)]">
@@ -243,7 +246,7 @@ const About = () => {
                     </div>
 
                     {/* UNIFIED STICKY SCROLL CONTAINER (Sections 2, 3, 4) */}
-                    <div className="grid grid-cols-1 lg:grid-cols-[1fr_0.8fr] gap-[50px] relative items-start w-full">
+                    <div className="grid grid-cols-1 lg:grid-cols-[1fr_0.8fr] gap-[50px] relative w-full">
                         
                         {/* LEFT COLUMN: Scrollable Text Content Blocks */}
                         <div className="flex flex-col gap-32 w-full h-full relative z-10">
@@ -251,13 +254,16 @@ const About = () => {
                             {/* BLOCK 1: Expertise */}
                             <motion.div 
                                 onViewportEnter={() => setActiveSection(1)}
-                                viewport={{ margin: "-40% 0px -40% 0px" }}
+                                viewport={{ margin: "-30% 0px -30% 0px" }}
                                 initial="hidden"
                                 whileInView="visible"
                                 variants={staggerContainer}
-                                className="flex flex-col items-start w-full"
+                                className="flex flex-col items-start w-full pb-[20vh] md:pb-[30vh]"
                             >
-                                <motion.h3 variants={slideUp} className="text-[60px] md:text-[80px] leading-[0.9] font-[400] text-teal-900 dark:text-white text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500 mb-6 font-[family-name:var(--font-headline)]">
+                                <motion.h3 
+                                    variants={slideUp} 
+                                    className="text-[50px] md:text-[70px] lg:text-[80px] leading-[0.9] font-[700] text-slate-900 dark:text-white mb-6 font-[family-name:var(--font-headline)] tracking-tighter"
+                                >
                                     WHAT I CAN DO<br/>FOR YOU
                                 </motion.h3>
                                 <motion.p variants={slideUp} className="text-base md:text-lg text-slate-700 dark:text-gray-300 leading-[1.6] font-[400] max-w-xl mb-12">
@@ -282,13 +288,16 @@ const About = () => {
                             {/* BLOCK 2: Tech Stack */}
                             <motion.div 
                                 onViewportEnter={() => setActiveSection(2)}
-                                viewport={{ margin: "-40% 0px -40% 0px" }}
+                                viewport={{ margin: "-30% 0px -30% 0px" }}
                                 initial="hidden"
                                 whileInView="visible"
                                 variants={staggerContainer}
-                                className="flex flex-col items-start w-full pt-12 md:pt-0"
+                                className="flex flex-col items-start w-full pt-12 md:pt-0 pb-[20vh] md:pb-[30vh]"
                             >
-                                <motion.h3 variants={slideUp} className="text-[60px] md:text-[80px] leading-[0.9] font-[400] text-teal-900 dark:text-white text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500 mb-6 font-[family-name:var(--font-headline)]">
+                                <motion.h3 
+                                    variants={slideUp} 
+                                    className="text-[50px] md:text-[70px] lg:text-[80px] leading-[0.9] font-[700] text-slate-900 dark:text-white mb-6 font-[family-name:var(--font-headline)] tracking-tighter"
+                                >
                                     MY TECH STACK
                                 </motion.h3>
                                 <motion.p variants={slideUp} className="text-base md:text-lg text-slate-700 dark:text-gray-300 leading-[1.6] font-[400] max-w-xl mb-12">
@@ -325,9 +334,12 @@ const About = () => {
                                 initial="hidden"
                                 whileInView="visible"
                                 variants={staggerContainer}
-                                className="flex flex-col items-start w-full pt-12 md:pt-0 pb-12"
+                                className="flex flex-col items-start w-full pt-12 md:pt-0 pb-[10vh]"
                             >
-                                <motion.h3 variants={slideUp} className="text-[60px] md:text-[80px] leading-[0.9] font-[400] text-teal-900 dark:text-white text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500 mb-6 font-[family-name:var(--font-headline)]">
+                                <motion.h3 
+                                    variants={slideUp} 
+                                    className="text-[50px] md:text-[70px] lg:text-[80px] leading-[0.9] font-[700] text-slate-900 dark:text-white mb-6 font-[family-name:var(--font-headline)] tracking-tighter"
+                                >
                                     DISCOVER MY<br/>JOURNEY IN<br/>DESIGN
                                 </motion.h3>
                                 <motion.p variants={slideUp} className="text-base md:text-lg text-slate-700 dark:text-gray-300 leading-[1.6] font-[400] max-w-xl mb-12">
@@ -397,7 +409,10 @@ const About = () => {
                             variants={staggerContainer}
                             className="flex flex-col items-start w-full"
                         >
-                            <motion.h3 variants={slideUp} className="text-[70px] md:text-[100px] leading-[0.9] font-[400] text-teal-900 dark:text-white text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500 mb-6 font-[family-name:var(--font-headline)] max-w-[800px]">
+                            <motion.h3 
+                                variants={slideUp} 
+                                className="text-[60px] md:text-[80px] lg:text-[100px] leading-[0.9] font-[700] text-slate-900 dark:text-white mb-6 font-[family-name:var(--font-headline)] max-w-[800px] tracking-tighter"
+                            >
                                 DESIGN WITH STRATEGY AND CREATIVITY
                             </motion.h3>
                             <motion.p variants={slideUp} className="text-lg md:text-xl text-slate-700 dark:text-gray-300 leading-[1.6] max-w-2xl">
@@ -450,7 +465,7 @@ const About = () => {
                             transition={{ duration: 0.8 }}
                             className="flex flex-col items-start w-full mb-8"
                         >
-                            <h3 className="text-[70px] md:text-[100px] leading-[0.9] font-[400] text-teal-900 dark:text-white text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500 mb-6 font-[family-name:var(--font-headline)]">
+                            <h3 className="text-[60px] md:text-[80px] lg:text-[100px] leading-[0.9] font-[700] text-slate-900 dark:text-white mb-6 font-[family-name:var(--font-headline)] tracking-tighter">
                                 LET'S WORK TOGETHER
                             </h3>
                             <p className="text-base md:text-lg text-slate-700 dark:text-gray-300 leading-[1.6] max-w-xl">
