@@ -147,29 +147,29 @@ const About = () => {
     };
 
     const expertise = [
-        {
-            title: "UI/UX DESIGN",
+        { 
+            title: "UI/UX DESIGN", 
             text: "Creating intuitive and user-centered interfaces that balance aesthetics with functionality. Every interaction is mapped to ensure seamless experiences across all devices and touchpoints.",
             tags: ["Wireframing", "Prototyping", "User Research", "Interaction Design"],
-            image: "/kunikacutee.png"
+            image: "/illustrations/ui_ux.png"
         },
-        {
-            title: "GRAPHIC DESIGN",
+        { 
+            title: "GRAPHIC DESIGN", 
             text: "Crafting visual identities, marketing assets, and cohesive branding that effectively communicates your core message and engages your target audience.",
             tags: ["Brand Identity", "Marketing Assets", "Typography", "Visual Language"],
-            image: "/kunikacutee.png"
+            image: "/illustrations/graphic_design.png"
         },
-        {
-            title: "WEB DESIGN",
+        { 
+            title: "WEB DESIGN", 
             text: "Building responsive, accessible, and high-performance websites. Combining structured development with advanced design principles to output premium digital platforms.",
             tags: ["Responsive Layouts", "Web Accessibility", "Framer", "Next.js"],
-            image: "/kunikacutee.png"
+            image: "/illustrations/web_design.png"
         },
-        {
-            title: "BRANDING",
+        { 
+            title: "BRANDING", 
             text: "Establishing a strong brand voice and visual language that resonates deeply with users. Focusing on consistent representation across multiple channels.",
             tags: ["Brand Strategy", "Logo Design", "Style Guides", "Art Direction"],
-            image: "/kunikacutee.png"
+            image: "/illustrations/branding.png"
         }
     ];
 
