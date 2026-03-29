@@ -196,7 +196,7 @@ const About = () => {
     // Dummy array of images that crossfade during the sticky scroll
     // In a real project, replace these paths with unique assets for each section.
     const stickyImages = {
-        0: "/kunikacutee.png",
+        0: "/kunika-main.png",
         1: "/illustrations/expertise.png",
         2: "/illustrations/techstack.png",
         3: "/illustrations/journey.png"
@@ -435,7 +435,7 @@ const About = () => {
                                 className="relative w-full max-w-[450px] aspect-[4/5] mx-auto lg:mx-0"
                             >
                                 <div className="absolute inset-0 rounded-[32px] overflow-hidden shadow-sm">
-                                    <Image src="/kunikacutee.png" alt="Let's work together" fill className="object-cover" />
+                                    <Image src="/kunika-main.png" alt="Let's work together" fill className="object-cover" />
                                 </div>
                                 {/* Blue Hand Bubble Overlay */}
                                 <div className="absolute -left-6 -bottom-6 md:-left-8 md:-bottom-8 w-24 h-24 md:w-32 md:h-32 bg-[#0d9488] rounded-full flex items-center justify-center shadow-2xl">

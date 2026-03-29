@@ -66,7 +66,7 @@ const Hero = () => {
                     >
                         <div className="absolute inset-0 bg-teal-500/10 rounded-full filter blur-[60px] transform scale-75 animate-pulse"></div>
                         <img
-                            src="/KunikaprofG .png"
+                            src="/kunika-main.png"
                             alt="Kunika Jain"
                             className="w-full h-auto object-contain drop-shadow-2xl relative z-20"
                         />
