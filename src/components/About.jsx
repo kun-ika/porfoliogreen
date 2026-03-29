@@ -341,14 +341,14 @@ const About = () => {
                                                 src={stickyImages[activeSection]}
                                                 alt={`Scroll Preview ${activeSection}`}
                                                 fill
-                                                className={`object-cover ${activeSection === 0 ? '' : 'opacity-90 saturate-50 mix-blend-multiply'}`}
+                                                className={`object-contain ${activeSection === 0 ? '' : 'opacity-90 saturate-50 mix-blend-multiply'}`}
                                                 style={activeSection === 0 ? {
                                                     maskImage: 'url(/kunika-mask.png)',
                                                     WebkitMaskImage: 'url(/kunika-mask.png)',
                                                     maskMode: 'luminance',
                                                     WebkitMaskMode: 'luminance',
-                                                    maskSize: 'cover',
-                                                    WebkitMaskSize: 'cover'
+                                                    maskSize: 'contain',
+                                                    WebkitMaskSize: 'contain'
                                                 } : {}}
                                             />
                                         </motion.div>
@@ -447,14 +447,14 @@ const About = () => {
                                         src="/kunika-main.png" 
                                         alt="Let's work together" 
                                         fill 
-                                        className="object-cover" 
+                                        className="object-contain" 
                                         style={{
                                             maskImage: 'url(/kunika-mask.png)',
                                             WebkitMaskImage: 'url(/kunika-mask.png)',
                                             maskMode: 'luminance',
                                             WebkitMaskMode: 'luminance',
-                                            maskSize: 'cover',
-                                            WebkitMaskSize: 'cover'
+                                            maskSize: 'contain',
+                                            WebkitMaskSize: 'contain'
                                         }}
                                     />
                                 </div>
