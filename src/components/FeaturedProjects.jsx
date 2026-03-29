@@ -14,17 +14,10 @@ const featuredProjects = [
         icon: <Box size={24} className="text-teal-400" />
     },
     {
-        id: "shabdayudh",
-        title: "ShabdaYudh",
-        category: "Desktop App",
-        image: "/kunika.png",
-        icon: <MonitorPlay size={24} className="text-emerald-400" />
-    },
-    {
         id: "quick-salon",
         title: "Quick Salon",
         category: "Mobile App",
-        image: "/projects/robot.jpeg", // Reusing robot for demo, real projects would have unique images
+        image: "/projects/quick-salon.jpg",
         icon: <Layers size={24} className="text-teal-400" />
     }
 ];
