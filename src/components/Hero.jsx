@@ -90,37 +90,54 @@ const Hero = () => {
                 </motion.div>
             </motion.div>
 
-            {/* Full Width Animated Clouds Base */}
-            <div className="absolute bottom-0 left-0 w-full h-[300px] pointer-events-none z-30 flex justify-center items-end opacity-100 overflow-hidden">
-                {/* Massive Drifting Green Cloud Layers */}
-                <motion.div 
-                    className="absolute bottom-[-20px] left-[-20%] w-[70%] h-[200px] bg-emerald-400 rounded-[100%] filter blur-[50px] opacity-80 z-10"
-                    animate={{ x: [0, 100, 0] }}
-                    transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
-                />
-                <motion.div 
-                    className="absolute bottom-[20px] right-[-20%] w-[80%] h-[250px] bg-teal-400 rounded-[100%] filter blur-[60px] opacity-70 z-0"
-                    animate={{ x: [0, -120, 0] }}
-                    transition={{ duration: 25, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-                />
-                <motion.div 
-                    className="absolute bottom-[40px] left-[10%] w-[60%] h-[150px] bg-emerald-500 rounded-[100%] filter blur-[40px] opacity-60 z-10"
-                    animate={{ x: [0, 80, 0] }}
-                    transition={{ duration: 18, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-                />
-                <motion.div 
-                    className="absolute bottom-[-10px] left-[40%] w-[70%] h-[180px] bg-teal-500 rounded-[100%] filter blur-[55px] opacity-60 z-0"
-                    animate={{ x: [0, -90, 0] }}
-                    transition={{ duration: 22, repeat: Infinity, ease: "easeInOut", delay: 3 }}
-                />
-                <motion.div 
-                    className="absolute bottom-[60px] left-[30%] w-[40%] h-[120px] bg-emerald-300 rounded-[100%] filter blur-[35px] opacity-70 z-10"
-                    animate={{ x: [0, 50, 0], scale: [1, 1.1, 1] }}
-                    transition={{ duration: 15, repeat: Infinity, ease: "easeInOut", delay: 4 }}
-                />
+            {/* Full Width Animated SVG Clouds Base */}
+            <div className="absolute bottom-0 left-0 w-full h-[250px] md:h-[350px] pointer-events-none z-30 overflow-hidden">
+                
+                {/* SVG Cloud Definition (Reused) */}
+                <svg width="0" height="0" className="absolute">
+                    <defs>
+                        <path id="cloud-path" d="M 0 100 C 0 70, 20 60, 40 65 C 45 35, 80 20, 100 40 C 130 10, 170 30, 170 60 C 190 60, 200 75, 200 100 Z" />
+                    </defs>
+                </svg>
 
-                {/* Bottom Anchor Gradient to merge with the next section smoothly */}
-                <div className="absolute bottom-0 w-full h-[80px] bg-gradient-to-t from-[#0a0f1c] to-transparent z-20 opacity-30"></div>
+                {/* Back Layer - Emerald Tinted Clouds */}
+                <motion.div 
+                    className="absolute -bottom-4 left-[-20%] w-[140%] flex text-emerald-100/60 drop-shadow-xl"
+                    animate={{ x: ["0%", "-20%"] }}
+                    transition={{ duration: 25, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
+                >
+                    <svg viewBox="0 0 200 100" className="w-1/3 h-auto fill-current" preserveAspectRatio="none"><use href="#cloud-path" /></svg>
+                    <svg viewBox="0 0 200 100" className="w-1/3 h-auto fill-current" preserveAspectRatio="none"><use href="#cloud-path" /></svg>
+                    <svg viewBox="0 0 200 100" className="w-1/3 h-auto fill-current" preserveAspectRatio="none"><use href="#cloud-path" /></svg>
+                    <svg viewBox="0 0 200 100" className="w-1/3 h-auto fill-current" preserveAspectRatio="none"><use href="#cloud-path" /></svg>
+                </motion.div>
+
+                {/* Middle Layer - Teal Tinted Clouds */}
+                <motion.div 
+                    className="absolute -bottom-8 left-[-30%] w-[160%] flex text-teal-100/80 drop-shadow-2xl"
+                    animate={{ x: ["-10%", "10%"] }}
+                    transition={{ duration: 20, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
+                >
+                    <svg viewBox="0 0 200 100" className="w-1/4 h-auto fill-current" preserveAspectRatio="none"><use href="#cloud-path" /></svg>
+                    <svg viewBox="0 0 200 100" className="w-1/4 h-auto fill-current transform scale-x-[-1]" preserveAspectRatio="none"><use href="#cloud-path" /></svg>
+                    <svg viewBox="0 0 200 100" className="w-1/4 h-auto fill-current" preserveAspectRatio="none"><use href="#cloud-path" /></svg>
+                    <svg viewBox="0 0 200 100" className="w-1/4 h-auto fill-current transform scale-x-[-1]" preserveAspectRatio="none"><use href="#cloud-path" /></svg>
+                </motion.div>
+
+                {/* Front Layer - Pure White Clouds */}
+                <motion.div 
+                    className="absolute -bottom-10 left-[-10%] w-[120%] flex text-white drop-shadow-[0_-5px_15px_rgba(0,0,0,0.05)]"
+                    animate={{ x: ["0%", "-10%"] }}
+                    transition={{ duration: 15, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
+                >
+                    <svg viewBox="0 0 200 100" className="w-1/3 h-auto fill-current" preserveAspectRatio="none"><use href="#cloud-path" /></svg>
+                    <svg viewBox="0 0 200 100" className="w-1/3 h-auto fill-current transform scale-x-[-1]" preserveAspectRatio="none"><use href="#cloud-path" /></svg>
+                    <svg viewBox="0 0 200 100" className="w-1/3 h-auto fill-current" preserveAspectRatio="none"><use href="#cloud-path" /></svg>
+                </motion.div>
+
+                {/* Solid White Base Floor to eliminate bottom gaps */}
+                <div className="absolute -bottom-1 w-full h-[40px] bg-white z-20"></div>
+                <div className="absolute bottom-0 w-full h-[60px] bg-gradient-to-t from-[#0a0f1c]/10 to-transparent z-20"></div>
             </div>
         </section>
     );
