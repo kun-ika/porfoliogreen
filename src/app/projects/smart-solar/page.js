@@ -23,7 +23,7 @@ const SectionHeader = ({ title, subtitle }) => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
     >
-        <h2 className="text-[40px] md:text-[60px] font-[700] text-slate-900 leading-[1] font-[family-name:var(--font-headline)] tracking-tight mb-4 uppercase">
+        <h2 className="text-[40px] md:text-[60px] font-[700] text-slate-900 leading-[1] font-[family-name:var(--font-headline)] tracking-[0.05em] mb-4 uppercase">
             {title}
         </h2>
         {subtitle && <p className="text-lg text-slate-500 font-medium tracking-wide">{subtitle}</p>}
@@ -69,7 +69,7 @@ const SmartSolarPage = () => {
                     <div className="inline-block px-4 py-2 bg-teal-50 border border-teal-100 rounded-full text-teal-600 font-bold tracking-[0.2em] text-xs uppercase mb-4">
                         INTERNET OF THINGS
                     </div>
-                    <h1 className="text-[60px] md:text-[90px] lg:text-[110px] leading-[0.85] font-[700] text-slate-950 font-[family-name:var(--font-headline)] tracking-tighter uppercase">
+                    <h1 className="text-[60px] md:text-[90px] lg:text-[110px] leading-[0.85] font-[700] text-slate-950 font-[family-name:var(--font-headline)] tracking-[0.05em] uppercase">
                         SMART SOLAR<br/>
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500">GRASS CUTTER</span>
                     </h1>
