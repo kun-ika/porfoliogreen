@@ -120,7 +120,13 @@ const FeaturedProjects = () => {
                     {/* Project Cards */}
                     {featuredProjects.map((p) => (
                         <div key={p.id} className="flex-shrink-0 w-[85vw] md:w-[700px] h-[60vh] md:h-[70vh]">
-                            <FeaturedCard project={p} />
+                            {p.id === "smart-solar" ? (
+                                <Link href="/projects/smart-solar">
+                                    <FeaturedCard project={p} />
+                                </Link>
+                            ) : (
+                                <FeaturedCard project={p} />
+                            )}
                         </div>
                     ))}
 

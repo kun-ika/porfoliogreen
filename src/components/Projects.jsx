@@ -3,6 +3,7 @@ import React, { useRef } from 'react';
 import { ExternalLink, MonitorPlay, Layers, FileText, LayoutTemplate, Box } from 'lucide-react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 
 const projects = [
     {
@@ -13,6 +14,7 @@ const projects = [
         tags: ["Arduino", "IoT", "C++", "Sensors"],
         icon: <Box size={28} className="text-teal-600" />,
         image: "/projects/robot.jpeg",
+        link: "/projects/smart-solar",
         description: "An autonomous solar-powered grass cutter reducing manual effort via ultrasonic sensors and Bluetooth control."
     },
     {
@@ -139,13 +141,25 @@ const ProjectCard = ({ project }) => {
                 </div>
 
                 <div className="w-full pt-4 border-t border-slate-100/50" style={{ transform: "translateZ(20px)" }}>
-                    <motion.button 
-                        whileHover={{ scale: 1.05 }}
-                        whileTap={{ scale: 0.95 }}
-                        className="w-full flex items-center justify-center gap-2 py-2.5 bg-gradient-to-r from-teal-500 to-emerald-500 text-white font-bold rounded-lg shadow-md hover:shadow-lg transition-shadow"
-                    >
-                        <ExternalLink size={18} /> View Project
-                    </motion.button>
+                    {project.link ? (
+                        <Link href={project.link} className="w-full block">
+                            <motion.button 
+                                whileHover={{ scale: 1.05 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="w-full flex items-center justify-center gap-2 py-2.5 bg-gradient-to-r from-teal-500 to-emerald-500 text-white font-bold rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                            >
+                                <ExternalLink size={18} /> View Project
+                            </motion.button>
+                        </Link>
+                    ) : (
+                        <motion.button 
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="w-full flex items-center justify-center gap-2 py-2.5 bg-gradient-to-r from-teal-500 to-emerald-500 text-white font-bold rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                        >
+                            <ExternalLink size={18} /> View Project
+                        </motion.button>
+                    )}
                 </div>
             </div>
 
