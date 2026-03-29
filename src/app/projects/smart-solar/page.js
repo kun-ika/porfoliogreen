@@ -126,7 +126,7 @@ const SmartSolarPage = () => {
                         </p>
                     </div>
                     <motion.div 
-                        className="rounded-[40px] overflow-hidden border-4 border-white shadow-2xl bg-white"
+                        className="relative aspect-[4/3] rounded-[40px] overflow-hidden border-4 border-white shadow-2xl bg-white"
                         variants={fadeIn}
                         initial="hidden"
                         whileInView="visible"
@@ -135,9 +135,8 @@ const SmartSolarPage = () => {
                         <Image 
                             src="/projects/smart-solar/mind-mapping.png" 
                             alt="Mind Mapping" 
-                            width={1200} 
-                            height={800} 
-                            className="w-full h-auto"
+                            fill 
+                            className="object-cover"
                         />
                     </motion.div>
                 </div>
@@ -145,7 +144,7 @@ const SmartSolarPage = () => {
                 {/* 5. Product Lifecycle */}
                 <div className="grid grid-cols-1 lg:grid-cols-[1fr_0.8fr] gap-12 items-center">
                     <motion.div 
-                        className="rounded-[40px] overflow-hidden border-4 border-white shadow-2xl bg-white order-2 lg:order-1"
+                        className="relative aspect-[4/3] rounded-[40px] overflow-hidden border-4 border-white shadow-2xl bg-white order-2 lg:order-1"
                         variants={fadeIn}
                         initial="hidden"
                         whileInView="visible"
@@ -154,9 +153,8 @@ const SmartSolarPage = () => {
                         <Image 
                             src="/projects/smart-solar/lifecycle.png" 
                             alt="Product Lifecycle" 
-                            width={1200} 
-                            height={800} 
-                            className="w-full h-auto"
+                            fill 
+                            className="object-cover"
                         />
                     </motion.div>
                     <div className="flex flex-col gap-6 order-1 lg:order-2">
@@ -176,7 +174,7 @@ const SmartSolarPage = () => {
                         </p>
                     </div>
                     <motion.div 
-                        className="rounded-[40px] overflow-hidden border-4 border-white shadow-2xl bg-white"
+                        className="relative aspect-[4/3] rounded-[40px] overflow-hidden border-4 border-white shadow-2xl bg-white"
                         variants={fadeIn}
                         initial="hidden"
                         whileInView="visible"
@@ -185,9 +183,8 @@ const SmartSolarPage = () => {
                         <Image 
                             src="/projects/smart-solar/problem-analysis.png" 
                             alt="Problem Analysis" 
-                            width={1200} 
-                            height={800} 
-                            className="w-full h-auto"
+                            fill 
+                            className="object-cover"
                         />
                     </motion.div>
                 </div>
