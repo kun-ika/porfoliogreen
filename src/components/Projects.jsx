@@ -44,6 +44,7 @@ const projects = [
         type: "Web Development",
         tags: ["HTML", "CSS", "JS"],
         icon: <FileText size={28} className="text-teal-600" />,
+        image: "/projects/gutenberg.jpg",
         description: "Redesigned the Gutenberg website to improve navigation, accessibility, and overall responsiveness."
     }
 ];
