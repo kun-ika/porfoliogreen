@@ -49,13 +49,13 @@ const Footer = () => {
                         viewport={{ once: true, amount: 0.3 }}
                         transition={{ delay: 0.2 }}
                     >
-                        <a 
-                            href="mailto:jainkunika91@gmail.com"
+                        <Link 
+                            href="/contact"
                             className="inline-flex items-center gap-4 text-xl md:text-3xl font-bold pb-2 border-b-2 border-teal-500/30 hover:border-teal-400 transition-colors group text-slate-300 hover:text-white"
                         >
                             Let's build it together 
                             <ArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform text-teal-400" size={32} />
-                        </a>
+                        </Link>
                     </motion.div>
                 </div>
 
