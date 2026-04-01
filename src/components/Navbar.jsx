@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar = () => {
     const pathname = usePathname();
@@ -38,7 +38,7 @@ const Navbar = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.2 }}
         >
-            <div className={`w-full max-w-5xl pointer-events-auto bg-teal-800/95 backdrop-blur-md border border-white/10 shadow-2xl rounded-full px-8 py-2.5 flex items-center justify-between transition-all duration-300 ${isScrolled ? 'translate-y-0 shadow-teal-900/10' : '-translate-y-1'}`}>
+            <div className={`w-full max-w-5xl pointer-events-auto bg-teal-800/90 backdrop-blur-lg border border-white/20 shadow-2xl rounded-full px-5 md:px-8 py-2.5 flex items-center justify-between transition-all duration-300 ${isScrolled ? 'translate-y-0 shadow-teal-900/20' : '-translate-y-1'}`}>
                 {/* Logo */}
                 <Link href="/" className="flex-shrink-0 text-xl font-bold font-heading text-white tracking-tighter">
                     KJ<span className="text-teal-400">.</span>
@@ -99,47 +99,65 @@ const Navbar = () => {
             </div>
 
             {/* Mobile Menu Dropdown */}
-            {isMobileMenuOpen && (
-                <div className="md:hidden pointer-events-auto absolute top-[calc(100%+16px)] left-4 right-4 bg-teal-800/95 backdrop-blur-md border border-white/10 rounded-3xl shadow-2xl overflow-hidden animate-fade-in-up">
-                    <div className="flex flex-col py-4 px-6">
-                        {navLinks.map((link) => {
-                            const isActive = pathname === link.href;
-                            if (link.isExternal) {
+            <AnimatePresence>
+                {isMobileMenuOpen && (
+                    <motion.div 
+                        initial={{ opacity: 0, y: -20, scale: 0.95 }}
+                        animate={{ opacity: 1, y: 0, scale: 1 }}
+                        exit={{ opacity: 0, y: -20, scale: 0.95 }}
+                        transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
+                        className="md:hidden pointer-events-auto absolute top-[calc(100%+12px)] left-4 right-4 bg-teal-900/95 backdrop-blur-xl border border-white/10 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] overflow-hidden z-50"
+                    >
+                        <div className="flex flex-col py-6 px-8">
+                            {navLinks.map((link, idx) => {
+                                const isActive = pathname === link.href;
                                 return (
-                                    <a
+                                    <motion.div
                                         key={link.name}
-                                        href={link.href}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="py-3.5 font-medium text-lg border-b border-white/10 last:border-0 text-white/80"
-                                        onClick={() => setIsMobileMenuOpen(false)}
+                                        initial={{ opacity: 0, x: -10 }}
+                                        animate={{ opacity: 1, x: 0 }}
+                                        transition={{ delay: idx * 0.05 }}
                                     >
-                                        {link.name}
-                                    </a>
+                                        {link.isExternal ? (
+                                            <a
+                                                href={link.href}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="py-4 font-bold text-xl border-b border-white/5 last:border-0 text-white/70 hover:text-white block"
+                                                onClick={() => setIsMobileMenuOpen(false)}
+                                            >
+                                                {link.name}
+                                            </a>
+                                        ) : (
+                                            <Link
+                                                href={link.href}
+                                                className={`py-4 font-bold text-xl border-b border-white/5 last:border-0 block transition-colors ${isActive ? 'text-teal-400' : 'text-white/70 hover:text-white'
+                                                    }`}
+                                                onClick={() => setIsMobileMenuOpen(false)}
+                                            >
+                                                {link.name}
+                                            </Link>
+                                        )}
+                                    </motion.div>
                                 );
-                            }
-                            return (
+                            })}
+                            <motion.div
+                                initial={{ opacity: 0, scale: 0.9 }}
+                                animate={{ opacity: 1, scale: 1 }}
+                                transition={{ delay: 0.3 }}
+                            >
                                 <Link
-                                    key={link.name}
-                                    href={link.href}
-                                    className={`py-3.5 font-medium text-lg border-b border-white/10 last:border-0 ${isActive ? 'text-teal-300' : 'text-white/80'
-                                        }`}
+                                    href="/contact"
+                                    className="mt-8 mb-2 text-center bg-white text-teal-950 py-4 rounded-full font-black text-lg transition-transform hover:scale-[1.02] active:scale-95 shadow-xl block"
                                     onClick={() => setIsMobileMenuOpen(false)}
                                 >
-                                    {link.name}
+                                    Contact Me
                                 </Link>
-                            );
-                        })}
-                        <Link
-                            href="/contact"
-                            className="mt-5 mb-2 text-center bg-white text-teal-800 py-3.5 rounded-full font-bold transition-colors hover:bg-teal-50 shadow-sm"
-                            onClick={() => setIsMobileMenuOpen(false)}
-                        >
-                            Contact Me
-                        </Link>
-                    </div>
-                </div>
-            )}
+                            </motion.div>
+                        </div>
+                    </motion.div>
+                )}
+            </AnimatePresence>
         </motion.nav>
     );
 };

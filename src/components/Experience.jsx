@@ -56,7 +56,7 @@ const ExperienceCard = ({ type, title, subtitle, date, location, description, gr
             whileInView={{ opacity: 1, y: 0, rotateX: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ type: "spring", stiffness: 60, damping: 20 }}
-            className={`group relative overflow-hidden rounded-[40px] bg-white border-2 border-slate-100/60 hover:${borderHover} p-8 md:p-12 shadow-sm hover:shadow-2xl transition-all duration-500 w-full cursor-default`}
+            className={`group relative overflow-hidden rounded-[30px] md:rounded-[40px] bg-white border-2 border-slate-100/60 hover:${borderHover} p-6 sm:p-8 md:p-12 shadow-sm hover:shadow-2xl transition-all duration-500 w-full cursor-default`}
         >
             {/* Absolute Glow Background */}
             <div className={`absolute -right-20 -top-20 w-64 h-64 bg-gradient-to-br ${gradient} opacity-0 group-hover:opacity-10 rounded-full blur-[50px] transition-opacity duration-700`}></div>
@@ -129,7 +129,7 @@ const Experience = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
                 >
-                    <h2 className="text-[60px] md:text-[80px] lg:text-[100px] leading-[0.9] font-[700] text-slate-950 mb-6 font-[family-name:var(--font-headline)] tracking-[0.05em] uppercase">
+                    <h2 className="text-[40px] sm:text-[60px] md:text-[80px] lg:text-[100px] font-black leading-[0.95] text-slate-950 mb-6 font-[family-name:var(--font-headline)] tracking-widest uppercase">
                         MY <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500">JOURNEY</span>
                     </h2>
                     <p className="text-lg md:text-xl text-slate-600 max-w-3xl font-medium leading-[1.6]">

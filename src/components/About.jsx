@@ -191,11 +191,11 @@ const About = () => {
                             >
                                 <motion.h1
                                     variants={slideUp}
-                                    className="text-[100px] md:text-[140px] lg:text-[160px] leading-[0.85] font-[700] text-slate-950 mb-6 font-[family-name:var(--font-headline)] tracking-tight"
+                                    className="text-[60px] sm:text-[90px] md:text-[120px] lg:text-[160px] leading-[0.85] font-black text-slate-950 mb-6 font-[family-name:var(--font-headline)] tracking-tight uppercase"
                                 >
                                     ABOUT ME
                                 </motion.h1>
-                                <motion.h2 variants={slideUp} className="text-3xl md:text-4xl font-[400] uppercase text-slate-800 mb-8 font-[family-name:var(--font-headline)]">
+                                <motion.h2 variants={slideUp} className="text-2xl sm:text-3xl md:text-4xl font-medium uppercase text-slate-800 mb-8 font-[family-name:var(--font-headline)] tracking-wider">
                                     KUNIKA JAIN
                                 </motion.h2>
                                 <motion.div variants={slideUp} className="text-lg md:text-xl text-slate-700 leading-[1.6] font-[400] max-w-xl mb-12">
@@ -227,7 +227,7 @@ const About = () => {
                             >
                                 <motion.h3
                                     variants={slideUp}
-                                    className="text-[50px] md:text-[70px] lg:text-[80px] leading-[0.9] font-[700] text-slate-950 mb-6 font-[family-name:var(--font-headline)] tracking-tight"
+                                    className="text-[40px] sm:text-[60px] md:text-[75px] lg:text-[85px] leading-[0.9] font-black text-slate-950 mb-6 font-[family-name:var(--font-headline)] tracking-tight uppercase"
                                 >
                                     WHAT I CAN DO<br />FOR YOU
                                 </motion.h3>
@@ -261,7 +261,7 @@ const About = () => {
                             >
                                 <motion.h3
                                     variants={slideUp}
-                                    className="text-[50px] md:text-[70px] lg:text-[80px] leading-[0.9] font-[700] text-slate-950 mb-6 font-[family-name:var(--font-headline)] tracking-tight"
+                                    className="text-[40px] sm:text-[60px] md:text-[75px] lg:text-[85px] leading-[0.9] font-black text-slate-950 mb-6 font-[family-name:var(--font-headline)] tracking-tight uppercase"
                                 >
                                     MY TECH STACK
                                 </motion.h3>
@@ -347,9 +347,9 @@ const About = () => {
                         >
                             <motion.h3
                                 variants={slideUp}
-                                className="text-[60px] md:text-[80px] lg:text-[100px] leading-[0.9] font-[700] text-slate-950 mb-6 font-[family-name:var(--font-headline)] max-w-[800px] tracking-tight"
+                                className="text-[45px] sm:text-[65px] md:text-[85px] lg:text-[100px] leading-[0.95] font-black text-slate-950 mb-6 font-[family-name:var(--font-headline)] max-w-[900px] tracking-tight uppercase"
                             >
-                                DESIGN WITH STRATEGY AND CREATIVITY
+                                DESIGN WITH STRATEGY & CREATIVITY
                             </motion.h3>
                             <motion.p variants={slideUp} className="text-lg md:text-xl text-slate-700 leading-[1.6] max-w-2xl">
                                 My process blends strategy and creativity to address challenges, craft solutions, and deliver designs that effectively communicate your message.
@@ -401,7 +401,7 @@ const About = () => {
                             transition={{ duration: 0.8 }}
                             className="flex flex-col items-start w-full mb-8"
                         >
-                            <h3 className="text-[60px] md:text-[80px] lg:text-[100px] leading-[0.9] font-[700] text-slate-950 mb-6 font-[family-name:var(--font-headline)] tracking-tighter">
+                            <h3 className="text-[45px] sm:text-[65px] md:text-[85px] lg:text-[100px] leading-[0.9] font-black text-slate-950 mb-6 font-[family-name:var(--font-headline)] tracking-tighter uppercase">
                                 LET'S WORK TOGETHER
                             </h3>
                             <p className="text-base md:text-lg text-slate-700 leading-[1.6] max-w-xl">

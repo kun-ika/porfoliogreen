@@ -121,7 +121,7 @@ const Skills = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
                 >
-                    <h2 className="text-[60px] md:text-[80px] lg:text-[100px] leading-[0.9] font-[700] text-slate-950 mb-6 font-[family-name:var(--font-headline)] tracking-tighter">
+                    <h2 className="text-[40px] sm:text-[60px] md:text-[80px] lg:text-[100px] leading-[0.9] font-black text-slate-950 mb-6 font-[family-name:var(--font-headline)] tracking-tighter uppercase">
                         MY <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500">EXPERTISE</span>
                     </h2>
                 </motion.div>

@@ -53,7 +53,7 @@ const HomeExpertise = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
                 >
-                    <h2 className="text-[50px] md:text-[70px] lg:text-[90px] leading-[0.9] font-[700] text-slate-950 mb-6 font-[family-name:var(--font-headline)] tracking-tighter">
+                    <h2 className="text-[40px] sm:text-[60px] md:text-[65px] lg:text-[75px] xl:text-[90px] leading-[0.95] font-black text-slate-950 mb-6 font-[family-name:var(--font-headline)] tracking-tighter uppercase">
                         MY <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500">EXPERTISE</span>
                     </h2>
                     <p className="text-lg md:text-xl text-slate-500 max-w-2xl font-medium leading-[1.6]">

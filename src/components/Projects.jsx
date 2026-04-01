@@ -174,7 +174,7 @@ const Projects = () => {
                     viewport={{ once: true, amount: 0.5 }}
                     transition={{ duration: 0.6 }}
                 >
-                    <h2 className="text-[50px] md:text-[70px] lg:text-[90px] leading-[0.9] font-[700] text-slate-900 mb-6 font-[family-name:var(--font-headline)] tracking-[0.05em] uppercase">
+                    <h2 className="text-[35px] sm:text-[50px] md:text-[65px] lg:text-[85px] leading-[1] font-black text-slate-900 mb-6 font-[family-name:var(--font-headline)] tracking-widest uppercase">
                         MY FEATURED <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500">PROJECTS</span>
                     </h2>
                     <div className="w-24 h-1 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-full"></div>

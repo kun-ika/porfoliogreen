@@ -80,7 +80,7 @@ const FeaturedCard = ({ project }) => {
                     </div>
                     <span className="text-teal-400 font-mono text-sm tracking-wider uppercase">{project.category}</span>
                 </div>
-                <h3 className="text-4xl md:text-5xl lg:text-6xl font-[700] text-white font-[family-name:var(--font-headline)] tracking-wider leading-none mb-2">
+                <h3 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-white font-[family-name:var(--font-headline)] tracking-wider leading-[1.1] mb-2">
                     {project.title}
                 </h3>
             </div>
@@ -103,8 +103,8 @@ const FeaturedProjects = () => {
                 <motion.div style={{ x }} className="flex gap-12 md:gap-24 px-12 md:px-32 items-center">
                     
                     {/* Big Heading inside the slider */}
-                    <div className="flex-shrink-0 flex items-center justify-start w-[80vw] md:w-[60vw]">
-                        <h2 className="text-[120px] md:text-[200px] lg:text-[250px] font-[700] font-[family-name:var(--font-headline)] leading-[0.8] tracking-tighter uppercase">
+                    <div className="flex-shrink-0 flex items-center justify-start w-[85vw] md:w-[60vw]">
+                        <h2 className="text-[100px] sm:text-[140px] md:text-[160px] lg:text-[180px] xl:text-[220px] font-black font-[family-name:var(--font-headline)] leading-[0.85] tracking-tighter uppercase whitespace-nowrap md:whitespace-normal">
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-emerald-500">MY</span><br/>
                             <span className="text-white">WORK</span>
                         </h2>
@@ -112,7 +112,7 @@ const FeaturedProjects = () => {
 
                     {/* Project Cards */}
                     {featuredProjects.map((p) => (
-                        <div key={p.id} className="flex-shrink-0 w-[85vw] md:w-[700px] h-[60vh] md:h-[70vh]">
+                        <div key={p.id} className="flex-shrink-0 w-[85vw] md:w-[650px] lg:w-[550px] xl:w-[650px] h-[60vh] md:h-[65vh] lg:h-[60vh] xl:h-[70vh]">
                             {p.id === "smart-solar" ? (
                                 <Link href="/projects/smart-solar">
                                     <FeaturedCard project={p} />

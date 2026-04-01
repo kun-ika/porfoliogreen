@@ -32,7 +32,7 @@ const Contact = () => {
                         transition={{ duration: 0.8 }}
                         className="flex flex-col items-start w-full mb-8"
                     >
-                        <h3 className="text-[60px] md:text-[80px] lg:text-[100px] leading-[0.9] font-[700] text-slate-950 mb-6 font-[family-name:var(--font-headline)] tracking-tighter">
+                        <h3 className="text-[45px] sm:text-[65px] md:text-[85px] lg:text-[100px] leading-[0.9] font-black text-slate-950 mb-6 font-[family-name:var(--font-headline)] tracking-tighter uppercase">
                             LET'S WORK TOGETHER
                         </h3>
                         <p className="text-base md:text-lg text-slate-700 leading-[1.6] max-w-xl">

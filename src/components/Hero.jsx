@@ -17,23 +17,21 @@ const Hero = () => {
     });
 
     // 1. Image Entrance (0% to 1.0% scroll)
-    // Moving purely from bottom to its final grounded position
-    const imageY = useTransform(smoothProgress, [0, 0.8], ["80vh", "50vh"]);
-    const imageScale = useTransform(smoothProgress, [0, 0.8], [1.5, 2.5]);
+    const imageY = useTransform(smoothProgress, [0, 0.8], ["65vh", "40vh"]);
+    const imageScale = useTransform(smoothProgress, [0, 0.8], [1.2, 1.8]);
     const imageOpacity = useTransform(smoothProgress, [0, 0.15], [0, 1]);
     
     // 2. Text Content Reveal (0.4 to 0.85 scroll)
     const leftTextOpacity = useTransform(smoothProgress, [0.35, 0.65], [0, 1]);
-    const leftTextX = useTransform(smoothProgress, [0.35, 0.65], [-80, 0]);
+    const leftTextX = useTransform(smoothProgress, [0.35, 0.65], [-50, 0]);
     
     const rightTextOpacity = useTransform(smoothProgress, [0.45, 0.75], [0, 1]);
-    const rightTextX = useTransform(smoothProgress, [0.45, 0.75], [80, 0]);
+    const rightTextX = useTransform(smoothProgress, [0.45, 0.75], [50, 0]);
     
-    // 3. Decorative Background Text (0.4 to 1.0 scroll)
-    // Highlighted more as requested
-    const bgTextOpacity = useTransform(smoothProgress, [0.3, 0.6], [0, 1]);
-    const bgTextScale = useTransform(smoothProgress, [0.3, 1], [0.85, 1.15]);
-    const bgTextY = useTransform(smoothProgress, [0.3, 1], [30, -80]);
+    // 3. Decorative Background Text (0 to 1.0 scroll)
+    const bgTextOpacity = useTransform(smoothProgress, [0, 0.4], [0.08, 0.15]);
+    const bgTextScale = useTransform(smoothProgress, [0, 1], [0.95, 1.15]);
+    const bgTextY = useTransform(smoothProgress, [0, 1], [10, -50]);
 
     // Background dot pattern Reveal
     const gridOpacity = useTransform(smoothProgress, [0, 0.4], [0, 0.4]);
@@ -87,10 +85,10 @@ const Hero = () => {
                     className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden"
                     style={{ opacity: bgTextOpacity, scale: bgTextScale, y: bgTextY }}
                 >
-                    <h2 className="text-[25vw] font-black select-none leading-none tracking-tighter"
+                    <h2 className="text-[30vw] md:text-[25vw] font-black select-none leading-none tracking-tighter"
                         style={{ 
                             color: 'transparent',
-                            WebkitTextStroke: '1.5px rgba(13, 148, 136, 0.15)', 
+                            WebkitTextStroke: '1px md:1.5px rgba(13, 148, 136, 0.12)', 
                         }}
                     >
                         KUNIKA
@@ -101,7 +99,7 @@ const Hero = () => {
                 {floatingSkills.map((skill) => (
                     <motion.div
                         key={skill.id}
-                        className="absolute w-14 h-14 md:w-24 md:h-24 rounded-[2rem] bg-white/20 backdrop-blur-md border border-white/40 shadow-xl flex items-center justify-center p-4 md:p-6 z-10 pointer-events-none"
+                        className="absolute w-14 h-14 md:w-20 lg:w-16 xl:w-20 rounded-[1.5rem] md:rounded-[2rem] bg-white/20 backdrop-blur-md border border-white/40 shadow-xl flex items-center justify-center p-3 md:p-4 lg:p-3 xl:p-5 z-10 pointer-events-none"
                         animate={{ 
                             y: [0, -10, 0],
                             rotate: [0, skill.id % 2 === 0 ? 5 : -5, 0]
@@ -128,10 +126,10 @@ const Hero = () => {
                     
                     {/* Left Side: Heading & Email */}
                     <motion.div 
-                        className="w-full md:w-1/3 flex flex-col justify-center items-center md:items-start text-center md:text-left z-20 order-2 md:order-1"
-                        style={{ opacity: leftTextOpacity, x: leftTextX }}
+                        className="w-full md:w-1/3 flex flex-col justify-center items-center md:items-start text-center md:text-left z-20 order-2 md:order-1 mt-auto md:mt-0 pb-12 md:pb-0"
+                        style={{ opacity: leftTextOpacity, x: { base: 0, md: leftTextX } }}
                     >
-                        <h1 className="text-5xl md:text-6xl lg:text-7xl font-extrabold text-slate-800 tracking-tight leading-[1.05] mb-6">
+                        <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-slate-800 tracking-tight leading-[1.1] mb-6">
                             Hey There, <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500">I'm Kunika</span>
                         </h1>
@@ -140,7 +138,7 @@ const Hero = () => {
                             href="mailto:jainkunika91@gmail.com"
                             whileHover={{ scale: 1.05, originX: 0 }}
                             whileTap={{ scale: 0.95 }}
-                            className="text-teal-600 font-semibold text-lg hover:text-emerald-700 transition-colors inline-block relative border-b-2 border-transparent hover:border-emerald-600 pb-1"
+                            className="text-teal-600 font-bold text-base md:text-lg lg:text-base xl:text-lg hover:text-emerald-700 transition-colors inline-block relative border-b-2 border-transparent hover:border-emerald-600 pb-1"
                         >
                             jainkunika91@gmail.com
                         </motion.a>
@@ -200,7 +198,7 @@ const Hero = () => {
                         className="w-full md:w-1/3 flex flex-col justify-center items-center md:items-end text-center md:text-right z-20 order-3 md:pl-8"
                         style={{ opacity: rightTextOpacity, x: rightTextX }}
                     >
-                        <p className="text-slate-600 text-lg md:text-xl max-w-[260px] font-medium leading-relaxed">
+                        <p className="text-slate-600 text-lg md:text-lg lg:text-base xl:text-lg max-w-[240px] md:max-w-[260px] font-medium leading-relaxed">
                             I design simple, intuitive, and engaging digital experiences.
                         </p>
                         <motion.div

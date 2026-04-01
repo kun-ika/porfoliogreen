@@ -24,8 +24,8 @@ const Footer = () => {
             {/* Massive Background Typography */}
             <div className="absolute top-1/2 left-0 w-full -translate-y-1/2 pointer-events-none overflow-hidden select-none flex justify-center opacity-5">
                 <h1 
-                    className="text-[150px] md:text-[250px] lg:text-[400px] font-[900] leading-none font-[family-name:var(--font-headline)] tracking-tighter" 
-                    style={{ WebkitTextStroke: '3px white', color: 'transparent' }}
+                    className="text-[120px] sm:text-[180px] md:text-[250px] lg:text-[350px] font-black leading-none font-[family-name:var(--font-headline)] tracking-tighter" 
+                    style={{ WebkitTextStroke: '1px sm:2px white', color: 'transparent' }}
                 >
                     KUNIKA
                 </h1>
@@ -39,7 +39,7 @@ const Footer = () => {
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.3 }}
-                        className="text-5xl md:text-7xl lg:text-8xl font-black mb-8 leading-[1.1] tracking-widest font-[family-name:var(--font-headline)]"
+                        className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black mb-8 leading-[1.1] tracking-widest font-[family-name:var(--font-headline)] uppercase"
                     >
                         HAVE AN <br/><span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 to-emerald-400">IDEA?</span>
                     </motion.h2>
