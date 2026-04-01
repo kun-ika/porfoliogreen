@@ -16,28 +16,45 @@ const Hero = () => {
         restDelta: 0.001
     });
 
-    // 1. Image Entrance (0% to 40% scroll)
-    // Starting slightly lower (300px) and settling at 120px to clear the navbar
-    const imageY = useTransform(smoothProgress, [0, 0.4], [300, 120]);
-    const imageScale = useTransform(smoothProgress, [0, 0.5], [1.3, 1.6]);
+    // 1. Image Entrance (0% to 1.0% scroll)
+    // Moving purely from bottom to its final grounded position
+    const imageY = useTransform(smoothProgress, [0, 0.8], ["80vh", "50vh"]);
+    const imageScale = useTransform(smoothProgress, [0, 0.8], [1.5, 2.5]);
+    const imageOpacity = useTransform(smoothProgress, [0, 0.15], [0, 1]);
     
-    // 2. Text Content Reveal (40% to 85% scroll)
-    const leftTextOpacity = useTransform(smoothProgress, [0.4, 0.8], [0, 1]);
-    const leftTextX = useTransform(smoothProgress, [0.4, 0.8], [-100, 0]);
+    // 2. Text Content Reveal (0.4 to 0.85 scroll)
+    const leftTextOpacity = useTransform(smoothProgress, [0.35, 0.65], [0, 1]);
+    const leftTextX = useTransform(smoothProgress, [0.35, 0.65], [-80, 0]);
     
-    const rightTextOpacity = useTransform(smoothProgress, [0.5, 0.9], [0, 1]);
-    const rightTextX = useTransform(smoothProgress, [0.5, 0.9], [100, 0]);
+    const rightTextOpacity = useTransform(smoothProgress, [0.45, 0.75], [0, 1]);
+    const rightTextX = useTransform(smoothProgress, [0.45, 0.75], [80, 0]);
     
+    // 3. Decorative Background Text (0.4 to 1.0 scroll)
+    // Highlighted more as requested
+    const bgTextOpacity = useTransform(smoothProgress, [0.3, 0.6], [0, 1]);
+    const bgTextScale = useTransform(smoothProgress, [0.3, 1], [0.85, 1.15]);
+    const bgTextY = useTransform(smoothProgress, [0.3, 1], [30, -80]);
+
+    // Background dot pattern Reveal
+    const gridOpacity = useTransform(smoothProgress, [0, 0.4], [0, 0.4]);
+
     // Description underline animation
     const underlineScaleX = useTransform(smoothProgress, [0.7, 0.9], [0, 1]);
 
-    const containerVariants = {
-        hidden: { opacity: 0 },
-        visible: {
-            opacity: 1,
-            transition: { delay: 0.3 }
-        }
-    };
+    const floatingSkills = [
+        { id: 1, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/react/react-original.svg", x: "8%", yOff: "0%" },
+        { id: 2, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg", x: "22%", yOff: "8%" },
+        { id: 3, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg", x: "36%", yOff: "-5%" },
+        { id: 4, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nodejs/nodejs-original.svg", x: "50%", yOff: "12%" },
+        { id: 5, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/tailwindcss/tailwindcss-original.svg", x: "64%", yOff: "-2%" },
+        { id: 6, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg", x: "78%", yOff: "10%" },
+        { id: 7, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg", x: "92%", yOff: "0%" },
+        { id: 8, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg", x: "15%", yOff: "18%" },
+        { id: 9, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg", x: "30%", yOff: "22%" },
+        { id: 10, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg", x: "70%", yOff: "20%" },
+        { id: 11, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/java/java-original.svg", x: "85%", yOff: "18%" },
+        { id: 12, icon: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/canva/canva-original.svg", x: "45%", yOff: "25%" },
+    ];
 
     return (
         <section 
@@ -47,13 +64,65 @@ const Hero = () => {
             style={{ backgroundColor: '#FAF9F6' }}
         >
             {/* Sticky Wrapper */}
-            <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden">
+            <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden bg-[#FAF9F6]">
                 
+                {/* Subtle Dot Grid Background */}
+                <motion.div 
+                    className="absolute inset-0 pointer-events-none z-0"
+                    style={{ 
+                        opacity: gridOpacity,
+                        backgroundImage: 'radial-gradient(#cbd5e1 1px, transparent 1px)',
+                        backgroundSize: '60px 60px',
+                    }}
+                ></motion.div>
+
                 {/* Subtle Gradient Background */}
                 <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
                     <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-teal-100 rounded-full blur-[100px] opacity-40"></div>
                     <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-emerald-100 rounded-full blur-[120px] opacity-30"></div>
                 </div>
+
+                {/* Massive Outline Background Text */}
+                <motion.div 
+                    className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden"
+                    style={{ opacity: bgTextOpacity, scale: bgTextScale, y: bgTextY }}
+                >
+                    <h2 className="text-[25vw] font-black select-none leading-none tracking-tighter"
+                        style={{ 
+                            color: 'transparent',
+                            WebkitTextStroke: '1.5px rgba(13, 148, 136, 0.15)', 
+                        }}
+                    >
+                        KUNIKA
+                    </h2>
+                </motion.div>
+
+                {/* Bottom Horizontal Skill Cloud */}
+                {floatingSkills.map((skill) => (
+                    <motion.div
+                        key={skill.id}
+                        className="absolute w-14 h-14 md:w-24 md:h-24 rounded-[2rem] bg-white/20 backdrop-blur-md border border-white/40 shadow-xl flex items-center justify-center p-4 md:p-6 z-10 pointer-events-none"
+                        animate={{ 
+                            y: [0, -10, 0],
+                            rotate: [0, skill.id % 2 === 0 ? 5 : -5, 0]
+                        }}
+                        transition={{
+                            duration: 3 + (skill.id % 3),
+                            repeat: Infinity,
+                            ease: "easeInOut"
+                        }}
+                        style={{
+                            left: skill.x,
+                            top: "84%",
+                            x: "-50%",
+                            y: useTransform(smoothProgress, [0.4, 0.85], ["120%", skill.yOff]),
+                            opacity: useTransform(smoothProgress, [0.5, 0.75], [0, 1]),
+                            rotate: useTransform(smoothProgress, [0.4, 1], [0, (skill.id % 2 === 0 ? 10 : -10)]),
+                        }}
+                    >
+                        <img src={skill.icon} alt="skill" className="w-10 h-10 md:w-16 md:h-16 object-contain drop-shadow-md" />
+                    </motion.div>
+                ))}
 
                 <div className="container relative z-10 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-6 lg:px-12 h-screen pt-20">
                     
@@ -78,8 +147,8 @@ const Hero = () => {
                     </motion.div>
 
                     {/* Center: Image */}
-                    <div className="w-full md:w-1/3 flex justify-center items-center relative z-10 order-1 md:order-2 h-full">
-                        {/* Scroll Hint - Visible only at the start */}
+                    <div className="w-full md:w-1/3 flex flex-col justify-center items-center relative z-10 order-1 md:order-2 h-full py-10">
+                        {/* Scroll Hint */}
                         <motion.div 
                             className="absolute top-1/4 left-1/2 -translate-x-1/2 z-40 flex flex-col items-center gap-2 pointer-events-none"
                             style={{ opacity: useTransform(smoothProgress, [0, 0.1], [1, 0]) }}
@@ -101,30 +170,26 @@ const Hero = () => {
                         </motion.div>
 
                         <motion.div
-                            className="relative w-full flex items-center justify-center origin-bottom z-30 overflow-visible"
+                            className="relative w-full flex items-center justify-center origin-bottom z-10 overflow-visible"
                             style={{ 
                                 scale: imageScale, 
                                 y: imageY,
+                                opacity: imageOpacity,
                                 transformStyle: "preserve-3d"
                             }}
                         >
-                            <div className="absolute inset-0 bg-teal-500/10 rounded-full filter blur-[60px] transform scale-75 animate-pulse"></div>
                             <img
                                 src="/kunika-main.png"
                                 alt="Kunika Jain"
-                                className="w-full aspect-[4/5] object-cover drop-shadow-2xl relative z-20"
+                                className="w-full aspect-[4/5] object-cover relative z-20"
                                 style={{
                                     maskImage: 'url(/kunika-mask.png)',
                                     WebkitMaskImage: 'url(/kunika-mask.png)',
                                     maskMode: 'luminance',
                                     WebkitMaskMode: 'luminance',
-                                    maskSize: 'cover',
-                                    WebkitMaskSize: 'cover',
-                                    maskRepeat: 'no-repeat',
-                                    WebkitMaskRepeat: 'no-repeat',
-                                    objectPosition: 'top',
-                                    maskPosition: 'top',
-                                    WebkitMaskPosition: 'top'
+                                    maskSize: '100% 100%',
+                                    maskPosition: 'top center',
+                                    WebkitMaskPosition: 'top center'
                                 }}
                             />
                         </motion.div>
@@ -144,6 +209,7 @@ const Hero = () => {
                         ></motion.div>
                     </motion.div>
                 </div>
+
             </div>
         </section>
     );
