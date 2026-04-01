@@ -200,6 +200,28 @@ const About = () => {
                                 </motion.h2>
                                 <motion.div variants={slideUp} className="text-lg md:text-xl text-slate-700 leading-[1.6] font-[400] max-w-xl mb-12">
                                     <p className="mb-6">I’m a digital designer passionate about crafting meaningful, user-centered experiences.</p>
+                                    
+                                    {/* Mobile Image Preview */}
+                                    <div className="lg:hidden relative w-full aspect-[4/5] rounded-[24px] overflow-hidden shadow-md my-8 border border-gray-100">
+                                        <Image 
+                                            src="/kunika-main.png" 
+                                            alt="Kunika Jain" 
+                                            fill 
+                                            className="object-cover scale-[1.4]" 
+                                            style={{
+                                                maskImage: 'url(/kunika-mask.png)',
+                                                WebkitMaskImage: 'url(/kunika-mask.png)',
+                                                maskMode: 'luminance',
+                                                WebkitMaskMode: 'luminance',
+                                                maskSize: 'cover',
+                                                WebkitMaskSize: 'cover',
+                                                objectPosition: 'top',
+                                                maskPosition: 'top',
+                                                WebkitMaskPosition: 'top'
+                                            }}
+                                        />
+                                    </div>
+                                    
                                     <p>With a strong foundation in visual design and a deep understanding of interactive systems, I bring ideas to life through thoughtful design, smooth animations, and responsive layouts.</p>
                                 </motion.div>
 
@@ -231,9 +253,19 @@ const About = () => {
                                 >
                                     WHAT I CAN DO<br />FOR YOU
                                 </motion.h3>
-                                <motion.p variants={slideUp} className="text-base md:text-lg text-slate-700 leading-[1.6] font-[400] max-w-xl mb-12">
+                                <motion.p variants={slideUp} className="text-base md:text-lg text-slate-700 leading-[1.6] font-[400] max-w-xl mb-8">
                                     As a digital designer, I am a visual storyteller, crafting experiences that connect deeply and spark creativity.
                                 </motion.p>
+                                
+                                {/* Mobile Image Preview */}
+                                <div className="lg:hidden relative w-full aspect-[16/9] rounded-[24px] overflow-hidden shadow-md mb-12 border border-gray-100 bg-slate-50">
+                                    <Image 
+                                        src="/illustrations/expertise.png" 
+                                        alt="Expertise" 
+                                        fill 
+                                        className="object-cover opacity-90 saturate-50 mix-blend-multiply" 
+                                    />
+                                </div>
 
                                 <div className="w-full flex flex-col pt-4 border-b border-gray-200">
                                     {expertise.map((item, idx) => (
@@ -265,9 +297,19 @@ const About = () => {
                                 >
                                     MY TECH STACK
                                 </motion.h3>
-                                <motion.p variants={slideUp} className="text-base md:text-lg text-slate-700 leading-[1.6] font-[400] max-w-xl mb-12">
+                                <motion.p variants={slideUp} className="text-base md:text-lg text-slate-700 leading-[1.6] font-[400] max-w-xl mb-8">
                                     I build with intention. Framer for fast, interactive web design. Figma for clean interfaces. Custom code for complex logic. Each tool supports how I think and design.
                                 </motion.p>
+
+                                {/* Mobile Image Preview */}
+                                <div className="lg:hidden relative w-full aspect-[16/9] rounded-[24px] overflow-hidden shadow-md mb-12 border border-gray-100 bg-slate-50">
+                                    <Image 
+                                        src="/illustrations/web_design.png" 
+                                        alt="Tech Stack" 
+                                        fill 
+                                        className="object-cover opacity-90 saturate-50 mix-blend-multiply" 
+                                    />
+                                </div>
 
                                 <div className="w-full flex flex-col gap-0 border-t border-gray-200 pt-4">
                                     {techStack.map((tech, idx) => (

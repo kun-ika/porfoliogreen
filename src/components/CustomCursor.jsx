@@ -6,6 +6,8 @@ import { motion, useSpring, useMotionValue } from 'framer-motion';
 const CustomCursor = () => {
     const [isHovered, setIsHovered] = useState(false);
     const [isVisible, setIsVisible] = useState(false);
+    const [mounted, setMounted] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
 
     // Mouse positions
     const mouseX = useMotionValue(-100);
@@ -41,6 +43,9 @@ const CustomCursor = () => {
         window.addEventListener('mouseover', handleMouseOver);
         document.body.style.cursor = 'none';
 
+        setMounted(true);
+        setIsMobile('ontouchstart' in window);
+
         return () => {
             window.removeEventListener('mousemove', handleMouseMove);
             window.removeEventListener('mouseover', handleMouseOver);
@@ -48,8 +53,7 @@ const CustomCursor = () => {
         };
     }, [mouseX, mouseY, isVisible]);
 
-    // Hide on mobile
-    if (typeof window !== 'undefined' && 'ontouchstart' in window) {
+    if (!mounted || isMobile) {
         return null;
     }
 

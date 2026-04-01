@@ -95,12 +95,12 @@ const FeaturedProjects = () => {
     });
     
     // Smooth horizontal translation based on vertical scroll
-    const x = useTransform(scrollYProgress, [0, 1], ["1%", "-65%"]);
+    const x = useTransform(scrollYProgress, [0, 1], ["5%", "-75%"]);
     
     return (
-        <section ref={targetRef} className="relative h-[300vh] bg-[#0a0f1c] font-sans">
+        <section ref={targetRef} className="relative h-[220vh] md:h-[300vh] bg-[#0a0f1c] font-sans">
             <div className="sticky top-0 flex h-screen items-center overflow-hidden">
-                <motion.div style={{ x }} className="flex gap-12 md:gap-24 px-12 md:px-32 items-center">
+                <motion.div style={{ x }} className="flex gap-8 md:gap-24 px-6 md:px-32 items-center">
                     
                     {/* Big Heading inside the slider */}
                     <div className="flex-shrink-0 flex items-center justify-start w-[85vw] md:w-[60vw]">

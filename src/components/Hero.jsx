@@ -1,9 +1,66 @@
 "use client";
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
+import Link from 'next/link';
+
+const FloatingSkill = ({ skill, progress, isMobile }) => {
+    const yTransform = useTransform(progress, [0.4, 0.85], ["120%", skill.yOff]);
+    const opacityTransform = useTransform(progress, [0.5, 0.75], [0, 1]);
+    const rotateTransform = useTransform(progress, [0.4, 1], [0, (skill.id % 2 === 0 ? 10 : -10)]);
+
+    // For mobile, we render a simpler version that sits in the flow
+    if (isMobile) {
+        return (
+            <motion.div
+                className="w-12 h-12 sm:w-16 sm:h-16 rounded-xl bg-white/40 backdrop-blur-md border border-white/40 shadow-lg flex items-center justify-center p-2.5 z-10"
+                animate={{ y: [0, -5, 0] }}
+                transition={{ duration: 3 + (skill.id % 2), repeat: Infinity, ease: "easeInOut" }}
+            >
+                <img src={skill.icon} alt="skill" className="w-8 h-8 sm:w-10 sm:h-10 object-contain drop-shadow-sm" />
+            </motion.div>
+        );
+    }
+
+    return (
+        <motion.div
+            key={skill.id}
+            className="absolute w-12 h-12 md:w-20 lg:w-16 xl:w-20 rounded-[1.25rem] md:rounded-[2rem] bg-white/20 backdrop-blur-md border border-white/40 shadow-xl flex items-center justify-center p-2.5 md:p-4 lg:p-3 xl:p-5 z-10 pointer-events-none"
+            animate={{ 
+                y: [0, -10, 0],
+                rotate: [0, skill.id % 2 === 0 ? 5 : -5, 0]
+            }}
+            transition={{
+                duration: 3 + (skill.id % 3),
+                repeat: Infinity,
+                ease: "easeInOut"
+            }}
+            style={{
+                left: skill.x,
+                top: "78%", 
+                x: "-50%",
+                y: yTransform,
+                opacity: opacityTransform,
+                rotate: rotateTransform,
+            }}
+        >
+            <img src={skill.icon} alt="skill" className="w-8 h-8 md:w-16 md:h-16 object-contain drop-shadow-md" />
+        </motion.div>
+    );
+};
 
 const Hero = () => {
     const containerRef = useRef(null);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+        const checkMobile = () => {
+            setIsMobile(window.innerWidth < 1024); // Tablet and Mobile
+        };
+        checkMobile();
+        window.addEventListener('resize', checkMobile);
+        return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start start", "end end"]
@@ -17,7 +74,7 @@ const Hero = () => {
     });
 
     // 1. Image Entrance (0% to 1.0% scroll)
-    const imageY = useTransform(smoothProgress, [0, 0.8], ["65vh", "40vh"]);
+    const imageY = useTransform(smoothProgress, [0, 0.8], ["55vh", "35vh"]);
     const imageScale = useTransform(smoothProgress, [0, 0.8], [1.2, 1.8]);
     const imageOpacity = useTransform(smoothProgress, [0, 0.15], [0, 1]);
     
@@ -58,11 +115,11 @@ const Hero = () => {
         <section 
             id="home" 
             ref={containerRef}
-            className="relative h-[250vh] w-full" 
+            className={`relative w-full ${isMobile ? 'h-auto pt-28 pb-24' : 'h-[180vh] md:h-[220vh] xl:h-[250vh]'}`} 
             style={{ backgroundColor: '#FAF9F6' }}
         >
-            {/* Sticky Wrapper */}
-            <div className="sticky top-0 h-screen w-full flex items-center justify-center overflow-hidden bg-[#FAF9F6]">
+            {/* Sticky/Relative Wrapper */}
+            <div className={`${isMobile ? 'relative py-0' : 'sticky top-0 h-screen'} w-full flex items-center justify-center overflow-hidden bg-[#FAF9F6]`}>
                 
                 {/* Subtle Dot Grid Background */}
                 <motion.div 
@@ -83,9 +140,9 @@ const Hero = () => {
                 {/* Massive Outline Background Text */}
                 <motion.div 
                     className="absolute inset-0 flex items-center justify-center pointer-events-none z-0 overflow-hidden"
-                    style={{ opacity: bgTextOpacity, scale: bgTextScale, y: bgTextY }}
+                    style={isMobile ? { opacity: 0.1, scale: 1, y: 0 } : { opacity: bgTextOpacity, scale: bgTextScale, y: bgTextY }}
                 >
-                    <h2 className="text-[30vw] md:text-[25vw] font-black select-none leading-none tracking-tighter"
+                    <h2 className="text-[22vw] md:text-[25vw] font-black select-none leading-none tracking-tighter"
                         style={{ 
                             color: 'transparent',
                             WebkitTextStroke: '1px md:1.5px rgba(13, 148, 136, 0.12)', 
@@ -95,41 +152,19 @@ const Hero = () => {
                     </h2>
                 </motion.div>
 
-                {/* Bottom Horizontal Skill Cloud */}
-                {floatingSkills.map((skill) => (
-                    <motion.div
-                        key={skill.id}
-                        className="absolute w-14 h-14 md:w-20 lg:w-16 xl:w-20 rounded-[1.5rem] md:rounded-[2rem] bg-white/20 backdrop-blur-md border border-white/40 shadow-xl flex items-center justify-center p-3 md:p-4 lg:p-3 xl:p-5 z-10 pointer-events-none"
-                        animate={{ 
-                            y: [0, -10, 0],
-                            rotate: [0, skill.id % 2 === 0 ? 5 : -5, 0]
-                        }}
-                        transition={{
-                            duration: 3 + (skill.id % 3),
-                            repeat: Infinity,
-                            ease: "easeInOut"
-                        }}
-                        style={{
-                            left: skill.x,
-                            top: "84%",
-                            x: "-50%",
-                            y: useTransform(smoothProgress, [0.4, 0.85], ["120%", skill.yOff]),
-                            opacity: useTransform(smoothProgress, [0.5, 0.75], [0, 1]),
-                            rotate: useTransform(smoothProgress, [0.4, 1], [0, (skill.id % 2 === 0 ? 10 : -10)]),
-                        }}
-                    >
-                        <img src={skill.icon} alt="skill" className="w-10 h-10 md:w-16 md:h-16 object-contain drop-shadow-md" />
-                    </motion.div>
+                {/* Bottom Horizontal Skill Cloud (Desktop Only - handled absolutely) */}
+                {!isMobile && floatingSkills.map((skill) => (
+                    <FloatingSkill key={skill.id} skill={skill} progress={smoothProgress} isMobile={isMobile} />
                 ))}
 
-                <div className="container relative z-10 w-full max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between px-6 lg:px-12 h-screen pt-20">
+                <div className={`container relative z-10 w-full max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-center lg:justify-between px-6 lg:px-12 ${isMobile ? 'h-auto gap-0 pb-12' : 'min-h-screen pt-32 pb-20 lg:pt-20 lg:pb-0 gap-12 lg:gap-0'}`}>
                     
-                    {/* Left Side: Heading & Email */}
+                    {/* Top Side (Mobile): Heading & Email */}
                     <motion.div 
-                        className="w-full md:w-1/3 flex flex-col justify-center items-center md:items-start text-center md:text-left z-20 order-2 md:order-1 mt-auto md:mt-0 pb-12 md:pb-0"
-                        style={{ opacity: leftTextOpacity, x: { base: 0, md: leftTextX } }}
+                        className="w-full lg:w-1/3 flex flex-col justify-center items-center lg:items-start text-center lg:text-left z-20 order-1 lg:order-1"
+                        style={isMobile ? { opacity: 1, x: 0 } : { opacity: leftTextOpacity, x: { base: 0, lg: leftTextX } }}
                     >
-                        <h1 className="text-4xl sm:text-5xl md:text-5xl lg:text-6xl xl:text-7xl font-black text-slate-800 tracking-tight leading-[1.1] mb-6">
+                        <h1 className="text-5xl sm:text-7xl lg:text-6xl xl:text-7xl font-black text-slate-800 tracking-tight leading-[1] mb-6">
                             Hey There, <br />
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500">I'm Kunika</span>
                         </h1>
@@ -138,17 +173,17 @@ const Hero = () => {
                             href="mailto:jainkunika91@gmail.com"
                             whileHover={{ scale: 1.05, originX: 0 }}
                             whileTap={{ scale: 0.95 }}
-                            className="text-teal-600 font-bold text-base md:text-lg lg:text-base xl:text-lg hover:text-emerald-700 transition-colors inline-block relative border-b-2 border-transparent hover:border-emerald-600 pb-1"
+                            className="text-teal-600 font-bold text-sm sm:text-base md:text-lg lg:text-base xl:text-lg hover:text-emerald-700 transition-colors inline-block relative border-b-2 border-transparent hover:border-emerald-600 pb-1"
                         >
                             jainkunika91@gmail.com
                         </motion.a>
                     </motion.div>
 
                     {/* Center: Image */}
-                    <div className="w-full md:w-1/3 flex flex-col justify-center items-center relative z-10 order-1 md:order-2 h-full py-10">
-                        {/* Scroll Hint */}
+                    <div className={`w-full lg:w-1/3 flex flex-col justify-center items-center relative z-10 order-2 lg:order-2 h-full ${isMobile ? 'pt-16 pb-0' : 'py-10'}`}>
+                        {/* Scroll Hint (Hidden on Mobile/Tablet) */}
                         <motion.div 
-                            className="absolute top-1/4 left-1/2 -translate-x-1/2 z-40 flex flex-col items-center gap-2 pointer-events-none"
+                            className="absolute top-1/4 left-1/2 -translate-x-1/2 z-40 hidden lg:flex flex-col items-center gap-2 pointer-events-none"
                             style={{ opacity: useTransform(smoothProgress, [0, 0.1], [1, 0]) }}
                         >
                             <span className="text-teal-600 font-bold tracking-widest text-xs uppercase bg-white/80 backdrop-blur-sm px-4 py-1.5 rounded-full shadow-sm border border-teal-100">
@@ -168,45 +203,68 @@ const Hero = () => {
                         </motion.div>
 
                         <motion.div
-                            className="relative w-full flex items-center justify-center origin-bottom z-10 overflow-visible"
-                            style={{ 
+                            className="relative w-full flex items-center justify-center origin-bottom z-10 overflow-visible cursor-pointer"
+                            style={isMobile ? { scale: 1.15, y: 0, opacity: 1 } : { 
                                 scale: imageScale, 
                                 y: imageY,
                                 opacity: imageOpacity,
                                 transformStyle: "preserve-3d"
                             }}
                         >
-                            <img
-                                src="/kunika-main.png"
-                                alt="Kunika Jain"
-                                className="w-full aspect-[4/5] object-cover relative z-20"
-                                style={{
-                                    maskImage: 'url(/kunika-mask.png)',
-                                    WebkitMaskImage: 'url(/kunika-mask.png)',
-                                    maskMode: 'luminance',
-                                    WebkitMaskMode: 'luminance',
-                                    maskSize: '100% 100%',
-                                    maskPosition: 'top center',
-                                    WebkitMaskPosition: 'top center'
-                                }}
-                            />
+                            {/* Background Glow Overlay for Mobile Image */}
+                            {isMobile && (
+                                <div className="absolute inset-0 bg-teal-500/20 blur-[60px] rounded-full scale-50 opacity-40 -z-10 animate-pulse"></div>
+                            )}
+                            <Link href="/projects" className="w-full h-full flex items-center justify-center">
+                                <img
+                                    src="/kunika-main.png"
+                                    alt="Kunika Jain"
+                                    className="w-full aspect-[4/5] object-cover relative z-20 hover:scale-[1.02] transition-transform duration-500"
+                                    style={{
+                                        maskImage: 'url(/kunika-mask.png)',
+                                        WebkitMaskImage: 'url(/kunika-mask.png)',
+                                        maskMode: 'luminance',
+                                        WebkitMaskMode: 'luminance',
+                                        maskSize: '100% 100%',
+                                        maskPosition: 'top center',
+                                        WebkitMaskPosition: 'top center'
+                                    }}
+                                />
+                            </Link>
                         </motion.div>
                     </div>
 
                     {/* Right Side: Description */}
                     <motion.div
-                        className="w-full md:w-1/3 flex flex-col justify-center items-center md:items-end text-center md:text-right z-20 order-3 md:pl-8"
-                        style={{ opacity: rightTextOpacity, x: rightTextX }}
+                        className="w-full lg:w-1/3 flex flex-col justify-center items-center lg:items-end text-center lg:text-right z-20 order-3 lg:pl-8 mt-0 pt-0"
+                        style={isMobile ? { opacity: 1, x: 0 } : { opacity: rightTextOpacity, x: rightTextX }}
                     >
-                        <p className="text-slate-600 text-lg md:text-lg lg:text-base xl:text-lg max-w-[240px] md:max-w-[260px] font-medium leading-relaxed">
+                        <p className="text-slate-600 text-base sm:text-lg md:text-lg lg:text-base xl:text-lg max-w-[200px] sm:max-w-[240px] md:max-w-[260px] font-medium leading-relaxed">
                             I design simple, intuitive, and engaging digital experiences.
                         </p>
                         <motion.div
-                            className="mt-6 w-16 h-1.5 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-full"
-                            style={{ scaleX: underlineScaleX }}
+                            className="mt-4 w-16 h-1.5 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-full"
+                            style={isMobile ? { scaleX: 1 } : { scaleX: underlineScaleX }}
                         ></motion.div>
+
+                        {/* Skill Icons Section for Mobile (Inside flow) */}
+                        {isMobile && (
+                            <div className="mt-8 flex flex-col gap-6 w-full">
+                                <div className="flex flex-wrap justify-center gap-4">
+                                    {floatingSkills.slice(0, 6).map((skill) => (
+                                        <FloatingSkill key={skill.id} skill={skill} progress={smoothProgress} isMobile={true} />
+                                    ))}
+                                </div>
+                                <div className="flex flex-wrap justify-center gap-4">
+                                    {floatingSkills.slice(6, 12).map((skill) => (
+                                        <FloatingSkill key={skill.id} skill={skill} progress={smoothProgress} isMobile={true} />
+                                    ))}
+                                </div>
+                            </div>
+                        )}
                     </motion.div>
                 </div>
+
 
             </div>
         </section>
