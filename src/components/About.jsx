@@ -164,9 +164,9 @@ const About = () => {
     // In a real project, replace these paths with unique assets for each section.
     const stickyImages = {
         0: "/kunika-main.png",
-        1: "/illustrations/expertise.png",
-        2: "/illustrations/web_design.png",
-        3: "/illustrations/journey.png"
+        1: "/about/what-can-i-do.jpg",
+        2: "/about/tech-stack/tech.jpg",
+        3: "/about/strategy/5-launch/launch.jpg"
     };
 
     return (
@@ -260,7 +260,7 @@ const About = () => {
                                 {/* Mobile Image Preview */}
                                 <div className="lg:hidden relative w-full aspect-[16/9] rounded-[24px] overflow-hidden shadow-md mb-12 border border-gray-100 bg-slate-50">
                                     <Image 
-                                        src="/illustrations/expertise.png" 
+                                        src="/about/what-can-i-do.jpg" 
                                         alt="Expertise" 
                                         fill 
                                         className="object-cover opacity-90 saturate-50 mix-blend-multiply" 
@@ -304,7 +304,7 @@ const About = () => {
                                 {/* Mobile Image Preview */}
                                 <div className="lg:hidden relative w-full aspect-[16/9] rounded-[24px] overflow-hidden shadow-md mb-12 border border-gray-100 bg-slate-50">
                                     <Image 
-                                        src="/illustrations/web_design.png" 
+                                        src="/about/tech-stack/tech.jpg" 
                                         alt="Tech Stack" 
                                         fill 
                                         className="object-cover opacity-90 saturate-50 mix-blend-multiply" 
@@ -409,14 +409,14 @@ const About = () => {
                                 <ProcessCard {...processes[0]} />
                             </motion.div>
                             <motion.div variants={slideUp} className="relative w-full min-h-[440px] rounded-[32px] overflow-hidden group">
-                                <Image src="/illustrations/expertise.png" alt="Research & Strategy" fill className="object-cover group-hover:scale-105 transition-transform duration-[1.5s]" />
+                                <Image src="/about/strategy/1-research/research.jpg" alt="Research & Strategy" fill className="object-cover group-hover:scale-105 transition-transform duration-[1.5s]" />
                             </motion.div>
                             <motion.div variants={slideUp} className="w-full">
                                 <ProcessCard {...processes[1]} />
                             </motion.div>
 
-                            <motion.div variants={slideUp} className="relative w-full min-h-[440px] rounded-[32px] overflow-hidden group">
-                                <Image src="/illustrations/ui_ux.png" alt="Concept & Ideation" fill className="object-cover group-hover:scale-105 transition-transform duration-[1.5s]" />
+                             <motion.div variants={slideUp} className="relative w-full min-h-[440px] rounded-[32px] overflow-hidden group">
+                                <Image src="/about/strategy/2-concept/concept.jpg" alt="Concept & Ideation" fill className="object-cover group-hover:scale-105 transition-transform duration-[1.5s]" />
                             </motion.div>
                             <motion.div variants={slideUp} className="w-full md:col-span-2">
                                 <ProcessCard {...processes[2]} />
@@ -429,7 +429,7 @@ const About = () => {
                                 <ProcessCard {...processes[4]} />
                             </motion.div>
                             <motion.div variants={slideUp} className="relative w-full min-h-[440px] rounded-[32px] overflow-hidden group">
-                                <Image src="/illustrations/journey.png" alt="Launch & Delivery" fill className="object-cover group-hover:scale-105 transition-transform duration-[1.5s]" />
+                                <Image src="/about/strategy/5-launch/launch.jpg" alt="Launch & Delivery" fill className="object-cover group-hover:scale-105 transition-transform duration-[1.5s]" />
                             </motion.div>
                         </motion.div>
                     </div>
