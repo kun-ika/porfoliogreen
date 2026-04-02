@@ -14,8 +14,70 @@ import {
     Zap,
     Clock,
     ShieldCheck,
-    ArrowRight
+    ArrowRight,
+    ChevronLeft,
+    ChevronRight,
+    Trophy,
+    Target,
+    Activity
 } from 'lucide-react';
+
+const ScreenSlider = ({ screens }) => {
+    const [current, setCurrent] = React.useState(0);
+
+    const next = () => setCurrent((prev) => (prev + 1) % screens.length);
+    const prev = () => setCurrent((prev) => (prev - 1 + screens.length) % screens.length);
+
+    return (
+        <div className="relative group">
+            <div className="relative aspect-[9/19] w-full bg-slate-900 rounded-[32px] overflow-hidden border-[6px] border-slate-800 shadow-2xl">
+                {/* Mobile Notch */}
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-slate-800 rounded-b-2xl z-20"></div>
+                
+                <motion.div 
+                    key={current}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: -20 }}
+                    className="relative w-full h-full"
+                >
+                    <Image 
+                        src={screens[current]} 
+                        alt={`Screen ${current + 1}`} 
+                        fill 
+                        className="object-cover"
+                    />
+                </motion.div>
+
+                {/* Slider Controls */}
+                {screens.length > 1 && (
+                    <>
+                        <button 
+                            onClick={prev}
+                            className="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-black/50 backdrop-blur-md rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity z-30"
+                        >
+                            <ChevronLeft size={16} />
+                        </button>
+                        <button 
+                            onClick={next}
+                            className="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-black/50 backdrop-blur-md rounded-full flex items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity z-30"
+                        >
+                            <ChevronRight size={16} />
+                        </button>
+                        <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-1.5 z-30">
+                            {screens.map((_, i) => (
+                                <div 
+                                    key={i} 
+                                    className={`w-1.5 h-1.5 rounded-full transition-all ${i === current ? 'bg-teal-400 w-4' : 'bg-white/30'}`}
+                                />
+                            ))}
+                        </div>
+                    </>
+                )}
+            </div>
+        </div>
+    );
+};
 
 const SectionHeader = ({ title, subtitle, light = false }) => (
     <motion.div 
@@ -49,11 +111,49 @@ const QuickSalonPage = () => {
 
     const techStack = ["React Native", "Firebase", "Expo", "Fast2SMS (OTP)", "Stripe / UPI", "Redux Toolkit"];
 
-    const mobileScreens = [
-        { title: "Login / Signup", img: "/projects/quick-salon/auth.png", desc: "User Authentication with Login, Sign Up, and OTP verification." },
-        { title: "Home Screen", img: "/projects/quick-salon/home.png", desc: "Explore various salon services with real-time categorisation." },
-        { title: "Booking Flow", img: "/projects/quick-salon/booking.png", desc: "Seamless appointment scheduling with secure payment integration." },
-        { title: "Profile & History", img: "/projects/quick-salon/profile.png", desc: "Manage bookings, view history, and receive live notifications." },
+    const screenCategories = [
+        { 
+            title: "Authentication", 
+            desc: "Secure login, signup, and OTP verification flow.",
+            screens: [
+                "/projects/quick-salon/auth/signin.jpg",
+                "/projects/quick-salon/auth/signup.jpg",
+                "/projects/quick-salon/auth/otp.jpg",
+                "/projects/quick-salon/auth/forgot.jpg",
+                "/projects/quick-salon/auth/logout.jpg"
+            ]
+        },
+        { 
+            title: "Home & Discovery", 
+            desc: "Live service catalog and categorized browsing.",
+            screens: [
+                "/projects/quick-salon/home/home1.jpg",
+                "/projects/quick-salon/home/home2.jpg",
+                "/projects/quick-salon/home/home3.jpg",
+                "/projects/quick-salon/home/home4.jpg",
+                "/projects/quick-salon/home/home5.jpg",
+                "/projects/quick-salon/home/home6.jpg"
+            ] 
+        },
+        { 
+            title: "Booking Journey", 
+            desc: "Step-by-step reservation and scheduling.",
+            screens: [
+                "/projects/quick-salon/booking/booking1.jpg",
+                "/projects/quick-salon/booking/booking2.jpg",
+                "/projects/quick-salon/booking/booking3.jpg",
+                "/projects/quick-salon/booking/booking4.jpg",
+                "/projects/quick-salon/booking/booking5.jpg"
+            ] 
+        },
+        { 
+            title: "Expert Profile", 
+            desc: "Personalized history and account management.",
+            screens: [
+                "/projects/quick-salon/profile/profile1.jpg",
+                "/projects/quick-salon/profile/profile2.jpg"
+            ] 
+        },
     ];
 
     return (
@@ -204,27 +304,20 @@ const QuickSalonPage = () => {
                 <SectionHeader title="Application Screens" subtitle="Native mobile experience built from the ground up" />
                 
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mt-16">
-                    {mobileScreens.map((screen, i) => (
+                    {screenCategories.map((category, i) => (
                         <motion.div 
                             key={i}
-                            className="bg-white rounded-[40px] overflow-hidden border border-slate-100 shadow-xl shadow-teal-500/5 group"
+                            className="bg-slate-50 rounded-[48px] p-6 border border-slate-100 hover:shadow-2xl hover:shadow-teal-500/10 transition-all group"
                             variants={fadeIn}
                             initial="hidden"
                             whileInView="visible"
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.1 }}
                         >
-                            <div className="relative aspect-[9/17] w-full overflow-hidden">
-                                <Image 
-                                    src={screen.img} 
-                                    alt={screen.title} 
-                                    fill 
-                                    className="object-cover group-hover:scale-[1.05] transition-transform duration-700"
-                                />
-                            </div>
-                            <div className="p-8 text-center">
-                                <h4 className="text-xl font-black text-slate-900 mb-2 tracking-tight uppercase leading-tight">{screen.title}</h4>
-                                <p className="text-slate-500 text-xs font-semibold leading-relaxed uppercase tracking-widest">{screen.desc}</p>
+                            <ScreenSlider screens={category.screens} />
+                            <div className="mt-8 px-2 text-center">
+                                <h4 className="text-xl font-black text-slate-900 mb-2 tracking-tight uppercase leading-tight">{category.title}</h4>
+                                <p className="text-slate-500 text-xs font-bold leading-relaxed uppercase tracking-widest">{category.desc}</p>
                             </div>
                         </motion.div>
                     ))}
@@ -323,10 +416,42 @@ const QuickSalonPage = () => {
                                 ))}
                             </div>
                         </div>
-                        <div className="relative aspect-square flex flex-col items-center justify-center p-12 border border-white/10 rounded-full backdrop-blur-sm bg-white/5 gap-4 scale-90 lg:scale-100 mx-auto lg:mx-0">
-                                <Clock size={48} className="text-teal-400" />
-                                <h4 className="text-5xl md:text-7xl font-black tracking-tighter uppercase">Success</h4>
-                                <p className="text-xl font-bold uppercase tracking-widest text-teal-300">Live & Deployed</p>
+                        <div className="relative lg:pl-12">
+                            <motion.div 
+                                className="bg-white/5 border border-white/10 backdrop-blur-xl rounded-[48px] p-10 md:p-16 space-y-10 relative overflow-hidden"
+                                initial={{ opacity: 0, scale: 0.95 }}
+                                whileInView={{ opacity: 1, scale: 1 }}
+                                viewport={{ once: true }}
+                            >
+                                <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/20 rounded-full blur-[80px] -z-10"></div>
+                                
+                                <div className="space-y-4">
+                                    <h4 className="text-3xl md:text-5xl font-black tracking-tighter uppercase leading-none">
+                                        Empowering <span className="text-teal-400">Local Salons</span> With Global Tech
+                                    </h4>
+                                    <p className="text-slate-400 text-lg md:text-xl font-medium leading-relaxed">
+                                        Successfully bridged the gap between traditional salon services and modern digital convenience, resulting in a 40% increase in booking efficiency.
+                                    </p>
+                                </div>
+
+                                <div className="grid grid-cols-2 gap-6">
+                                    <div className="p-6 bg-white/5 rounded-3xl border border-white/5">
+                                        <Trophy className="text-teal-500 mb-4" size={32} />
+                                        <h5 className="text-2xl font-black">98%</h5>
+                                        <p className="text-xs uppercase font-bold tracking-widest text-slate-500">Uptime Rate</p>
+                                    </div>
+                                    <div className="p-6 bg-white/5 rounded-3xl border border-white/5">
+                                        <Activity className="text-emerald-500 mb-4" size={32} />
+                                        <h5 className="text-2xl font-black">1.2s</h5>
+                                        <p className="text-xs uppercase font-bold tracking-widest text-slate-500">Avg. Response</p>
+                                    </div>
+                                </div>
+                                
+                                <div className="pt-6 border-t border-white/10 flex items-center gap-4">
+                                    <Target className="text-teal-600" />
+                                    <span className="text-sm font-black uppercase tracking-widest text-slate-300">Phase 1: Deployment Success</span>
+                                </div>
+                            </motion.div>
                         </div>
                     </div>
                 </div>

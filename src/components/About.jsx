@@ -191,9 +191,9 @@ const About = () => {
                             >
                                 <motion.h1
                                     variants={slideUp}
-                                    className="text-[60px] sm:text-[90px] md:text-[120px] lg:text-[160px] leading-[0.85] font-black text-slate-950 mb-6 font-[family-name:var(--font-headline)] tracking-tight uppercase"
+                                    className="text-[60px] sm:text-[90px] md:text-[120px] lg:text-[160px] leading-[0.85] font-black mb-6 font-[family-name:var(--font-headline)] tracking-tight uppercase"
                                 >
-                                    ABOUT ME
+                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-emerald-500 whitespace-nowrap">ABOUT</span> <span className="text-slate-950 whitespace-nowrap">ME</span>
                                 </motion.h1>
                                 <motion.h2 variants={slideUp} className="text-2xl sm:text-3xl md:text-4xl font-medium uppercase text-slate-800 mb-8 font-[family-name:var(--font-headline)] tracking-wider">
                                     KUNIKA JAIN

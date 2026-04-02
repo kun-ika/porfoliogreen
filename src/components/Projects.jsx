@@ -36,6 +36,7 @@ const projects = [
         tags: ["Figma", "Prototyping"],
         icon: <LayoutTemplate size={28} className="text-emerald-500" />,
         image: "/projects/medicare.jpg",
+        link: "/projects",
         description: "Healthcare UI/UX design project featuring user-centered wireframes and high-fidelity prototypes."
     },
     {
@@ -46,6 +47,7 @@ const projects = [
         tags: ["HTML", "CSS", "JS"],
         icon: <FileText size={28} className="text-teal-600" />,
         image: "/projects/gutenberg.jpg",
+        link: "/projects",
         description: "Redesigned the Gutenberg website to improve navigation, accessibility, and overall responsiveness."
     }
 ];
@@ -136,17 +138,15 @@ const ProjectCard = ({ project }) => {
                 </div>
 
                 <div className="w-full pt-4 border-t border-slate-100/50" style={{ transform: "translateZ(20px)" }}>
-                    {project.link ? (
-                        <Link href={project.link} className="w-full block">
-                            <motion.button 
-                                whileHover={{ scale: 1.05 }}
-                                whileTap={{ scale: 0.95 }}
-                                className="w-full flex items-center justify-center gap-2 py-2.5 bg-gradient-to-r from-teal-500 to-emerald-500 text-white font-bold rounded-lg shadow-md hover:shadow-lg transition-shadow"
-                            >
-                                <ExternalLink size={18} /> View Project
-                            </motion.button>
-                        </Link>
-                    ) : null}
+                    <Link href={project.link || "/projects"} className="w-full block">
+                        <motion.button 
+                            whileHover={{ scale: 1.05 }}
+                            whileTap={{ scale: 0.95 }}
+                            className="w-full flex items-center justify-center gap-2 py-2.5 bg-gradient-to-r from-teal-500 to-emerald-500 text-white font-bold rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                        >
+                            <ExternalLink size={18} /> View Project
+                        </motion.button>
+                    </Link>
                 </div>
             </div>
 
