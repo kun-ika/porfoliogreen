@@ -112,14 +112,10 @@ const FeaturedProjects = () => {
 
                     {/* Project Cards */}
                     {featuredProjects.map((p) => (
-                        <div key={p.id} className="flex-shrink-0 w-[85vw] md:w-[650px] lg:w-[550px] xl:w-[650px] h-[60vh] md:h-[65vh] lg:h-[60vh] xl:h-[70vh]">
-                            {p.id === "smart-solar" ? (
-                                <Link href="/projects/smart-solar">
-                                    <FeaturedCard project={p} />
-                                </Link>
-                            ) : (
+                        <div key={p.id} className="flex-shrink-0 w-[85vw] md:w-[650px] lg:w-[550px] xl:w-[650px] h-[60vh] md:h-[65vh] lg:h-[60vh] xl:h-[70vh] cursor-pointer">
+                            <Link href={`/projects/${p.id}`}>
                                 <FeaturedCard project={p} />
-                            )}
+                            </Link>
                         </div>
                     ))}
 

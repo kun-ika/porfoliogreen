@@ -102,15 +102,17 @@ const ProjectCard = ({ project }) => {
                 
                 {/* Image Section (For First Card or Any that has an image) */}
                 {project.image && (
-                    <div className="relative w-full aspect-video rounded-xl overflow-hidden mb-6 shadow-md border border-slate-100 group-hover:scale-[1.02] transition-transform duration-500">
-                        <Image 
-                            src={project.image} 
-                            alt={project.title} 
-                            fill 
-                            className="object-cover" 
-                        />
-                        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                    </div>
+                    <Link href={project.link || "/projects"} className="w-full">
+                        <div className="relative w-full aspect-video rounded-xl overflow-hidden mb-6 shadow-md border border-slate-100 group-hover:scale-[1.02] transition-transform duration-500 cursor-pointer">
+                            <Image 
+                                src={project.image} 
+                                alt={project.title} 
+                                fill 
+                                className="object-cover" 
+                            />
+                            <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                        </div>
+                    </Link>
                 )}
 
                 <div className="flex items-center gap-4 mb-5" style={{ transform: "translateZ(30px)" }}>
