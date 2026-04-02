@@ -25,6 +25,7 @@ const projects = [
         tags: ["React Native", "Firebase"],
         icon: <Layers size={28} className="text-teal-500" />,
         image: "/projects/quick-salon.jpg",
+        link: "/projects/quick-salon",
         description: "Mobile application for salon bookings with user authentication and appointment scheduling."
     },
     {
@@ -145,15 +146,7 @@ const ProjectCard = ({ project }) => {
                                 <ExternalLink size={18} /> View Project
                             </motion.button>
                         </Link>
-                    ) : (
-                        <motion.button 
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="w-full flex items-center justify-center gap-2 py-2.5 bg-gradient-to-r from-teal-500 to-emerald-500 text-white font-bold rounded-lg shadow-md hover:shadow-lg transition-shadow"
-                        >
-                            <ExternalLink size={18} /> View Project
-                        </motion.button>
-                    )}
+                    ) : null}
                 </div>
             </div>
 

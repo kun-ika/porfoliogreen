@@ -50,13 +50,7 @@ const SmartSolarPage = () => {
 
     return (
         <main className="bg-[#FAF9F6] min-h-screen font-sans pb-32 overflow-x-hidden">
-            {/* STICKY NAV */}
-            <nav className="fixed top-0 left-0 w-full z-50 px-6 py-6 pointer-events-none">
-                <Link href="/projects" className="pointer-events-auto inline-flex items-center gap-3 px-6 py-3 bg-white/80 backdrop-blur-md border border-slate-200 rounded-full shadow-sm hover:shadow-md transition-all group">
-                    <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" />
-                    <span className="font-bold tracking-wider uppercase text-sm">Back to Projects</span>
-                </Link>
-            </nav>
+
 
             {/* HERO SECTION */}
             <section className="relative pt-40 pb-24 md:pt-56 md:pb-40 container max-w-7xl mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center gap-16 md:gap-24">
@@ -305,9 +299,9 @@ const SmartSolarPage = () => {
 
             {/* FINAL CTA */}
             <section className="py-24 container max-w-7xl mx-auto px-6 text-center">
-                <Link href="/projects" className="inline-flex items-center gap-4 text-[24px] md:text-[32px] font-black text-slate-900 hover:text-teal-600 transition-colors group">
-                    View More Projects
-                    <ArrowRight size={36} className="group-hover:translate-x-4 transition-transform" />
+                <Link href="/projects" className="inline-flex items-center gap-6 text-[28px] md:text-[42px] font-black text-slate-900 hover:text-teal-600 transition-all group">
+                    Explore More Projects
+                    <ArrowRight size={48} className="group-hover:translate-x-6 transition-transform text-teal-500" />
                 </Link>
             </section>
 
