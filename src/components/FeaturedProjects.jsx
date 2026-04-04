@@ -3,7 +3,7 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowUpRight, Box, MonitorPlay, Layers } from 'lucide-react';
+import { ArrowUpRight, Box, MonitorPlay, Layers, LayoutTemplate, FileText } from 'lucide-react';
 
 const featuredProjects = [
     {
@@ -11,14 +11,32 @@ const featuredProjects = [
         title: "Smart Solar Cutter",
         category: "Hardware & IoT",
         image: "/projects/robot.jpeg",
-        icon: <Box size={24} className="text-teal-400" />
+        icon: <Box size={24} className="text-teal-400" />,
+        description: "An autonomous solar-powered grass cutter reducing manual effort via ultrasonic sensors and Bluetooth control."
     },
     {
         id: "quick-salon",
         title: "Quick Salon",
         category: "Mobile App",
         image: "/projects/quick-salon.jpg",
-        icon: <Layers size={24} className="text-teal-400" />
+        icon: <Layers size={24} className="text-teal-400" />,
+        description: "Mobile application for salon bookings with user authentication and appointment scheduling."
+    },
+    {
+        id: "medicare",
+        title: "Medicare App",
+        category: "UI/UX Design",
+        image: "/projects/medicare.jpg",
+        icon: <LayoutTemplate size={24} className="text-teal-400" />,
+        description: "Healthcare UI/UX design project featuring user-centered wireframes and high-fidelity prototypes."
+    },
+    {
+        id: "gutenberg",
+        title: "Gutenberg Redesign",
+        category: "Web Development",
+        image: "/projects/gutenberg.jpg",
+        icon: <FileText size={24} className="text-teal-400" />,
+        description: "Redesigned the Gutenberg website to improve navigation, accessibility, and overall responsiveness."
     }
 ];
 
@@ -61,7 +79,7 @@ const FeaturedCard = ({ project }) => {
                 rotateY, 
                 transformStyle: "preserve-3d",
             }}
-            className="group relative w-full h-full rounded-[40px] bg-slate-900 border border-slate-800 p-8 shadow-2xl overflow-hidden transition-shadow duration-500 hover:shadow-teal-500/20"
+            className="group relative w-full h-full rounded-[40px] bg-slate-900 border border-slate-800 p-10 shadow-2xl overflow-hidden transition-shadow duration-500 hover:shadow-teal-500/20"
         >
             <div className="absolute inset-0 z-0">
                 <Image 
@@ -74,15 +92,18 @@ const FeaturedCard = ({ project }) => {
             </div>
             
             <div className="relative z-10 h-full flex flex-col justify-end" style={{ transform: "translateZ(40px)" }}>
-                <div className="flex items-center gap-4 mb-4">
-                    <div className="w-12 h-12 rounded-2xl bg-slate-800/80 backdrop-blur-md flex items-center justify-center border border-slate-700/50">
+                <div className="flex items-center gap-4 mb-6">
+                    <div className="w-12 h-12 rounded-2xl bg-slate-800/80 backdrop-blur-md flex items-center justify-center border border-slate-700/50 group-hover:bg-teal-500 transition-colors duration-500 group-hover:text-white">
                         {project.icon}
                     </div>
                     <span className="text-teal-400 font-mono text-sm tracking-wider uppercase">{project.category}</span>
                 </div>
-                <h3 className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl xl:text-6xl font-black text-white font-[family-name:var(--font-headline)] tracking-wider leading-[1.1] mb-2">
+                <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-white font-[family-name:var(--font-headline)] tracking-tight leading-[1.1] mb-6">
                     {project.title}
                 </h3>
+                <p className="text-slate-300 text-lg md:text-xl font-medium leading-relaxed max-w-xl line-clamp-2 md:line-clamp-3 mb-2 group-hover:text-white transition-colors duration-500">
+                    {project.description}
+                </p>
             </div>
         </motion.div>
     );
@@ -95,16 +116,17 @@ const FeaturedProjects = () => {
     });
     
     // Smooth horizontal translation based on vertical scroll
-    const x = useTransform(scrollYProgress, [0, 1], ["5%", "-75%"]);
+    // -80% is typical for a 5-6 item flex row to ensure the last item is visible at the end
+    const x = useTransform(scrollYProgress, [0, 1], ["0%", "-80%"]);
     
     return (
-        <section ref={targetRef} className="relative h-[220vh] md:h-[300vh] bg-[#0a0f1c] font-sans">
+        <section ref={targetRef} className="relative h-[250vh] md:h-[300vh] bg-[#0a0f1c] font-sans">
             <div className="sticky top-0 flex h-screen items-center overflow-hidden">
                 <motion.div style={{ x }} className="flex gap-8 md:gap-24 px-6 md:px-32 items-center">
                     
                     {/* Big Heading inside the slider */}
                     <div className="flex-shrink-0 flex items-center justify-start w-[85vw] md:w-[60vw]">
-                        <h2 className="text-[100px] sm:text-[140px] md:text-[160px] lg:text-[180px] xl:text-[220px] font-black font-[family-name:var(--font-headline)] leading-[0.85] tracking-tighter uppercase whitespace-nowrap md:whitespace-normal">
+                        <h2 className="text-[100px] sm:text-[140px] md:text-[160px] lg:text-[180px] xl:text-[220px] font-black font-[family-name:var(--font-headline)] leading-[0.85] tracking-tight uppercase whitespace-nowrap md:whitespace-normal">
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-emerald-500">MY</span><br/>
                             <span className="text-white">WORK</span>
                         </h2>
@@ -112,7 +134,7 @@ const FeaturedProjects = () => {
 
                     {/* Project Cards */}
                     {featuredProjects.map((p) => (
-                        <div key={p.id} className="flex-shrink-0 w-[85vw] md:w-[650px] lg:w-[550px] xl:w-[650px] h-[60vh] md:h-[65vh] lg:h-[60vh] xl:h-[70vh] cursor-pointer">
+                        <div key={p.id} className="flex-shrink-0 w-[85vw] md:w-[750px] h-[65vh] md:h-[75vh] cursor-pointer">
                             <Link href={`/projects/${p.id}`}>
                                 <FeaturedCard project={p} />
                             </Link>
@@ -120,12 +142,12 @@ const FeaturedProjects = () => {
                     ))}
 
                     {/* View All Projects Linking Card */}
-                    <div className="flex-shrink-0 w-[60vw] md:w-[400px] h-[60vh] md:h-[70vh] flex items-center justify-center pr-12 md:pr-32">
+                    <div className="flex-shrink-0 w-[60vw] md:w-[500px] h-[60vh] md:h-[70vh] flex items-center justify-center pr-12 md:pr-32">
                         <Link href="/projects" className="group flex flex-col items-center justify-center gap-6">
-                            <div className="w-32 h-32 rounded-full border border-slate-800 bg-slate-900/50 flex items-center justify-center group-hover:bg-teal-600 group-hover:border-teal-500 transition-all duration-500 group-hover:scale-110 shadow-xl">
-                                <ArrowUpRight size={50} className="text-slate-400 group-hover:text-white group-hover:rotate-45 transition-all duration-500" />
+                            <div className="w-40 h-40 rounded-full border border-slate-800 bg-slate-900/50 flex items-center justify-center group-hover:bg-teal-600 group-hover:border-teal-500 transition-all duration-500 group-hover:scale-110 shadow-2xl">
+                                <ArrowUpRight size={65} className="text-slate-400 group-hover:text-white group-hover:rotate-45 transition-all duration-500" />
                             </div>
-                            <span className="text-3xl text-slate-300 group-hover:text-white font-[family-name:var(--font-headline)] tracking-wider uppercase transition-colors duration-300">
+                            <span className="text-4xl text-slate-300 group-hover:text-white font-[family-name:var(--font-headline)] tracking-wider uppercase transition-colors duration-300">
                                 View All
                             </span>
                         </Link>

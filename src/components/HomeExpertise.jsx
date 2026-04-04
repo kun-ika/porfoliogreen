@@ -53,7 +53,7 @@ const HomeExpertise = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
                 >
-                    <h2 className="text-[40px] sm:text-[60px] md:text-[65px] lg:text-[75px] xl:text-[90px] leading-[0.95] font-black text-slate-950 mb-6 font-[family-name:var(--font-headline)] tracking-tighter uppercase">
+                    <h2 className="text-[40px] sm:text-[60px] md:text-[65px] lg:text-[75px] xl:text-[90px] leading-[0.95] font-black text-slate-950 mb-6 font-[family-name:var(--font-headline)] tracking-tight uppercase">
                         MY <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500">EXPERTISE</span>
                     </h2>
                     <p className="text-lg md:text-xl text-slate-500 max-w-2xl font-medium leading-[1.6]">
@@ -63,33 +63,34 @@ const HomeExpertise = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 w-full mb-16">
                     {categories.map((category, index) => (
-                        <motion.div
-                            key={category.id}
-                            initial={{ opacity: 0, y: 50 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, amount: 0.2 }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
-                            className={`group relative overflow-hidden rounded-[30px] bg-slate-50 border-2 border-slate-100 ${category.borderHover} p-8 md:p-10 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col items-center text-center cursor-default`}
-                        >
-                            {/* Glow */}
-                            <div className={`absolute -right-10 -top-10 w-40 h-40 bg-gradient-to-br ${category.gradient} opacity-0 group-hover:opacity-10 rounded-full blur-[30px] transition-opacity duration-700`}></div>
+                        <Link key={category.id} href="/skills" className="block w-full">
+                            <motion.div
+                                initial={{ opacity: 0, y: 50 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: true, amount: 0.2 }}
+                                transition={{ duration: 0.5, delay: index * 0.1 }}
+                                className={`group h-full relative overflow-hidden rounded-[30px] bg-slate-50 border-2 border-slate-100 ${category.borderHover} p-8 md:p-10 shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col items-center text-center cursor-pointer`}
+                            >
+                                {/* Glow */}
+                                <div className={`absolute -right-10 -top-10 w-40 h-40 bg-gradient-to-br ${category.gradient} opacity-0 group-hover:opacity-10 rounded-full blur-[30px] transition-opacity duration-700`}></div>
 
-                            {/* Floating Icons */}
-                            <div className="flex justify-center items-center gap-4 mb-10">
-                                {category.icons.map((iconStr, i) => (
-                                    <motion.div 
-                                        key={i}
-                                        className="w-16 h-16 rounded-2xl bg-white shadow-md flex justify-center items-center overflow-hidden border border-slate-100 group-hover:-translate-y-2 transition-transform duration-300"
-                                        style={{ transitionDelay: `${i * 50}ms` }}
-                                    >
-                                        <img src={iconStr} alt="skill logo" className="w-10 h-10 object-contain drop-shadow-sm" />
-                                    </motion.div>
-                                ))}
-                            </div>
+                                {/* Floating Icons */}
+                                <div className="flex justify-center items-center gap-4 mb-10">
+                                    {category.icons.map((iconStr, i) => (
+                                        <motion.div 
+                                            key={i}
+                                            className="w-16 h-16 rounded-2xl bg-white shadow-md flex justify-center items-center overflow-hidden border border-slate-100 group-hover:-translate-y-2 transition-transform duration-300"
+                                            style={{ transitionDelay: `${i * 50}ms` }}
+                                        >
+                                            <img src={iconStr} alt="skill logo" className="w-10 h-10 object-contain drop-shadow-sm" />
+                                        </motion.div>
+                                    ))}
+                                </div>
 
-                            <h3 className="text-2xl font-bold text-slate-800 mb-4 tracking-wider font-[family-name:var(--font-headline)]">{category.title}</h3>
-                            <p className="text-slate-500 font-medium leading-relaxed">{category.description}</p>
-                        </motion.div>
+                                <h3 className="text-2xl font-bold text-slate-800 mb-4 tracking-wider font-[family-name:var(--font-headline)] uppercase leading-none">{category.title}</h3>
+                                <p className="text-slate-500 font-medium leading-relaxed">{category.description}</p>
+                            </motion.div>
+                        </Link>
                     ))}
                 </div>
 

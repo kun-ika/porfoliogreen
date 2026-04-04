@@ -2,6 +2,7 @@
 import React, { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import Link from 'next/link';
+import { Github, Download } from 'lucide-react';
 
 const FloatingSkill = ({ skill, progress, isMobile }) => {
     const yTransform = useTransform(progress, [0.4, 0.85], ["120%", skill.yOff]);
@@ -169,14 +170,32 @@ const Hero = () => {
                             <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500">I'm Kunika</span>
                         </h1>
 
-                        <motion.a
-                            href="mailto:jainkunika91@gmail.com"
-                            whileHover={{ scale: 1.05, originX: 0 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="text-teal-600 font-bold text-sm sm:text-base md:text-lg lg:text-base xl:text-lg hover:text-emerald-700 transition-colors inline-block relative border-b-2 border-transparent hover:border-emerald-600 pb-1"
-                        >
-                            jainkunika91@gmail.com
-                        </motion.a>
+                        <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
+                            <motion.a
+                                href="https://github.com/kunika-jain" // Update with actual GitHub URL
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                whileHover={{ scale: 1.05, y: -2 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="group flex items-center gap-3 bg-slate-900 text-white px-6 py-3.5 rounded-2xl font-bold text-sm sm:text-base border border-slate-800 shadow-xl shadow-slate-200/50 transition-all hover:bg-slate-800 hover:shadow-slate-300/50"
+                            >
+                                <Github size={20} className="group-hover:rotate-12 transition-transform" />
+                                <span>GitHub</span>
+                            </motion.a>
+
+                            <motion.a
+                                href="/resume.pdf" // Update with actual Resume path
+                                download
+                                whileHover={{ scale: 1.05, y: -2 }}
+                                whileTap={{ scale: 0.95 }}
+                                className="group flex items-center gap-3 bg-white text-slate-800 px-6 py-3.5 rounded-2xl font-bold text-sm sm:text-base border border-slate-200 shadow-xl shadow-teal-100/50 transition-all hover:border-teal-200 hover:bg-teal-50/30"
+                            >
+                                <div className="p-1 rounded-lg bg-teal-50 text-teal-600 group-hover:bg-teal-100 transition-colors">
+                                    <Download size={18} />
+                                </div>
+                                <span className="bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-600">Resume</span>
+                            </motion.a>
+                        </div>
                     </motion.div>
 
                     {/* Center: Image */}

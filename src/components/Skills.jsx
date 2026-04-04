@@ -75,13 +75,13 @@ const SkillCard = ({ skill, index, gradient }) => {
                 },
                 exit: { opacity: 0, scale: 0.9, y: -20 }
             }}
-            className="group relative overflow-hidden rounded-[32px] bg-white border border-slate-200/60 p-8 shadow-sm hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 cursor-default"
+            className="group relative overflow-hidden rounded-[32px] bg-white border border-slate-200/60 p-8 shadow-sm transition-all duration-500 cursor-default"
         >
             {/* Soft background glow */}
-            <div className={`absolute top-0 right-0 w-40 h-40 bg-gradient-to-br ${gradient} opacity-5 rounded-full blur-[40px] group-hover:scale-150 group-hover:opacity-20 transition-all duration-700`}></div>
+            <div className={`absolute top-0 right-0 w-40 h-40 bg-gradient-to-br ${gradient} opacity-5 rounded-full blur-[40px] transition-all duration-700`}></div>
             
             <div className="flex justify-between items-start mb-10 w-full relative z-10">
-                <div className="w-16 h-16 rounded-2xl bg-slate-50 flex items-center justify-center text-slate-400 group-hover:text-teal-600 transition-colors shadow-inner border border-slate-100 group-hover:scale-110 duration-500">
+                <div className="w-16 h-16 rounded-2xl bg-slate-50 flex items-center justify-center text-slate-400 transition-colors shadow-inner border border-slate-100 duration-500">
                     {skill.icon}
                 </div>
             </div>
@@ -99,7 +99,7 @@ const SkillCard = ({ skill, index, gradient }) => {
                     className={`absolute top-0 left-0 h-full rounded-full bg-gradient-to-r ${gradient} shadow-sm`}
                 >
                     {/* Shimmer overlay */}
-                    <div className="absolute inset-0 w-full h-full bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.3)_50%,transparent_75%)] bg-[length:15px_15px] opacity-0 group-hover:opacity-100 animate-[pulse_2s_infinite]"></div>
+                    <div className="absolute inset-0 w-full h-full bg-[linear-gradient(45deg,transparent_25%,rgba(255,255,255,0.3)_50%,transparent_75%)] bg-[length:15px_15px] opacity-0 animate-[pulse_2s_infinite]"></div>
                 </motion.div>
             </div>
         </motion.div>
