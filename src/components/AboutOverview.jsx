@@ -2,14 +2,14 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowRight, MousePointer2, Palette, Code, Sparkles } from 'lucide-react';
+import { ArrowRight, MousePointer2, Palette, Code, Zap, User } from 'lucide-react';
 
 const AboutOverview = () => {
     const highlights = [
         { icon: <MousePointer2 size={24} className="text-teal-500" />, title: "UI/UX Design", text: "Creating intuitive and user-centered interfaces that balance aesthetics with functionality." },
         { icon: <Palette size={24} className="text-emerald-500" />, title: "Graphic Design", text: "Crafting visual identities and cohesive branding that effectively communicates your message." },
         { icon: <Code size={24} className="text-teal-600" />, title: "Web Design", text: "Building responsive, accessible, and high-performance websites with premium digital flow." },
-        { icon: <Sparkles size={24} className="text-emerald-600" />, title: "Branding", text: "Establishing a strong brand voice and visual language that resonates deeply with users." },
+        { icon: <Zap size={24} className="text-emerald-600" />, title: "Branding", text: "Establishing a strong brand voice and visual language that resonates deeply with users." },
     ];
 
     return (
@@ -41,7 +41,7 @@ const AboutOverview = () => {
                         whileInView={{ scale: 1 }}
                         className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-teal-50 border border-teal-100 mb-8"
                     >
-                        <Sparkles size={16} className="text-teal-600" />
+                        <User size={16} className="text-teal-600" />
                         <span className="text-xs md:text-sm font-bold tracking-widest uppercase text-teal-800">Who is Kunika?</span>
                     </motion.div>
 

@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence, useMotionValue, useSpring } from 'framer-motion';
-import { ChevronDown, Instagram, Dribbble, Figma, Component, PenBox, Layers, MousePointer2, Palette, Code, Sparkles, Smartphone, Linkedin, Github, Mail } from 'lucide-react';
+import { ChevronDown, Instagram, Dribbble, Figma, Component, PenBox, Layers, MousePointer2, Palette, Code, Zap, Smartphone, Linkedin, Github, Mail } from 'lucide-react';
 
 const AccordionItem = ({ number, title, text, tags, Icon }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -136,7 +136,7 @@ const About = () => {
             title: "BRANDING", 
             text: "Establishing a strong brand voice and visual language that resonates deeply with users. Focusing on consistent representation across multiple channels.",
             tags: ["Brand Strategy", "Logo Design", "Style Guides", "Art Direction"],
-            Icon: Sparkles
+            Icon: Zap
         }
     ];
 
