@@ -5,7 +5,7 @@ import {
     Figma, PenTool, Layers, Waypoints, UserCheck, Brush, 
     FileCode2, FileJson, Atom, Smartphone, Wind, 
     Flame, Database, Github, Globe, TerminalSquare, 
-    Code, Blocks, Network 
+    Code, Blocks, Network, Framer 
 } from 'lucide-react';
 
 const categories = [
@@ -16,6 +16,28 @@ const categories = [
         bgGlow: "bg-teal-500/10",
         skills: [
             { name: "Figma", level: 90, icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="Figma" className="w-10 h-10 object-contain drop-shadow-sm" /> },
+            { 
+                name: "FigJam", 
+                level: 85, 
+                icon: (
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" className="w-10 h-10 object-contain drop-shadow-sm">
+                        <path fill="#0acf83" d="M36.1 84.4c0-9.8 8-17.8 17.8-17.8h16.2v16.2c0 14.8-12 26.8-26.8 26.8-4 0-7.2-3.2-7.2-7.2v-18z"/>
+                        <path fill="#a259ff" d="M36 49.3c0-9.6 7.8-17.4 17.4-17.4h17v17.4c0 9.6-7.8 17.4-17.4 17.4H36v-17.4z"/>
+                        <path fill="#f24e1e" d="M36 15c0-4 3.2-7.2 7.2-7.2h27.2v17H43.2C39.2 24.8 36 21.6 36 17.6v-2.6z"/>
+                        <path fill="#ff7262" d="M70.4 7.8h23.2c4 0 7.2 3.2 7.2 7.2v2.6c0 4-3.2 7.2-7.2 7.2H70.4V7.8z"/>
+                        <path fill="#1abcfe" d="M70.5 49.3c0-9.6 7.8-17.4 17.4-17.4h6c4 0 7.2 3.2 7.2 7.2v17H88c-9.7.1-17.5-7.7-17.5-17.3z"/>
+                    </svg>
+                )
+            },
+            { 
+                name: "Framer", 
+                level: 80, 
+                icon: (
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 21" className="w-8 h-8 object-contain drop-shadow-sm text-slate-800" fill="currentColor">
+                        <path d="M0 0h14v7H7zm0 7h14l-7 7H0zm7 7h7v7l-7-7z" />
+                    </svg>
+                ) 
+            },
             { name: "Wireframing", level: 85, icon: <PenTool size={36} className="text-emerald-500" /> },
             { name: "Prototyping", level: 85, icon: <Layers size={36} className="text-teal-500" /> },
             { name: "User Flows", level: 80, icon: <Waypoints size={36} className="text-emerald-400" /> },

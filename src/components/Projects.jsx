@@ -36,7 +36,7 @@ const projects = [
         tags: ["Figma", "Prototyping"],
         icon: <LayoutTemplate size={28} className="text-emerald-500" />,
         image: "/projects/medicare.jpg",
-        link: "/projects",
+        link: "/projects/medicare",
         description: "Healthcare UI/UX design project featuring user-centered wireframes and high-fidelity prototypes."
     },
     {

@@ -50,7 +50,7 @@ const AboutOverview = () => {
                     </h2>
                     
                     <p className="text-xl md:text-2xl text-slate-700 mb-16 leading-relaxed font-medium max-w-3xl">
-                        I am a digital designer dedicated to creating impactful experiences. My work bridge the gap between <span className="text-teal-600 font-bold decoration-teal-500/30 underline underline-offset-4">visual beauty</span> and <span className="text-emerald-600 font-bold decoration-emerald-500/30 underline underline-offset-4">strategic function</span>.
+                        A UI/UX designer with an <span className="text-teal-600 font-bold">engineering mindset</span>, focused on transforming complex problems into simple, meaningful experiences. I blend research, structure, and visual design to create solutions that are both <span className="text-emerald-600 font-bold">functional and engaging</span>.
                     </p>
 
                     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8 mb-16 w-full">
