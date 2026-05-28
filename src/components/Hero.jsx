@@ -167,7 +167,7 @@ const Hero = () => {
                     >
                         <h1 className="text-5xl sm:text-7xl lg:text-6xl xl:text-7xl font-black text-slate-800 tracking-tight leading-[1] mb-6">
                             Hey There, <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500">I'm Kunika</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500">I&apos;m Kunika</span>
                         </h1>
 
                         <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">

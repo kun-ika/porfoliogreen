@@ -1,11 +1,22 @@
 "use client"; // reload trigger
 import React, { useRef } from 'react';
-import { ExternalLink, MonitorPlay, Layers, FileText, LayoutTemplate, Box } from 'lucide-react';
+import { ExternalLink, MonitorPlay, Layers, FileText, LayoutTemplate, Box, Sparkles } from 'lucide-react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
 
 const projects = [
+    {
+        id: "paws-care",
+        title: "Paws & Care",
+        subtitle: "Bidirectional Pet Care Marketplace",
+        type: "Full-Stack Web App",
+        tags: ["Next.js", "React", "PostgreSQL", "Prisma", "Tailwind CSS", "Framer Motion"],
+        icon: <Sparkles size={28} className="text-teal-500" />,
+        image: "/projects/paws-care.png",
+        link: "/projects/paws-care",
+        description: "A premium full-stack bidirectional marketplace linking pet parents with professional caregivers, featuring digital wallets, booking limits, and responsive designs."
+    },
     {
         id: "smart-solar",
         title: "Smart Solar Cutter",

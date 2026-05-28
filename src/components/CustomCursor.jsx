@@ -19,6 +19,11 @@ const CustomCursor = () => {
     const ringY = useSpring(mouseY, springConfig);
 
     useEffect(() => {
+        setMounted(true);
+        setIsMobile('ontouchstart' in window);
+    }, []);
+
+    useEffect(() => {
         const handleMouseMove = (e) => {
             mouseX.set(e.clientX);
             mouseY.set(e.clientY);
@@ -42,9 +47,6 @@ const CustomCursor = () => {
         window.addEventListener('mousemove', handleMouseMove);
         window.addEventListener('mouseover', handleMouseOver);
         document.body.style.cursor = 'none';
-
-        setMounted(true);
-        setIsMobile('ontouchstart' in window);
 
         return () => {
             window.removeEventListener('mousemove', handleMouseMove);

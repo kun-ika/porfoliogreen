@@ -247,7 +247,7 @@ const QuickSalonPage = () => {
                             <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-[60px] -z-0"></div>
                             <div className="relative z-10 space-y-8">
                                 <p className="text-xl md:text-2xl font-medium leading-relaxed italic opacity-90">
-                                    "A complete digital transformation that automates the booking lifecycle, from initial service discovery to secure payment."
+                                    &quot;A complete digital transformation that automates the booking lifecycle, from initial service discovery to secure payment.&quot;
                                 </p>
                                 <div className="grid grid-cols-1 gap-6 pt-4">
                                     {[

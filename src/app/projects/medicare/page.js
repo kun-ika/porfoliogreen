@@ -158,7 +158,7 @@ const MedicarePage = () => {
                         <div className="absolute top-0 right-0 w-64 h-64 bg-white/10 rounded-full blur-[60px] -z-0"></div>
                         <div className="relative z-10 space-y-8">
                             <p className="text-xl font-medium leading-relaxed italic opacity-90">
-                                "We conducted detailed User Interviews with students & staff and deployed a survey with ~25 responses to validate our assumptions."
+                                &quot;We conducted detailed User Interviews with students &amp; staff and deployed a survey with ~25 responses to validate our assumptions.&quot;
                             </p>
                             <h4 className="text-2xl font-black uppercase tracking-widest mt-8 mb-4">Key Insights</h4>
                             <div className="grid grid-cols-1 gap-6 pt-2">
@@ -377,7 +377,7 @@ const MedicarePage = () => {
                     className="p-12 md:p-16 rounded-[40px] border border-slate-200 bg-slate-50"
                 >
                     <p className="text-2xl md:text-3xl font-black text-slate-800 leading-tight italic">
-                        "This project includes a complete UX process where low-fidelity, mid-fidelity and high-fidelity designs were created using Figma to build a scalable, user-centered solution."
+                        &quot;This project includes a complete UX process where low-fidelity, mid-fidelity and high-fidelity designs were created using Figma to build a scalable, user-centered solution.&quot;
                     </p>
                 </motion.div>
 

@@ -3,9 +3,17 @@ import React, { useRef } from 'react';
 import { motion, useScroll, useTransform, useMotionValue, useSpring } from 'framer-motion';
 import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowUpRight, Box, MonitorPlay, Layers, LayoutTemplate, FileText } from 'lucide-react';
+import { ArrowUpRight, Box, MonitorPlay, Layers, LayoutTemplate, FileText, Sparkles } from 'lucide-react';
 
 const featuredProjects = [
+    {
+        id: "paws-care",
+        title: "Paws & Care",
+        category: "Full-Stack Web App",
+        image: "/projects/paws-care.png",
+        icon: <Sparkles size={24} className="text-teal-400" />,
+        description: "A premium bidirectional marketplace linking pet parents with professional caregivers, featuring digital wallets, booking limits, and dual dashboards."
+    },
     {
         id: "smart-solar",
         title: "Smart Solar Cutter",
@@ -116,8 +124,8 @@ const FeaturedProjects = () => {
     });
     
     // Smooth horizontal translation based on vertical scroll
-    // -80% is typical for a 5-6 item flex row to ensure the last item is visible at the end
-    const x = useTransform(scrollYProgress, [0, 1], ["0%", "-80%"]);
+    // -88% accommodates the 5-project slide to ensure the last item is visible at the end
+    const x = useTransform(scrollYProgress, [0, 1], ["0%", "-88%"]);
     
     return (
         <section ref={targetRef} className="relative h-[250vh] md:h-[300vh] bg-[#0a0f1c] font-sans">

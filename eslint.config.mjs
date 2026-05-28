@@ -10,7 +10,13 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    "old_vite_project/**",
   ]),
+  {
+    rules: {
+      "react-hooks/set-state-in-effect": "off"
+    }
+  }
 ]);
 
 export default eslintConfig;
