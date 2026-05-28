@@ -67,9 +67,8 @@ const Contact = () => {
                                         WebkitMaskPosition: 'top'
                                     }}
                                 />
-                            </div>
-                            {/* Blue Hand Bubble Overlay */}
-                            <div className="absolute -left-6 -bottom-6 md:-left-8 md:-bottom-8 w-24 h-24 md:w-32 md:h-32 bg-[#0d9488] rounded-full flex items-center justify-center shadow-2xl">
+                            </div>                            {/* Blue Hand Bubble Overlay */}
+                            <div className="absolute -left-6 -bottom-6 md:-left-8 md:-bottom-8 w-24 h-24 md:w-32 md:h-32 bg-[#8FAEC7] rounded-full flex items-center justify-center shadow-2xl">
                                 <AnimatePresence mode="wait">
                                     {!showGreeting ? (
                                         <motion.div
@@ -121,19 +120,19 @@ const Contact = () => {
                             <form className="flex flex-col gap-6 w-full">
                                 <div className="flex flex-col md:flex-row gap-6 w-full">
                                     <div className="flex flex-col w-full gap-3">
-                                        <label className="text-[#0d9488] text-sm md:text-base ml-4 font-medium">Name :</label>
-                                        <input type="text" placeholder="John Smith" className="w-full bg-[#F5F5F5] placeholder:text-gray-400 border border-transparent rounded-full px-6 md:px-8 py-4 outline-none focus:border-[#0d9488] transition-all text-slate-950" />
+                                        <label className="text-[#4E3629] text-sm md:text-base ml-4 font-bold">Name :</label>
+                                        <input type="text" placeholder="John Smith" className="w-full bg-[#E9F0F6]/40 border border-[#8FAEC7]/20 placeholder:text-slate-400 rounded-full px-6 md:px-8 py-4 outline-none focus:border-[#8FAEC7] transition-all text-[#4E3629]" />
                                     </div>
                                     <div className="flex flex-col w-full gap-3">
-                                        <label className="text-[#0d9488] text-sm md:text-base ml-4 font-medium">Email :</label>
-                                        <input type="email" placeholder="johnsmith@gmail.com" className="w-full bg-[#F5F5F5] placeholder:text-gray-400 border border-transparent rounded-full px-6 md:px-8 py-4 outline-none focus:border-[#0d9488] transition-all text-slate-950" />
+                                        <label className="text-[#4E3629] text-sm md:text-base ml-4 font-bold">Email :</label>
+                                        <input type="email" placeholder="johnsmith@gmail.com" className="w-full bg-[#E9F0F6]/40 border border-[#8FAEC7]/20 placeholder:text-slate-400 rounded-full px-6 md:px-8 py-4 outline-none focus:border-[#8FAEC7] transition-all text-[#4E3629]" />
                                     </div>
                                 </div>
 
                                 <div className="flex flex-col gap-3 w-full mt-2">
-                                    <label className="text-[#0d9488] text-sm md:text-base ml-4 font-medium">Service Needed ?</label>
+                                    <label className="text-[#4E3629] text-sm md:text-base ml-4 font-bold">Service Needed ?</label>
                                     <div className="relative w-full">
-                                        <select defaultValue="" className="w-full appearance-none bg-[#F5F5F5] border border-transparent rounded-full px-6 md:px-8 py-4 outline-none focus:border-[#0d9488] transition-all text-slate-600 cursor-pointer">
+                                        <select defaultValue="" className="w-full appearance-none bg-[#E9F0F6]/40 border border-[#8FAEC7]/20 rounded-full px-6 md:px-8 py-4 outline-none focus:border-[#8FAEC7] transition-all text-[#4E3629]/70 cursor-pointer">
                                             <option value="" disabled>Select...</option>
                                             <option value="uiux">UI / UX Design</option>
                                             <option value="web">Web Design</option>
@@ -147,12 +146,12 @@ const Contact = () => {
                                 </div>
 
                                 <div className="flex flex-col gap-3 w-full mt-2">
-                                    <label className="text-[#0d9488] text-sm md:text-base ml-4 font-medium">What Can I Help You...</label>
-                                    <textarea placeholder="Hello, I'd like to enquire about..." className="w-full bg-[#F5F5F5] placeholder:text-gray-400 border border-transparent rounded-[32px] px-6 md:px-8 py-6 h-[180px] resize-none outline-none focus:border-[#0d9488] transition-all text-slate-950"></textarea>
+                                    <label className="text-[#4E3629] text-sm md:text-base ml-4 font-bold">What Can I Help You...</label>
+                                    <textarea placeholder="Hello, I'd like to enquire about..." className="w-full bg-[#E9F0F6]/40 border border-[#8FAEC7]/20 placeholder:text-slate-400 rounded-[32px] px-6 md:px-8 py-6 h-[180px] resize-none outline-none focus:border-[#8FAEC7] transition-all text-[#4E3629]"></textarea>
                                 </div>
 
                                 <div className="mt-4">
-                                    <button type="submit" className="bg-gradient-to-r from-teal-600 to-emerald-500 text-white rounded-full px-10 py-3 md:px-12 md:py-4 uppercase tracking-[0.05em] font-medium hover:scale-105 transition-transform duration-400 w-auto inline-block shadow-lg">
+                                    <button type="submit" className="bg-[#4E3629] text-[#FAF9F6] border border-[#3D2B1F] rounded-full px-10 py-3 md:px-12 md:py-4 uppercase tracking-[0.05em] font-bold hover:scale-105 transition-transform duration-400 w-auto inline-block shadow-lg">
                                         SUBMIT
                                     </button>
                                 </div>

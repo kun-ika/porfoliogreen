@@ -73,8 +73,8 @@ const CustomCursor = () => {
                     width: isHovered ? 80 : 40,
                     height: isHovered ? 80 : 40,
                     opacity: isVisible ? 1 : 0,
-                    backgroundColor: isHovered ? 'rgba(20, 184, 166, 0.1)' : 'transparent',
-                    borderColor: isHovered ? 'rgba(20, 184, 166, 0.5)' : 'rgba(15, 23, 42, 0.3)',
+                    backgroundColor: isHovered ? 'rgba(143, 174, 199, 0.15)' : 'transparent',
+                    borderColor: isHovered ? 'rgba(143, 174, 199, 0.6)' : 'rgba(78, 54, 41, 0.3)',
                     borderWidth: isHovered ? 1 : 2,
                 }}
                 className="absolute rounded-full border border-slate-900/30 mix-blend-difference"
@@ -92,7 +92,7 @@ const CustomCursor = () => {
                     scale: isHovered ? 1.5 : 1,
                     opacity: isVisible ? 1 : 0,
                 }}
-                className="absolute w-2 h-2 bg-teal-500 rounded-full mix-blend-difference"
+                className="absolute w-2.5 h-2.5 bg-[#8FAEC7] rounded-full mix-blend-difference"
             />
         </div>
     );

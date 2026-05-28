@@ -12,8 +12,8 @@ const categories = [
     {
         id: "uiux",
         title: "UI/UX Design",
-        gradient: "from-teal-500 to-emerald-400",
-        bgGlow: "bg-teal-500/10",
+        gradient: "from-[#8FAEC7] to-[#4E3629]",
+        bgGlow: "bg-[#8FAEC7]/10",
         skills: [
             { name: "Figma", level: 90, icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/figma/figma-original.svg" alt="Figma" className="w-10 h-10 object-contain drop-shadow-sm" /> },
             { 
@@ -38,18 +38,18 @@ const categories = [
                     </svg>
                 ) 
             },
-            { name: "Wireframing", level: 85, icon: <PenTool size={36} className="text-emerald-500" /> },
-            { name: "Prototyping", level: 85, icon: <Layers size={36} className="text-teal-500" /> },
-            { name: "User Flows", level: 80, icon: <Waypoints size={36} className="text-emerald-400" /> },
-            { name: "Usability Design", level: 80, icon: <UserCheck size={36} className="text-teal-400" /> },
+            { name: "Wireframing", level: 85, icon: <PenTool size={36} className="text-[#8FAEC7]" /> },
+            { name: "Prototyping", level: 85, icon: <Layers size={36} className="text-[#8FAEC7]" /> },
+            { name: "User Flows", level: 80, icon: <Waypoints size={36} className="text-[#8FAEC7]" /> },
+            { name: "Usability Design", level: 80, icon: <UserCheck size={36} className="text-[#8FAEC7]" /> },
             { name: "Canva", level: 95, icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/canva/canva-original.svg" alt="Canva" className="w-10 h-10 object-contain drop-shadow-sm" /> }
         ]
     },
     {
         id: "frontend",
         title: "Frontend Development",
-        gradient: "from-emerald-500 to-teal-400",
-        bgGlow: "bg-emerald-500/10",
+        gradient: "from-[#4E3629] to-[#8FAEC7]",
+        bgGlow: "bg-[#4E3629]/10",
         skills: [
             { name: "HTML5 & CSS3", level: 90, icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg" alt="HTML5" className="w-10 h-10 object-contain drop-shadow-sm" /> },
             { name: "JavaScript", level: 85, icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" alt="JavaScript" className="w-10 h-10 object-contain drop-shadow-sm" /> },
@@ -61,8 +61,8 @@ const categories = [
     {
         id: "backend",
         title: "Backend & Tools",
-        gradient: "from-teal-600 to-emerald-500",
-        bgGlow: "bg-teal-600/10",
+        gradient: "from-[#8FAEC7] to-[#4E3629]",
+        bgGlow: "bg-[#8FAEC7]/10",
         skills: [
             { name: "Firebase", level: 75, icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/firebase/firebase-plain.svg" alt="Firebase" className="w-10 h-10 object-contain drop-shadow-sm" /> },
             { name: "MySQL", level: 70, icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mysql/mysql-original.svg" alt="MySQL" className="w-10 h-10 object-contain drop-shadow-sm" /> },
@@ -73,13 +73,13 @@ const categories = [
     {
         id: "fundamentals",
         title: "Fundamentals",
-        gradient: "from-emerald-600 to-teal-500",
-        bgGlow: "bg-emerald-600/10",
+        gradient: "from-[#4E3629] to-[#8FAEC7]",
+        bgGlow: "bg-[#4E3629]/10",
         skills: [
             { name: "C / C++", level: 85, icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/cplusplus/cplusplus-original.svg" alt="C++" className="w-10 h-10 object-contain drop-shadow-sm" /> },
             { name: "Python", level: 80, icon: <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/python/python-original.svg" alt="Python" className="w-10 h-10 object-contain drop-shadow-sm" /> },
-            { name: "OOPs", level: 85, icon: <Blocks size={36} className="text-teal-600" /> },
-            { name: "Data Structures", level: 75, icon: <Network size={36} className="text-emerald-500" /> }
+            { name: "OOPs", level: 85, icon: <Blocks size={36} className="text-[#4E3629]" /> },
+            { name: "Data Structures", level: 75, icon: <Network size={36} className="text-[#8FAEC7]" /> }
         ]
     }
 ];
@@ -97,18 +97,18 @@ const SkillCard = ({ skill, index, gradient }) => {
                 },
                 exit: { opacity: 0, scale: 0.9, y: -20 }
             }}
-            className="group relative overflow-hidden rounded-[32px] bg-white border border-slate-200/60 p-8 shadow-sm transition-all duration-500 cursor-default"
+            className="group relative overflow-hidden rounded-[32px] bg-white border-2 border-[#8FAEC7]/30 p-8 shadow-sm transition-all duration-500 cursor-default"
         >
             {/* Soft background glow */}
             <div className={`absolute top-0 right-0 w-40 h-40 bg-gradient-to-br ${gradient} opacity-5 rounded-full blur-[40px] transition-all duration-700`}></div>
             
             <div className="flex justify-between items-start mb-10 w-full relative z-10">
-                <div className="w-16 h-16 rounded-2xl bg-slate-50 flex items-center justify-center text-slate-400 transition-colors shadow-inner border border-slate-100 duration-500">
+                <div className="w-16 h-16 rounded-2xl bg-[#E9F0F6] flex items-center justify-center text-[#8FAEC7] transition-colors shadow-inner border border-[#8FAEC7]/10 duration-500">
                     {skill.icon}
                 </div>
             </div>
 
-            <h4 className="text-2xl font-bold text-slate-800 mb-6 tracking-wider relative z-10 font-[family-name:var(--font-headline)]">
+            <h4 className="text-2xl font-bold text-[#4E3629] mb-6 tracking-wider relative z-10 font-[family-name:var(--font-headline)]">
                 {skill.name}
             </h4>
             
@@ -143,8 +143,8 @@ const Skills = () => {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
                 >
-                    <h2 className="text-[40px] sm:text-[60px] md:text-[80px] lg:text-[100px] leading-[0.9] font-black text-slate-950 mb-6 font-[family-name:var(--font-headline)] tracking-tighter uppercase">
-                        MY <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500">EXPERTISE</span>
+                    <h2 className="text-[40px] sm:text-[60px] md:text-[80px] lg:text-[100px] leading-[0.9] font-black text-[#4E3629] mb-6 font-[family-name:var(--font-headline)] tracking-tighter uppercase">
+                        MY <span className="text-[#8FAEC7] font-[family-name:var(--font-cursive)] normal-case pl-2 select-none">Expertise</span>
                     </h2>
                 </motion.div>
 
@@ -154,7 +154,7 @@ const Skills = () => {
                         <button
                             key={category.id}
                             onClick={() => setActiveTab(index)}
-                            className={`relative px-6 md:px-10 py-4 md:py-5 rounded-full text-base md:text-xl font-bold transition-all duration-300 ${activeTab === index ? 'text-white' : 'text-slate-500 hover:text-slate-800 hover:bg-slate-200/50'}`}
+                            className={`relative px-6 md:px-10 py-4 md:py-5 rounded-full text-base md:text-xl font-bold transition-all duration-300 ${activeTab === index ? 'text-[#FAF9F6]' : 'text-slate-500 hover:text-[#4E3629] hover:bg-[#E9F0F6]'}`}
                         >
                             {activeTab === index && (
                                 <motion.div

@@ -38,10 +38,10 @@ const Navbar = () => {
             animate={{ y: 0, opacity: 1 }}
             transition={{ type: "spring", stiffness: 100, damping: 20, delay: 0.2 }}
         >
-            <div className={`w-full max-w-5xl pointer-events-auto bg-teal-800/90 backdrop-blur-lg border border-white/20 shadow-2xl rounded-full px-5 md:px-8 py-2.5 flex items-center justify-between transition-all duration-300 ${isScrolled ? 'translate-y-0 shadow-teal-900/20' : '-translate-y-1'}`}>
+            <div className={`w-full max-w-5xl pointer-events-auto bg-white/90 backdrop-blur-lg border border-[#8FAEC7]/30 shadow-2xl rounded-full px-5 md:px-8 py-2.5 flex items-center justify-between transition-all duration-300 ${isScrolled ? 'translate-y-0 shadow-[#4E3629]/5' : '-translate-y-1'}`}>
                 {/* Logo */}
-                <Link href="/" className="flex-shrink-0 text-xl font-bold font-heading text-white tracking-tighter">
-                    KJ<span className="text-teal-400">.</span>
+                <Link href="/" className="flex-shrink-0 text-2xl font-bold font-sans text-[#4E3629] tracking-tighter">
+                    KJ<span className="text-[#8FAEC7]">.</span>
                 </Link>
 
                 {/* Desktop Navigation */}
@@ -55,7 +55,7 @@ const Navbar = () => {
                                     href={link.href}
                                     target="_blank"
                                     rel="noopener noreferrer"
-                                    className="text-[14px] font-medium transition-all duration-300 relative py-1 hover:text-white text-white/70"
+                                    className="text-[15px] font-bold transition-all duration-300 relative py-1 hover:text-[#4E3629] text-[#4E3629]/70"
                                 >
                                     {link.name}
                                 </a>
@@ -65,14 +65,12 @@ const Navbar = () => {
                             <Link
                                 key={link.name}
                                 href={link.href}
-                                className={`text-[14px] font-medium transition-all duration-300 relative py-1 hover:text-white ${isActive ? 'text-white' : 'text-white/70'
-                                    }`}
+                                className={`text-[15px] font-bold transition-all duration-300 relative py-1 hover:text-[#4E3629] ${isActive ? 'text-[#4E3629]' : 'text-[#4E3629]/70'}`}
                             >
                                 {link.name}
                                 {/* Active indicator line */}
                                 <span
-                                    className={`absolute left-1/2 -bottom-1 h-[2px] bg-teal-400 rounded-full transition-all duration-300 transform -translate-x-1/2 ${isActive ? 'w-full opacity-100' : 'w-0 opacity-0'
-                                        }`}
+                                    className={`absolute left-1/2 -bottom-1 h-[2px] bg-[#8FAEC7] rounded-full transition-all duration-300 transform -translate-x-1/2 ${isActive ? 'w-full opacity-100' : 'w-0 opacity-0'}`}
                                 />
                             </Link>
                         );
@@ -83,7 +81,7 @@ const Navbar = () => {
                 <div className="hidden md:block flex-shrink-0">
                     <Link
                         href="/contact"
-                        className="bg-white text-teal-800 hover:bg-teal-50 hover:text-teal-700 px-6 py-2 rounded-full text-[14px] font-bold transition-all inline-block shadow-sm"
+                        className="bg-[#4E3629] text-[#FAF9F6] hover:bg-[#3D2B1F] px-6 py-2.5 rounded-full text-[14px] font-bold transition-all inline-block shadow-md border border-[#3D2B1F]"
                     >
                         Contact Me
                     </Link>
@@ -91,7 +89,7 @@ const Navbar = () => {
 
                 {/* Mobile Navigation Toggle */}
                 <button
-                    className="md:hidden pointer-events-auto flex items-center text-white focus:outline-none"
+                    className="md:hidden pointer-events-auto flex items-center text-[#4E3629] focus:outline-none"
                     onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 >
                     {isMobileMenuOpen ? <X size={26} /> : <Menu size={26} />}
@@ -106,7 +104,7 @@ const Navbar = () => {
                         animate={{ opacity: 1, y: 0, scale: 1 }}
                         exit={{ opacity: 0, y: -20, scale: 0.95 }}
                         transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-                        className="md:hidden pointer-events-auto absolute top-[calc(100%+12px)] left-4 right-4 bg-teal-900/95 backdrop-blur-xl border border-white/10 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] overflow-hidden z-50"
+                        className="md:hidden pointer-events-auto absolute top-[calc(100%+12px)] left-4 right-4 bg-white/95 backdrop-blur-xl border border-[#8FAEC7]/30 rounded-[2.5rem] shadow-[0_20px_50px_rgba(78,54,41,0.08)] overflow-hidden z-50"
                     >
                         <div className="flex flex-col py-6 px-8">
                             {navLinks.map((link, idx) => {
@@ -123,7 +121,7 @@ const Navbar = () => {
                                                 href={link.href}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
-                                                className="py-4 font-bold text-xl border-b border-white/5 last:border-0 text-white/70 hover:text-white block"
+                                                className="py-4 font-bold text-xl border-b border-[#8FAEC7]/10 last:border-0 text-[#4E3629]/70 hover:text-[#4E3629] block"
                                                 onClick={() => setIsMobileMenuOpen(false)}
                                             >
                                                 {link.name}
@@ -131,8 +129,7 @@ const Navbar = () => {
                                         ) : (
                                             <Link
                                                 href={link.href}
-                                                className={`py-4 font-bold text-xl border-b border-white/5 last:border-0 block transition-colors ${isActive ? 'text-teal-400' : 'text-white/70 hover:text-white'
-                                                    }`}
+                                                className={`py-4 font-bold text-xl border-b border-[#8FAEC7]/10 last:border-0 block transition-colors ${isActive ? 'text-[#8FAEC7]' : 'text-[#4E3629]/70 hover:text-[#4E3629]'}`}
                                                 onClick={() => setIsMobileMenuOpen(false)}
                                             >
                                                 {link.name}
@@ -148,7 +145,7 @@ const Navbar = () => {
                             >
                                 <Link
                                     href="/contact"
-                                    className="mt-8 mb-2 text-center bg-white text-teal-950 py-4 rounded-full font-black text-lg transition-transform hover:scale-[1.02] active:scale-95 shadow-xl block"
+                                    className="mt-8 mb-2 text-center bg-[#4E3629] text-white py-4 rounded-full font-bold text-lg transition-transform hover:scale-[1.02] active:scale-95 shadow-xl block"
                                     onClick={() => setIsMobileMenuOpen(false)}
                                 >
                                     Contact Me

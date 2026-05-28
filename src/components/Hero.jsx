@@ -49,6 +49,18 @@ const FloatingSkill = ({ skill, progress, isMobile }) => {
     );
 };
 
+
+const SafetyPin = () => (
+    <svg className="absolute -top-7 left-12 w-16 h-16 drop-shadow-md z-30 select-none pointer-events-none rotate-[-20deg]" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        {/* Safety pin body */}
+        <path d="M75 15 C85 15, 90 25, 80 40 L45 85 C35 95, 20 90, 25 75 L60 25 C65 15, 55 10, 50 20 L20 65" stroke="#94a3b8" strokeWidth="4" strokeLinecap="round" />
+        {/* Coiled loop at bottom */}
+        <circle cx="25" cy="75" r="8" stroke="#64748b" strokeWidth="4" fill="#cbd5e1" />
+        {/* Cap at top */}
+        <path d="M70 10 C75 5, 85 10, 80 22 C75 30, 65 30, 60 20 Z" fill="#94a3b8" stroke="#64748b" strokeWidth="2" />
+    </svg>
+);
+
 const Hero = () => {
     const containerRef = useRef(null);
     const [isMobile, setIsMobile] = useState(false);
@@ -75,8 +87,8 @@ const Hero = () => {
     });
 
     // 1. Image Entrance (0% to 1.0% scroll)
-    const imageY = useTransform(smoothProgress, [0, 0.8], ["55vh", "35vh"]);
-    const imageScale = useTransform(smoothProgress, [0, 0.8], [1.2, 1.8]);
+    const imageY = useTransform(smoothProgress, [0, 0.8], ["40vh", "20vh"]);
+    const imageScale = useTransform(smoothProgress, [0, 0.8], [1, 1.2]);
     const imageOpacity = useTransform(smoothProgress, [0, 0.15], [0, 1]);
     
     // 2. Text Content Reveal (0.4 to 0.85 scroll)
@@ -92,7 +104,7 @@ const Hero = () => {
     const bgTextY = useTransform(smoothProgress, [0, 1], [10, -50]);
 
     // Background dot pattern Reveal
-    const gridOpacity = useTransform(smoothProgress, [0, 0.4], [0, 0.4]);
+    const gridOpacity = useTransform(smoothProgress, [0, 0.4], [0, 0.2]);
 
     // Description underline animation
     const underlineScaleX = useTransform(smoothProgress, [0.7, 0.9], [0, 1]);
@@ -116,27 +128,20 @@ const Hero = () => {
         <section 
             id="home" 
             ref={containerRef}
-            className={`relative w-full ${isMobile ? 'h-auto pt-28 pb-24' : 'h-[180vh] md:h-[220vh] xl:h-[250vh]'}`} 
-            style={{ backgroundColor: '#FAF9F6' }}
+            className={`relative w-full ${isMobile ? 'h-auto pt-28 pb-24' : 'h-[180vh] md:h-[220vh] xl:h-[250vh]'} notebook-stripes`}
         >
             {/* Sticky/Relative Wrapper */}
-            <div className={`${isMobile ? 'relative py-0' : 'sticky top-0 h-screen'} w-full flex items-center justify-center overflow-hidden bg-[#FAF9F6]`}>
+            <div className={`${isMobile ? 'relative py-0' : 'sticky top-0 h-screen'} w-full flex items-center justify-center overflow-hidden bg-transparent`}>
                 
                 {/* Subtle Dot Grid Background */}
                 <motion.div 
                     className="absolute inset-0 pointer-events-none z-0"
                     style={{ 
                         opacity: gridOpacity,
-                        backgroundImage: 'radial-gradient(#cbd5e1 1px, transparent 1px)',
+                        backgroundImage: 'radial-gradient(#8FAEC7 1px, transparent 1px)',
                         backgroundSize: '60px 60px',
                     }}
                 ></motion.div>
-
-                {/* Subtle Gradient Background */}
-                <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
-                    <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-teal-100 rounded-full blur-[100px] opacity-40"></div>
-                    <div className="absolute bottom-[-10%] right-[-10%] w-[50%] h-[50%] bg-emerald-100 rounded-full blur-[120px] opacity-30"></div>
-                </div>
 
                 {/* Massive Outline Background Text */}
                 <motion.div 
@@ -146,7 +151,7 @@ const Hero = () => {
                     <h2 className="text-[22vw] md:text-[25vw] font-black select-none leading-none tracking-tighter"
                         style={{ 
                             color: 'transparent',
-                            WebkitTextStroke: '1px md:1.5px rgba(13, 148, 136, 0.12)', 
+                            WebkitTextStroke: '1px md:1.5px rgba(78, 54, 41, 0.08)', 
                         }}
                     >
                         KUNIKA
@@ -165,35 +170,49 @@ const Hero = () => {
                         className="w-full lg:w-1/3 flex flex-col justify-center items-center lg:items-start text-center lg:text-left z-20 order-1 lg:order-1"
                         style={isMobile ? { opacity: 1, x: 0 } : { opacity: leftTextOpacity, x: { base: 0, lg: leftTextX } }}
                     >
-                        <h1 className="text-5xl sm:text-7xl lg:text-6xl xl:text-7xl font-black text-slate-800 tracking-tight leading-[1] mb-6">
-                            Hey There, <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500">I&apos;m Kunika</span>
-                        </h1>
+                        <div className="relative mb-8 text-center lg:text-left flex flex-col items-center lg:items-start">
+                            {/* Oval Badge 2026 */}
+                            <div className="inline-block px-6 py-2 bg-[#8FAEC7] text-white rounded-full text-2xl font-bold font-sans tracking-wide rotate-[-8deg] shadow-md border-2 border-white mb-6">
+                                2026
+                            </div>
+                            
+                            <h1 className="text-4xl sm:text-5xl font-sans font-bold text-[#4E3629] mb-3 leading-none">
+                                Hey There, I&apos;m Kunika
+                            </h1>
+                            
+                            <span className="font-[family-name:var(--font-cursive)] text-[#4E3629] text-7xl sm:text-8xl select-none font-bold italic block -mb-4 pl-4 drop-shadow-sm leading-none">
+                                Creative
+                            </span>
+                            
+                            <span className="text-5xl sm:text-7xl font-headline tracking-tighter uppercase font-black block text-[#4E3629] leading-none">
+                                Portfolio
+                            </span>
+                        </div>
 
                         <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
                             <motion.a
-                                href="https://github.com/kunika-jain" // Update with actual GitHub URL
+                                href="https://github.com/kunika-jain"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 whileHover={{ scale: 1.05, y: -2 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="group flex items-center gap-3 bg-slate-900 text-white px-6 py-3.5 rounded-2xl font-bold text-sm sm:text-base border border-slate-800 shadow-xl shadow-slate-200/50 transition-all hover:bg-slate-800 hover:shadow-slate-300/50"
+                                className="group flex items-center gap-3 bg-[#4E3629] text-[#FAF9F6] px-6 py-3.5 rounded-2xl font-bold text-sm sm:text-base border border-[#3D2B1F] shadow-xl transition-all hover:bg-[#3D2B1F]"
                             >
                                 <Github size={20} className="group-hover:rotate-12 transition-transform" />
                                 <span>GitHub</span>
                             </motion.a>
 
                             <motion.a
-                                href="/resume.pdf" // Update with actual Resume path
+                                href="/resume.pdf"
                                 download
                                 whileHover={{ scale: 1.05, y: -2 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="group flex items-center gap-3 bg-white text-slate-800 px-6 py-3.5 rounded-2xl font-bold text-sm sm:text-base border border-slate-200 shadow-xl shadow-teal-100/50 transition-all hover:border-teal-200 hover:bg-teal-50/30"
+                                className="group flex items-center gap-3 bg-[#FAF9F6] text-[#4E3629] px-6 py-3.5 rounded-2xl font-bold text-sm sm:text-base border-2 border-[#4E3629] shadow-xl transition-all hover:bg-[#E9F0F6]"
                             >
-                                <div className="p-1 rounded-lg bg-teal-50 text-teal-600 group-hover:bg-teal-100 transition-colors">
+                                <div className="p-1 rounded-lg bg-[#E9F0F6] text-[#4E3629] group-hover:bg-[#d5e4f0] transition-colors">
                                     <Download size={18} />
                                 </div>
-                                <span className="bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-600">Resume</span>
+                                <span>Resume</span>
                             </motion.a>
                         </div>
                     </motion.div>
@@ -205,51 +224,48 @@ const Hero = () => {
                             className="absolute top-1/4 left-1/2 -translate-x-1/2 z-40 hidden lg:flex flex-col items-center gap-2 pointer-events-none"
                             style={{ opacity: useTransform(smoothProgress, [0, 0.1], [1, 0]) }}
                         >
-                            <span className="text-teal-600 font-bold tracking-widest text-xs uppercase bg-white/80 backdrop-blur-sm px-4 py-1.5 rounded-full shadow-sm border border-teal-100">
+                            <span className="text-[#4E3629] font-bold tracking-widest text-xs uppercase bg-[#FAF9F6]/80 backdrop-blur-sm px-4 py-1.5 rounded-full shadow-sm border border-[#8FAEC7]/30">
                                 Scroll Down
                             </span>
                             <motion.div 
                                 animate={{ y: [0, 10, 0] }}
                                 transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                                className="w-6 h-10 border-2 border-teal-500 rounded-full flex justify-center p-1"
+                                className="w-6 h-10 border-2 border-[#4E3629] rounded-full flex justify-center p-1"
                             >
                                 <motion.div 
                                     animate={{ y: [0, 15, 0] }}
                                     transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                                    className="w-1.5 h-1.5 bg-teal-500 rounded-full"
+                                    className="w-1.5 h-1.5 bg-[#4E3629] rounded-full"
                                 />
                             </motion.div>
                         </motion.div>
 
                         <motion.div
-                            className="relative w-full flex items-center justify-center origin-bottom z-10 overflow-visible cursor-pointer"
-                            style={isMobile ? { scale: 1.15, y: 0, opacity: 1 } : { 
+                            className="relative w-[280px] sm:w-[320px] aspect-[4/5] p-4 pb-12 bg-white rounded-xl shadow-2xl border-[3px] border-[#8FAEC7]/30 flex flex-col justify-between origin-center z-10 overflow-visible cursor-pointer hover:scale-[1.03] transition-all duration-500"
+                            style={isMobile ? { rotate: "4deg", scale: 1.05 } : { 
+                                rotate: "4deg",
                                 scale: imageScale, 
                                 y: imageY,
                                 opacity: imageOpacity,
-                                transformStyle: "preserve-3d"
                             }}
                         >
-                            {/* Background Glow Overlay for Mobile Image */}
-                            {isMobile && (
-                                <div className="absolute inset-0 bg-teal-500/20 blur-[60px] rounded-full scale-50 opacity-40 -z-10 animate-pulse"></div>
-                            )}
-                            <Link href="/projects" className="w-full h-full flex items-center justify-center">
-                                <img
-                                    src="/kunika-main.png"
-                                    alt="Kunika Jain"
-                                    className="w-full aspect-[4/5] object-cover relative z-20 hover:scale-[1.02] transition-transform duration-500"
-                                    style={{
-                                        maskImage: 'url(/kunika-mask.png)',
-                                        WebkitMaskImage: 'url(/kunika-mask.png)',
-                                        maskMode: 'luminance',
-                                        WebkitMaskMode: 'luminance',
-                                        maskSize: '100% 100%',
-                                        maskPosition: 'top center',
-                                        WebkitMaskPosition: 'top center'
-                                    }}
-                                />
-                            </Link>
+                            {/* Safety Pin */}
+                            <SafetyPin />
+                            
+                            <div className="relative w-full h-[85%] rounded-lg overflow-hidden bg-[#e9f0f6] border border-[#8FAEC7]/20 flex items-center justify-center">
+                                <Link href="/projects" className="w-full h-full">
+                                    <img
+                                        src="/kunika-main.png"
+                                        alt="Kunika Jain"
+                                        className="w-full h-full object-cover grayscale-[10%] hover:grayscale-0 transition-all duration-500"
+                                    />
+                                </Link>
+                            </div>
+                            
+                            {/* Handwriting label on the Polaroid */}
+                            <div className="text-center pt-4 font-[family-name:var(--font-cursive)] text-3xl font-bold text-[#4E3629] leading-none select-none">
+                                Kunika Jain ✨
+                            </div>
                         </motion.div>
                     </div>
 
@@ -258,11 +274,11 @@ const Hero = () => {
                         className="w-full lg:w-1/3 flex flex-col justify-center items-center lg:items-end text-center lg:text-right z-20 order-3 lg:pl-8 mt-0 pt-0"
                         style={isMobile ? { opacity: 1, x: 0 } : { opacity: rightTextOpacity, x: rightTextX }}
                     >
-                        <p className="text-slate-600 text-base sm:text-lg md:text-lg lg:text-base xl:text-lg max-w-[200px] sm:max-w-[240px] md:max-w-[260px] font-medium leading-relaxed">
+                        <p className="text-[#6B5548] text-base sm:text-lg md:text-lg lg:text-base xl:text-lg max-w-[200px] sm:max-w-[240px] md:max-w-[260px] font-medium leading-relaxed">
                             I design simple, intuitive, and engaging digital experiences.
                         </p>
                         <motion.div
-                            className="mt-4 w-16 h-1.5 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-full"
+                            className="mt-4 w-16 h-1.5 bg-[#8FAEC7] rounded-full"
                             style={isMobile ? { scaleX: 1 } : { scaleX: underlineScaleX }}
                         ></motion.div>
 
@@ -283,8 +299,6 @@ const Hero = () => {
                         )}
                     </motion.div>
                 </div>
-
-
             </div>
         </section>
     );

@@ -12,7 +12,7 @@ const projects = [
         subtitle: "Bidirectional Pet Care Marketplace",
         type: "Full-Stack Web App",
         tags: ["Next.js", "React", "PostgreSQL", "Prisma", "Tailwind CSS", "Framer Motion"],
-        icon: <Sparkles size={28} className="text-teal-500" />,
+        icon: <Sparkles size={28} className="text-[#8FAEC7]" />,
         image: "/projects/paws-care.png",
         link: "/projects/paws-care",
         description: "A premium full-stack bidirectional marketplace linking pet parents with professional caregivers, featuring digital wallets, booking limits, and responsive designs."
@@ -23,7 +23,7 @@ const projects = [
         subtitle: "IoT Automation",
         type: "Hardware & IoT",
         tags: ["Arduino", "IoT", "C++", "Sensors"],
-        icon: <Box size={28} className="text-teal-600" />,
+        icon: <Box size={28} className="text-[#8FAEC7]" />,
         image: "/projects/robot.jpeg",
         link: "/projects/smart-solar",
         description: "An autonomous solar-powered grass cutter reducing manual effort via ultrasonic sensors and Bluetooth control."
@@ -34,7 +34,7 @@ const projects = [
         subtitle: "Booking App",
         type: "Mobile App",
         tags: ["React Native", "Firebase"],
-        icon: <Layers size={28} className="text-teal-500" />,
+        icon: <Layers size={28} className="text-[#8FAEC7]" />,
         image: "/projects/quick-salon.jpg",
         link: "/projects/quick-salon",
         description: "Mobile application for salon bookings with user authentication and appointment scheduling."
@@ -45,7 +45,7 @@ const projects = [
         subtitle: "UI/UX Concept",
         type: "UI/UX Design",
         tags: ["Figma", "Prototyping"],
-        icon: <LayoutTemplate size={28} className="text-emerald-500" />,
+        icon: <LayoutTemplate size={28} className="text-[#8FAEC7]" />,
         image: "/projects/medicare.jpg",
         link: "/projects/medicare",
         description: "Healthcare UI/UX design project featuring user-centered wireframes and high-fidelity prototypes."
@@ -56,7 +56,7 @@ const projects = [
         subtitle: "Web UI Design",
         type: "Web Development",
         tags: ["HTML", "CSS", "JS"],
-        icon: <FileText size={28} className="text-teal-600" />,
+        icon: <FileText size={28} className="text-[#8FAEC7]" />,
         image: "/projects/gutenberg.jpg",
         link: "/projects",
         description: "Redesigned the Gutenberg website to improve navigation, accessibility, and overall responsiveness."
@@ -106,12 +106,12 @@ const ProjectCard = ({ project }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ type: "spring", stiffness: 100, damping: 20 }}
-            className="group relative h-full w-full rounded-2xl bg-white border border-slate-200/60 p-6 shadow-xl transition-shadow duration-500 hover:shadow-2xl hover:shadow-teal-500/10"
+            className="group relative h-full w-full rounded-[24px] bg-white border-2 border-[#8FAEC7]/30 p-6 shadow-xl transition-shadow duration-500 hover:shadow-2xl hover:shadow-[#4E3629]/5"
         >
             {/* 3D Content Container */}
             <div style={{ transform: "translateZ(50px)", transformStyle: "preserve-3d" }} className="flex flex-col h-full items-start relative z-10">
                 
-                {/* Image Section (For First Card or Any that has an image) */}
+                {/* Image Section */}
                 {project.image && (
                     <Link href={project.link || "/projects"} className="w-full">
                         <div className="relative w-full aspect-video rounded-xl overflow-hidden mb-6 shadow-md border border-slate-100 group-hover:scale-[1.02] transition-transform duration-500 cursor-pointer">
@@ -127,12 +127,12 @@ const ProjectCard = ({ project }) => {
                 )}
 
                 <div className="flex items-center gap-4 mb-5" style={{ transform: "translateZ(30px)" }}>
-                    <div className="p-3 bg-teal-50 rounded-xl group-hover:bg-teal-100 transition-colors">
+                    <div className="p-3 bg-[#E9F0F6] rounded-xl group-hover:bg-[#d5e4f0] transition-colors">
                         {project.icon}
                     </div>
                     <div>
-                        <p className="text-xs font-bold text-teal-600 tracking-wider uppercase mb-0.5">{project.type}</p>
-                        <h3 className="text-xl font-bold text-slate-900 group-hover:text-teal-700 transition-colors leading-tight">{project.title}</h3>
+                        <p className="text-xs font-bold text-[#8FAEC7] tracking-wider uppercase mb-0.5">{project.type}</p>
+                        <h3 className="text-xl font-bold text-[#4E3629] group-hover:text-[#8FAEC7] transition-colors leading-tight">{project.title}</h3>
                     </div>
                 </div>
 
@@ -144,7 +144,7 @@ const ProjectCard = ({ project }) => {
 
                 <div className="flex flex-wrap gap-2 mb-6 mt-auto" style={{ transform: "translateZ(40px)" }}>
                     {project.tags.map((tag, i) => (
-                        <span key={i} className="px-2.5 py-1 bg-slate-100 text-slate-700 text-xs font-bold rounded-md group-hover:bg-teal-50 group-hover:text-teal-700 transition-colors">
+                        <span key={i} className="px-2.5 py-1 bg-[#E9F0F6] text-[#4E3629] text-xs font-bold rounded-md group-hover:bg-[#d5e4f0] transition-colors">
                             {tag}
                         </span>
                     ))}
@@ -153,9 +153,9 @@ const ProjectCard = ({ project }) => {
                 <div className="w-full pt-4 border-t border-slate-100/50" style={{ transform: "translateZ(20px)" }}>
                     <Link href={project.link || "/projects"} className="w-full block">
                         <motion.button 
-                            whileHover={{ scale: 1.05 }}
-                            whileTap={{ scale: 0.95 }}
-                            className="w-full flex items-center justify-center gap-2 py-2.5 bg-gradient-to-r from-teal-500 to-emerald-500 text-white font-bold rounded-lg shadow-md hover:shadow-lg transition-shadow"
+                            whileHover={{ scale: 1.02 }}
+                            whileTap={{ scale: 0.98 }}
+                            className="w-full flex items-center justify-center gap-2 py-2.5 bg-[#4E3629] text-[#FAF9F6] border border-[#3D2B1F] font-bold rounded-xl shadow-md hover:shadow-lg transition-shadow"
                         >
                             <ExternalLink size={18} /> View Project
                         </motion.button>
@@ -164,14 +164,14 @@ const ProjectCard = ({ project }) => {
             </div>
 
             {/* Background Accent */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-teal-500/5 rounded-full filter blur-3xl group-hover:bg-teal-500/10 transition-all duration-500 -z-10"></div>
+            <div className="absolute top-0 right-0 w-32 h-32 bg-[#8FAEC7]/5 rounded-full filter blur-3xl group-hover:bg-[#8FAEC7]/10 transition-all duration-500 -z-10"></div>
         </motion.div>
     );
 };
 
 const Projects = () => {
     return (
-        <section id="projects" className="section relative py-20 bg-slate-50/50 overflow-hidden">
+        <section id="projects" className="section relative py-20 bg-[#FAF9F6] overflow-hidden">
             <div className="container relative z-10 flex flex-col items-center mx-auto px-6">
                 <motion.div 
                     className="flex flex-col items-center mb-16 text-center"
@@ -180,10 +180,10 @@ const Projects = () => {
                     viewport={{ once: true, amount: 0.5 }}
                     transition={{ duration: 0.6 }}
                 >
-                    <h2 className="text-[35px] sm:text-[50px] md:text-[65px] lg:text-[85px] leading-[1] font-black text-slate-900 mb-6 font-[family-name:var(--font-headline)] tracking-widest uppercase">
-                        MY FEATURED <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 to-emerald-500">PROJECTS</span>
+                    <h2 className="text-[35px] sm:text-[50px] md:text-[65px] lg:text-[85px] leading-[1] font-black text-[#4E3629] mb-6 font-[family-name:var(--font-headline)] tracking-widest uppercase">
+                        MY FEATURED <span className="text-[#8FAEC7] font-[family-name:var(--font-cursive)] normal-case pl-2 select-none">Projects</span>
                     </h2>
-                    <div className="w-24 h-1 bg-gradient-to-r from-teal-500 to-emerald-500 rounded-full"></div>
+                    <div className="w-24 h-1 bg-[#8FAEC7] rounded-full"></div>
                     <p className="mt-8 text-lg text-slate-600 max-w-2xl font-medium">
                         Explore a collection of my creative work spanning across multiple disciplines and technologies.
                     </p>
@@ -197,8 +197,8 @@ const Projects = () => {
             </div>
             
             {/* Background elements */}
-            <div className="absolute top-1/4 -left-32 w-96 h-96 bg-teal-500/5 rounded-full filter blur-[120px] -z-10"></div>
-            <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-emerald-500/5 rounded-full filter blur-[120px] -z-10"></div>
+            <div className="absolute top-1/4 -left-32 w-96 h-96 bg-[#8FAEC7]/5 rounded-full filter blur-[120px] -z-10"></div>
+            <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-[#4E3629]/5 rounded-full filter blur-[120px] -z-10"></div>
         </section>
     );
 };

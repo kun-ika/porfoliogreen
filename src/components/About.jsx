@@ -23,10 +23,10 @@ const AccordionItem = ({ number, title, text, tags, Icon }) => {
                 onMouseLeave={() => setIsHovered(false)}
             >
                 <div className="flex items-center gap-6 md:gap-8">
-                    <span className={`text-lg md:text-xl font-light font-sans transition-colors duration-400 ${isOpen ? 'text-[#0d9488]' : 'text-slate-500 group-hover:text-slate-800'}`}>
+                    <span className={`text-lg md:text-xl font-light font-sans transition-colors duration-400 ${isOpen ? 'text-[#8FAEC7]' : 'text-slate-500 group-hover:text-slate-800'}`}>
                         {number}.
                     </span>
-                    <h4 className={`text-[28px] md:text-[36px] font-[400] transition-colors duration-400 font-[family-name:var(--font-headline)] uppercase leading-[1] ${isOpen || isHovered ? 'text-[#0d9488]' : 'text-slate-950'}`}>
+                    <h4 className={`text-[28px] md:text-[36px] font-[400] transition-colors duration-400 font-[family-name:var(--font-headline)] uppercase leading-[1] ${isOpen || isHovered ? 'text-[#8FAEC7]' : 'text-slate-950'}`}>
                         {title}
                     </h4>
                 </div>
@@ -34,7 +34,7 @@ const AccordionItem = ({ number, title, text, tags, Icon }) => {
                     animate={{ rotate: isOpen ? 180 : 0 }}
                     transition={{ type: "spring", stiffness: 200, damping: 20 }}
                 >
-                    <ChevronDown className={`text-gray-400 transition-colors duration-400 ${isOpen || isHovered ? 'text-[#0d9488]' : ''}`} size={28} />
+                    <ChevronDown className={`text-gray-400 transition-colors duration-400 ${isOpen || isHovered ? 'text-[#8FAEC7]' : ''}`} size={28} />
                 </motion.div>
             </div>
 
@@ -153,11 +153,11 @@ const About = () => {
     ];
 
     const processes = [
-        { num: "01.", title: "RESEARCH & STRATEGY", text: "In this phase, I dive deep into understanding your business, target audience, and project goals. Through research and strategic planning, I create a clear roadmap to guide the entire design process.", bgClass: "bg-slate-950", textClass: "text-white" },
-        { num: "02.", title: "CONCEPT & IDEATION", text: "Here, I brainstorm and develop creative concepts that align with your vision. Initial sketches and ideas are refined into tangible wireframes, setting the direction for design and functionality.", bgClass: "bg-[#0d9488]", textClass: "text-white" },
-        { num: "03.", title: "FEEDBACK & REFINEMENT", text: "Collaboration is key. I review the design with you, gather feedback, and refine the work to align with your expectations and goals. This ensures the design reflects your vision.", bgClass: "bg-[#F1F1F1]", textClass: "text-slate-900", isSpan: true },
-        { num: "04.", title: "TESTING & OPTIMIZATION", text: "I conduct thorough testing to identify and resolve any performance or usability issues. This phase ensures the design works seamlessly across devices and meets user experience standards.", bgClass: "bg-[#0d9488]", textClass: "text-white" },
-        { num: "05.", title: "LAUNCH & DELIVERY", text: "Once everything is finalized, the project is launched and delivered to you. I also provide guidance or support for ongoing maintenance to ensure long-term success.", bgClass: "bg-slate-950", textClass: "text-white" }
+        { num: "01.", title: "RESEARCH & STRATEGY", text: "In this phase, I dive deep into understanding your business, target audience, and project goals. Through research and strategic planning, I create a clear roadmap to guide the entire design process.", bgClass: "bg-[#4E3629]", textClass: "text-white" },
+        { num: "02.", title: "CONCEPT & IDEATION", text: "Here, I brainstorm and develop creative concepts that align with your vision. Initial sketches and ideas are refined into tangible wireframes, setting the direction for design and functionality.", bgClass: "bg-[#8FAEC7]", textClass: "text-white" },
+        { num: "03.", title: "FEEDBACK & REFINEMENT", text: "Collaboration is key. I review the design with you, gather feedback, and refine the work to align with your expectations and goals. This ensures the design reflects your vision.", bgClass: "bg-[#E9F0F6]", textClass: "text-[#4E3629]", isSpan: true },
+        { num: "04.", title: "TESTING & OPTIMIZATION", text: "I conduct thorough testing to identify and resolve any performance or usability issues. This phase ensures the design works seamlessly across devices and meets user experience standards.", bgClass: "bg-[#8FAEC7]", textClass: "text-white" },
+        { num: "05.", title: "LAUNCH & DELIVERY", text: "Once everything is finalized, the project is launched and delivered to you. I also provide guidance or support for ongoing maintenance to ensure long-term success.", bgClass: "bg-[#4E3629]", textClass: "text-white" }
     ];
 
     // Dummy array of images that crossfade during the sticky scroll
@@ -193,7 +193,7 @@ const About = () => {
                                     variants={slideUp}
                                     className="text-[60px] sm:text-[90px] md:text-[120px] lg:text-[160px] leading-[0.85] font-black mb-6 font-[family-name:var(--font-headline)] tracking-tight uppercase"
                                 >
-                                    <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-500 to-emerald-500 whitespace-nowrap">ABOUT</span> <span className="text-slate-950 whitespace-nowrap">ME</span>
+                                    <span className="text-[#4E3629] whitespace-nowrap">ABOUT</span> <span className="text-[#8FAEC7] whitespace-nowrap font-[family-name:var(--font-cursive)] normal-case pl-3">Me</span>
                                 </motion.h1>
                                 <motion.h2 variants={slideUp} className="text-2xl sm:text-3xl md:text-4xl font-medium uppercase text-slate-800 mb-8 font-[family-name:var(--font-headline)] tracking-wider">
                                     KUNIKA JAIN

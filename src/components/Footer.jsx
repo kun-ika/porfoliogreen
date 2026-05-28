@@ -8,7 +8,7 @@ const Footer = () => {
     const socialLinks = [
         { icon: <Linkedin size={24} />, href: 'https://linkedin.com/in/kunika-jain', label: 'LinkedIn', color: 'hover:text-[#0077b5]' },
         { icon: <Github size={24} />, href: 'https://github.com/kunika-jain', label: 'GitHub', color: 'hover:text-white' },
-        { icon: <Mail size={24} />, href: 'mailto:jainkunika91@gmail.com', label: 'Email', color: 'hover:text-teal-400' },
+        { icon: <Mail size={24} />, href: 'mailto:jainkunika91@gmail.com', label: 'Email', color: 'hover:text-[#8FAEC7]' },
         { icon: <Instagram size={24} />, href: '#', label: 'Instagram', color: 'hover:text-[#E4405F]' },
     ];
 
@@ -17,10 +17,10 @@ const Footer = () => {
     };
 
     return (
-        <footer className="w-full bg-[#03060b] relative rounded-t-[40px] md:rounded-t-[60px] mt-12 overflow-hidden text-white pt-16 md:pt-20 pb-8 border-t border-white/5">
+        <footer className="w-full bg-[#1E140F] relative rounded-t-[40px] md:rounded-t-[60px] mt-12 overflow-hidden text-white pt-16 md:pt-20 pb-8 border-t border-white/5">
             {/* Dynamic Background Glows */}
-            <div className="absolute top-0 left-1/4 w-[300px] h-[300px] bg-teal-500/10 rounded-full blur-[100px] -z-10 animate-pulse"></div>
-            <div className="absolute bottom-0 right-1/4 w-[250px] h-[250px] bg-emerald-500/5 rounded-full blur-[80px] -z-10"></div>
+            <div className="absolute top-0 left-1/4 w-[300px] h-[300px] bg-[#8FAEC7]/10 rounded-full blur-[100px] -z-10 animate-pulse"></div>
+            <div className="absolute bottom-0 right-1/4 w-[250px] h-[250px] bg-[#4E3629]/5 rounded-full blur-[80px] -z-10"></div>
 
             {/* Massive Background Typography - Reduced Size */}
             <div className="absolute top-[50%] left-0 w-full -translate-y-1/2 pointer-events-none overflow-hidden select-none flex justify-center opacity-[0.02]">
@@ -42,8 +42,8 @@ const Footer = () => {
                     className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm mb-8"
                 >
                     <span className="relative flex h-2 w-2">
-                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                        <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                        <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#8FAEC7] opacity-75"></span>
+                        <span className="relative inline-flex rounded-full h-2 w-2 bg-[#8FAEC7]"></span>
                     </span>
                     <span className="text-[10px] md:text-xs font-bold tracking-widest uppercase text-slate-400">Available for hire</span>
                 </motion.div>
@@ -56,7 +56,7 @@ const Footer = () => {
                         viewport={{ once: true }}
                         className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black leading-none tracking-tight uppercase whitespace-nowrap pr-4"
                     >
-                        HAVE AN <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-400 via-emerald-400 to-teal-400 bg-[length:200%_auto] animate-gradient-x underline decoration-teal-500/30 underline-offset-4 px-1">IDEA?</span>
+                        HAVE AN <span className="text-[#8FAEC7] font-[family-name:var(--font-cursive)] normal-case pl-2 select-none underline decoration-[#8FAEC7]/30 underline-offset-4 px-1">Idea?</span>
                     </motion.h2>
                     
                     <motion.div
@@ -68,9 +68,9 @@ const Footer = () => {
                     >
                         <Link 
                             href="/contact"
-                            className="group relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-white rounded-xl group bg-gradient-to-br from-teal-500 to-emerald-500"
+                            className="group relative inline-flex items-center justify-center p-0.5 overflow-hidden text-sm font-medium text-white rounded-xl group bg-gradient-to-br from-[#8FAEC7] to-[#4E3629]"
                         >
-                            <span className="relative px-6 py-3.5 transition-all ease-in duration-75 bg-[#03060b] rounded-[10px] group-hover:bg-opacity-0 text-base md:text-xl font-black flex items-center gap-3">
+                            <span className="relative px-6 py-3.5 transition-all ease-in duration-75 bg-[#1E140F] rounded-[10px] group-hover:bg-opacity-0 text-base md:text-xl font-black flex items-center gap-3">
                                 START A PROJECT
                                 <ArrowUpRight className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" size={24} />
                             </span>
@@ -114,7 +114,7 @@ const Footer = () => {
                             onClick={scrollToTop}
                             whileHover={{ y: -3, scale: 1.1 }}
                             whileTap={{ scale: 0.9 }}
-                            className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-teal-400 hover:bg-teal-500 hover:text-[#03060b] transition-all duration-300"
+                            className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-[#8FAEC7] hover:bg-[#8FAEC7] hover:text-[#1E140F] transition-all duration-300"
                         >
                             <ArrowUp size={18} />
                         </motion.button>
@@ -125,7 +125,7 @@ const Footer = () => {
                 <div className="w-full flex flex-col md:flex-row items-center justify-between text-slate-500 font-bold text-[9px] md:text-[10px] tracking-widest uppercase gap-2">
                     <p>© {new Date().getFullYear()} KUNIKA JAIN. DESIGNED FOR THE BOLD.</p>
                     <div className="opacity-60">
-                        MADE WITH <span className="text-emerald-500 animate-pulse">PRECISION</span>
+                        MADE WITH <span className="text-[#8FAEC7] animate-pulse">PRECISION</span>
                     </div>
                 </div>
             </div>
