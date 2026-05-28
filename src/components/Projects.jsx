@@ -106,7 +106,7 @@ const ProjectCard = ({ project }) => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, amount: 0.2 }}
             transition={{ type: "spring", stiffness: 100, damping: 20 }}
-            className="group relative h-full w-full rounded-[24px] bg-white border-2 border-[#8FAEC7]/30 p-6 shadow-xl transition-shadow duration-500 hover:shadow-2xl hover:shadow-[#4E3629]/5"
+            className="group relative h-full w-full rounded-[32px] bg-white border-2 border-[#8FAEC7]/30 p-6 shadow-xl transition-shadow duration-500 hover:shadow-2xl hover:shadow-[#4E3629]/5"
         >
             {/* 3D Content Container */}
             <div style={{ transform: "translateZ(50px)", transformStyle: "preserve-3d" }} className="flex flex-col h-full items-start relative z-10">
