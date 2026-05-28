@@ -30,9 +30,9 @@ const ScreenSlider = ({ screens }) => {
 
     return (
         <div className="relative group">
-            <div className="relative aspect-[9/19] w-full bg-[#1E140F] rounded-[32px] overflow-hidden border-[6px] border-[#4E3629]/20 shadow-2xl">
+            <div className="relative aspect-[9/19] w-full bg-[#1E140F] rounded-[32px] overflow-hidden border-[6px] border-[#2D1E16] shadow-2xl">
                 {/* Mobile Notch */}
-                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-[#4E3629]/20 rounded-b-2xl z-20"></div>
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-24 h-6 bg-[#2D1E16] rounded-b-2xl z-20"></div>
                 
                 <motion.div 
                     key={current}
@@ -177,12 +177,12 @@ const QuickSalonPage = () => {
                         A digital booking ecosystem providing real-time availability, secure payments, and a frictionless interface for salon enthusiasts.
                     </p>
                     <div className="flex flex-wrap gap-4 pt-4">
-                        <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-xl shadow-sm border border-[#8FAEC7]/20">
+                        <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-xl shadow-sm border border-[#8FAEC7]/25">
                            <ShieldCheck size={20} className="text-[#8FAEC7]" />
                            <span className="font-bold text-[#4E3629]">React Native</span>
                         </div>
-                        <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-xl shadow-sm border border-[#8FAEC7]/20">
-                           <Zap size={20} className="text-[#4E3629]" />
+                        <div className="flex items-center gap-2 px-4 py-2 bg-white rounded-xl shadow-sm border border-[#8FAEC7]/25">
+                           <Zap size={20} className="text-[#8FAEC7]" />
                            <span className="font-bold text-[#4E3629]">Firebase Real-time</span>
                         </div>
                     </div>
@@ -195,7 +195,7 @@ const QuickSalonPage = () => {
                     transition={{ duration: 1.2, ease: "easeOut" }}
                 >
                     <div className="absolute inset-0 bg-gradient-to-br from-[#8FAEC7]/10 to-[#4E3629]/10 rounded-[60px] blur-[80px] -z-10"></div>
-                    <div className="relative w-full h-full rounded-[60px] overflow-hidden border-4 border-white shadow-2xl hover:scale-[1.03] transition-transform duration-700">
+                    <div className="relative w-full h-full rounded-[60px] overflow-hidden border-4 border-white shadow-2xl hover:scale-[1.05] transition-transform duration-700">
                         <Image 
                             src="/projects/quick-salon/hero-final.png" 
                             alt="Quick Salon Tight Mockup" 
@@ -208,7 +208,7 @@ const QuickSalonPage = () => {
             </section>
 
             {/* PROBLEM & SOLUTION SECTION */}
-            <section className="py-24 bg-[#FAF9F6] border-y border-[#8FAEC7]/20 overflow-hidden relative">
+            <section className="py-24 bg-white border-y border-[#8FAEC7]/20 overflow-hidden relative">
                 <div className="container max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-32">
                     <motion.div 
                         variants={fadeIn}
@@ -224,11 +224,11 @@ const QuickSalonPage = () => {
                                 { title: "Service Discovery Issues", desc: "Customers struggle to find available time slots and service details." },
                                 { title: "Overbooking Conflicts", desc: "No centralized system causes frequent double-booking errors." }
                             ].map((item, i) => (
-                                <div key={i} className="flex gap-4 p-5 bg-white rounded-2xl border-2 border-[#8FAEC7]/30 hover:border-[#8FAEC7] transition-colors">
+                                <div key={i} className="flex gap-4 p-5 bg-[#FAF9F6] rounded-2xl border-2 border-[#8FAEC7]/20 hover:border-[#8FAEC7]/50 transition-colors">
                                     <div className="w-2 h-2 rounded-full bg-[#8FAEC7] mt-2.5 shrink-0"></div>
                                     <div>
                                         <h4 className="font-bold text-[#4E3629] mb-1 tracking-tight">{item.title}</h4>
-                                        <p className="text-slate-600 text-sm leading-relaxed">{item.desc}</p>
+                                        <p className="text-[#6B5548] text-sm leading-relaxed">{item.desc}</p>
                                     </div>
                                 </div>
                             ))}
@@ -256,11 +256,11 @@ const QuickSalonPage = () => {
                                         "Real-time Booking Calendar",
                                         "Secure Digital Payments"
                                     ].map((res, i) => (
-                                        <div key={i} className="flex items-center gap-4 text-lg font-bold text-[#FAF9F6]">
-                                            <div className="w-6 h-6 bg-[#FAF9F6]/20 rounded-lg flex items-center justify-center shrink-0">
+                                        <div key={i} className="flex items-center gap-4 text-lg font-bold">
+                                            <div className="w-6 h-6 bg-white/20 rounded-lg flex items-center justify-center shrink-0">
                                                 <CheckCircle2 size={16} className="text-[#8FAEC7]" />
                                             </div>
-                                            <span>{res}</span>
+                                            <span className="text-[#FAF9F6]">{res}</span>
                                         </div>
                                     ))}
                                 </div>
@@ -317,14 +317,14 @@ const QuickSalonPage = () => {
                             <ScreenSlider screens={category.screens} />
                             <div className="mt-8 px-2 text-center">
                                 <h4 className="text-xl font-black text-[#4E3629] mb-2 tracking-tight uppercase leading-tight">{category.title}</h4>
-                                <p className="text-slate-500 text-xs font-bold leading-relaxed uppercase tracking-widest">{category.desc}</p>
+                                <p className="text-[#6B5548] text-xs font-bold leading-relaxed uppercase tracking-widest">{category.desc}</p>
                             </div>
                         </motion.div>
                     ))}
                 </div>
             </section>
 
-            {/* DESIGN PROCESS - Clean soft-cream background */}
+            {/* DESIGN PROCESS */}
             <section className="py-32 bg-white border-y border-[#8FAEC7]/20">
                 <div className="container max-w-5xl mx-auto px-6 text-center space-y-16">
                     <SectionHeader title="Design Process" subtitle="User-Centric UI/UX Framework" />
@@ -348,7 +348,7 @@ const QuickSalonPage = () => {
                                     {i + 1}
                                 </div>
                                 <h4 className="text-xl font-bold text-[#4E3629] uppercase tracking-tight">{process.title}</h4>
-                                <p className="text-slate-600 font-medium leading-relaxed">{process.desc}</p>
+                                <p className="text-[#6B5548] font-medium leading-relaxed">{process.desc}</p>
                             </motion.div>
                         ))}
                     </div>

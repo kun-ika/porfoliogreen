@@ -87,36 +87,32 @@ const FeaturedCard = ({ project }) => {
                 rotateY, 
                 transformStyle: "preserve-3d",
             }}
-            className="group relative w-full h-full rounded-[40px] bg-white border-2 border-[#8FAEC7]/30 p-10 shadow-xl overflow-hidden transition-all duration-500 hover:shadow-2xl hover:shadow-[#4E3629]/5"
+            className="group relative w-full h-full rounded-[40px] bg-[#2D1E16] border border-[#8FAEC7]/20 p-10 shadow-2xl overflow-hidden transition-shadow duration-500 hover:shadow-[#8FAEC7]/10"
         >
             <div className="absolute inset-0 z-0">
                 <Image 
                     src={project.image} 
                     alt={project.title} 
                     fill 
-                    className="object-cover opacity-10 group-hover:opacity-20 group-hover:scale-105 transition-all duration-700 mix-blend-multiply" 
+                    className="object-cover opacity-30 group-hover:opacity-50 group-hover:scale-105 transition-all duration-700 mix-blend-luminosity" 
                 />
-                {/* Glowing teal/green gradient accent on hover */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-teal-500/0 via-emerald-500/0 to-teal-500/0 group-hover:from-teal-500/10 group-hover:via-emerald-500/5 group-hover:to-teal-500/10 transition-all duration-500"></div>
+                <div className="absolute inset-0 bg-gradient-to-t from-[#1E140F] via-[#1E140F]/50 to-transparent"></div>
             </div>
             
             <div className="relative z-10 h-full flex flex-col justify-end" style={{ transform: "translateZ(40px)" }}>
                 <div className="flex items-center gap-4 mb-6">
-                    <div className="w-12 h-12 rounded-2xl bg-[#E9F0F6] flex items-center justify-center border border-[#8FAEC7]/20 group-hover:bg-[#8FAEC7] transition-colors duration-500 group-hover:text-white">
+                    <div className="w-12 h-12 rounded-2xl bg-[#1E140F]/80 backdrop-blur-md flex items-center justify-center border border-[#8FAEC7]/20 group-hover:bg-[#8FAEC7] transition-colors duration-500 group-hover:text-[#1E140F]">
                         {project.icon}
                     </div>
                     <span className="text-[#8FAEC7] font-mono text-sm tracking-wider uppercase">{project.category}</span>
                 </div>
-                <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-[#4E3629] font-[family-name:var(--font-headline)] tracking-tight leading-[1.1] mb-6">
+                <h3 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-[#FAF9F6] font-[family-name:var(--font-headline)] tracking-tight leading-[1.1] mb-6">
                     {project.title}
                 </h3>
-                <p className="text-slate-600 text-lg md:text-xl font-medium leading-relaxed max-w-xl line-clamp-2 md:line-clamp-3 mb-2 group-hover:text-slate-800 transition-colors duration-500">
+                <p className="text-slate-300 text-lg md:text-xl font-medium leading-relaxed max-w-xl line-clamp-2 md:line-clamp-3 mb-2 group-hover:text-[#FAF9F6] transition-colors duration-500">
                     {project.description}
                 </p>
             </div>
-
-            {/* Glowing teal/green hover corner gradient element */}
-            <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-teal-400/20 to-emerald-400/20 rounded-full filter blur-2xl opacity-0 group-hover:opacity-100 transition-all duration-500 -z-10"></div>
         </motion.div>
     );
 };
@@ -128,10 +124,11 @@ const FeaturedProjects = () => {
     });
     
     // Smooth horizontal translation based on vertical scroll
+    // -88% accommodates the 5-project slide to ensure the last item is visible at the end
     const x = useTransform(scrollYProgress, [0, 1], ["0%", "-88%"]);
     
     return (
-        <section ref={targetRef} className="relative h-[250vh] md:h-[300vh] bg-[#FAF9F6] font-sans">
+        <section ref={targetRef} className="relative h-[250vh] md:h-[300vh] bg-[#1E140F] font-sans">
             <div className="sticky top-0 flex h-screen items-center overflow-hidden">
                 <motion.div style={{ x }} className="flex gap-8 md:gap-24 px-6 md:px-32 items-center">
                     
@@ -139,7 +136,7 @@ const FeaturedProjects = () => {
                     <div className="flex-shrink-0 flex items-center justify-start w-[85vw] md:w-[60vw]">
                         <h2 className="text-[100px] sm:text-[140px] md:text-[160px] lg:text-[180px] xl:text-[220px] font-black font-[family-name:var(--font-headline)] leading-[0.85] tracking-tight uppercase whitespace-nowrap md:whitespace-normal">
                             <span className="text-[#8FAEC7] font-[family-name:var(--font-cursive)] normal-case select-none">My</span><br/>
-                            <span className="text-[#4E3629]">WORK</span>
+                            <span className="text-[#FAF9F6]">WORK</span>
                         </h2>
                     </div>
 
@@ -155,10 +152,10 @@ const FeaturedProjects = () => {
                     {/* View All Projects Linking Card */}
                     <div className="flex-shrink-0 w-[60vw] md:w-[500px] h-[60vh] md:h-[70vh] flex items-center justify-center pr-12 md:pr-32">
                         <Link href="/projects" className="group flex flex-col items-center justify-center gap-6">
-                            <div className="w-40 h-40 rounded-full border-2 border-[#8FAEC7]/30 bg-white flex items-center justify-center group-hover:bg-[#8FAEC7] group-hover:border-[#8FAEC7] transition-all duration-500 group-hover:scale-110 shadow-2xl">
-                                <ArrowUpRight size={65} className="text-[#8FAEC7] group-hover:text-white group-hover:rotate-45 transition-all duration-500" />
+                            <div className="w-40 h-40 rounded-full border border-[#8FAEC7]/20 bg-[#2D1E16]/50 flex items-center justify-center group-hover:bg-[#8FAEC7] group-hover:border-[#8FAEC7] transition-all duration-500 group-hover:scale-110 shadow-2xl">
+                                <ArrowUpRight size={65} className="text-slate-400 group-hover:text-[#1E140F] group-hover:rotate-45 transition-all duration-500" />
                             </div>
-                            <span className="text-4xl text-[#4E3629] group-hover:text-[#8FAEC7] font-[family-name:var(--font-headline)] tracking-wider uppercase transition-colors duration-300">
+                            <span className="text-4xl text-[#FAF9F6] group-hover:text-[#8FAEC7] font-[family-name:var(--font-headline)] tracking-wider uppercase transition-colors duration-300">
                                 View All
                             </span>
                         </Link>
