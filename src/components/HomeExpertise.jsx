@@ -44,7 +44,7 @@ const categories = [
 
 const HomeExpertise = () => {
     return (
-        <section className="relative py-24 md:py-32 bg-white overflow-hidden">
+        <section className="relative py-24 md:py-32 bg-[#FAF9F6] overflow-hidden">
             <div className="container relative z-10 max-w-7xl mx-auto px-6 lg:px-12 flex flex-col items-center">
                 
                 <motion.div 
@@ -69,7 +69,7 @@ const HomeExpertise = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, amount: 0.2 }}
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                                className={`group h-full relative overflow-hidden rounded-[32px] bg-[#FAF9F6] border-2 border-[#8FAEC7]/30 ${category.borderHover} p-8 md:p-10 shadow-sm hover:shadow-xl hover:shadow-[#4E3629]/5 transition-all duration-500 flex flex-col items-center text-center cursor-pointer`}
+                                className={`group h-full relative overflow-hidden rounded-[32px] bg-white border-2 border-[#8FAEC7]/30 ${category.borderHover} p-8 md:p-10 shadow-sm hover:shadow-xl hover:shadow-[#4E3629]/5 transition-all duration-500 flex flex-col items-center text-center cursor-pointer`}
                             >
                                 {/* Glow */}
                                 <div className={`absolute -right-10 -top-10 w-40 h-40 bg-gradient-to-br ${category.gradient} opacity-0 group-hover:opacity-10 rounded-full blur-[30px] transition-opacity duration-700`}></div>
@@ -79,7 +79,7 @@ const HomeExpertise = () => {
                                     {category.icons.map((iconStr, i) => (
                                         <motion.div 
                                             key={i}
-                                            className="w-16 h-16 rounded-2xl bg-white shadow-md flex justify-center items-center overflow-hidden border border-[#8FAEC7]/10 group-hover:-translate-y-2 transition-transform duration-300"
+                                            className="w-16 h-16 rounded-2xl bg-[#E9F0F6] border border-[#8FAEC7]/15 shadow-inner flex justify-center items-center overflow-hidden group-hover:-translate-y-2 transition-transform duration-300"
                                             style={{ transitionDelay: `${i * 50}ms` }}
                                         >
                                             <img src={iconStr} alt="skill logo" className="w-10 h-10 object-contain drop-shadow-sm" />

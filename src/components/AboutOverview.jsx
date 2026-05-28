@@ -13,7 +13,7 @@ const AboutOverview = () => {
     ];
 
     return (
-        <section id="about-overview" className="relative py-24 md:py-32 bg-white overflow-hidden">
+        <section id="about-overview" className="relative py-24 md:py-32 bg-[#FAF9F6] overflow-hidden">
             {/* Massive Background Decorative Text */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full pointer-events-none overflow-hidden select-none flex justify-center opacity-[0.02]">
                 <h1 
@@ -61,9 +61,9 @@ const AboutOverview = () => {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: i * 0.1 }}
-                                    className="group flex flex-col items-center gap-4 py-8 px-6 rounded-[32px] bg-[#FAF9F6] border border-slate-100 hover:border-[#8FAEC7]/30 hover:bg-white hover:shadow-xl hover:shadow-[#4E3629]/5 transition-all duration-500 cursor-pointer"
+                                    className="group flex flex-col items-center gap-4 py-8 px-6 rounded-[32px] bg-white border-2 border-[#8FAEC7]/30 hover:border-[#8FAEC7]/50 hover:shadow-xl hover:shadow-[#4E3629]/5 transition-all duration-500 cursor-pointer"
                                 >
-                                    <div className="w-14 h-14 rounded-2xl bg-white border border-slate-100 flex items-center justify-center mb-2 shadow-sm group-hover:scale-110 group-hover:rotate-3 transition-transform">
+                                    <div className="w-14 h-14 rounded-2xl bg-[#E9F0F6] border border-[#8FAEC7]/20 flex items-center justify-center mb-2 shadow-inner group-hover:scale-110 group-hover:rotate-3 transition-transform">
                                         {item.icon}
                                     </div>
                                     <h4 className="text-xl font-bold text-[#4E3629] uppercase tracking-wider font-[family-name:var(--font-headline)]">

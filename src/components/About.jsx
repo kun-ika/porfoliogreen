@@ -195,11 +195,11 @@ const About = () => {
                                 >
                                     <span className="text-[#4E3629] whitespace-nowrap">ABOUT</span> <span className="text-[#8FAEC7] whitespace-nowrap font-[family-name:var(--font-cursive)] normal-case pl-3">Me</span>
                                 </motion.h1>
-                                <motion.h2 variants={slideUp} className="text-2xl sm:text-3xl md:text-4xl font-medium uppercase text-slate-800 mb-8 font-[family-name:var(--font-headline)] tracking-wider">
+                                <motion.h2 variants={slideUp} className="text-2xl sm:text-3xl md:text-4xl font-medium uppercase text-[#4E3629] mb-8 font-[family-name:var(--font-headline)] tracking-wider">
                                     KUNIKA JAIN
                                 </motion.h2>
                                 <motion.div variants={slideUp} className="text-lg md:text-xl text-slate-700 leading-[1.6] font-[400] max-w-xl mb-12">
-                                    <p className="mb-6">I’m a digital designer passionate about crafting meaningful, user-centered experiences.</p>
+                                    <p className="mb-6">I’m a digital designer passionate about crafting <span className="text-[#8FAEC7] font-bold">meaningful, user-centered experiences</span>.</p>
                                     
                                     {/* Mobile Image Preview */}
                                     <div className="lg:hidden relative w-full aspect-[4/5] rounded-[24px] overflow-hidden shadow-md my-8 border border-gray-100">
@@ -222,17 +222,17 @@ const About = () => {
                                         />
                                     </div>
                                     
-                                    <p>With a strong foundation in visual design and a deep understanding of interactive systems, I bring ideas to life through thoughtful design, smooth animations, and responsive layouts.</p>
+                                    <p>With a strong foundation in <span className="text-[#4E3629] font-bold">visual design</span> and a deep understanding of <span className="text-[#8FAEC7] font-bold">interactive systems</span>, I bring ideas to life through thoughtful design, smooth animations, and responsive layouts.</p>
                                 </motion.div>
-
+ 
                                 <motion.div variants={slideUp} className="flex items-center gap-6">
-                                    <a href="https://linkedin.com/in/kunikajain" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex items-center justify-center rounded-full bg-slate-950 text-white outline outline-1 outline-gray-200 hover:scale-110 transition-transform duration-300">
+                                    <a href="https://linkedin.com/in/kunikajain" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex items-center justify-center rounded-full bg-[#4E3629] text-white hover:scale-110 transition-transform duration-300 shadow-md">
                                         <Linkedin size={20} />
                                     </a>
-                                    <a href="https://github.com/kunikajain" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex items-center justify-center rounded-full bg-slate-950 text-white outline outline-1 outline-gray-200 hover:scale-110 transition-transform duration-300">
+                                    <a href="https://github.com/kunikajain" target="_blank" rel="noopener noreferrer" className="w-12 h-12 flex items-center justify-center rounded-full bg-[#4E3629] text-white hover:scale-110 transition-transform duration-300 shadow-md">
                                         <Github size={20} />
                                     </a>
-                                    <a href="mailto:jainkunika91@gmail.com" className="w-12 h-12 flex items-center justify-center rounded-full bg-slate-950 text-white outline outline-1 outline-gray-200 hover:scale-110 transition-transform duration-300">
+                                    <a href="mailto:jainkunika91@gmail.com" className="w-12 h-12 flex items-center justify-center rounded-full bg-[#4E3629] text-white hover:scale-110 transition-transform duration-300 shadow-md">
                                         <Mail size={20} />
                                     </a>
                                 </motion.div>
@@ -249,12 +249,12 @@ const About = () => {
                             >
                                 <motion.h3
                                     variants={slideUp}
-                                    className="text-[40px] sm:text-[60px] md:text-[75px] lg:text-[85px] leading-[0.9] font-black text-slate-950 mb-6 font-[family-name:var(--font-headline)] tracking-tight uppercase"
+                                    className="text-[40px] sm:text-[60px] md:text-[75px] lg:text-[85px] leading-[0.95] font-black text-[#4E3629] mb-6 font-[family-name:var(--font-headline)] tracking-tight uppercase"
                                 >
-                                    WHAT I CAN DO<br />FOR YOU
+                                    WHAT I CAN DO<br /><span className="text-[#8FAEC7] font-[family-name:var(--font-cursive)] normal-case pl-1">For You</span>
                                 </motion.h3>
                                 <motion.p variants={slideUp} className="text-base md:text-lg text-slate-700 leading-[1.6] font-[400] max-w-xl mb-8">
-                                    As a digital designer, I am a visual storyteller, crafting experiences that connect deeply and spark creativity.
+                                    As a digital designer, I am a <span className="text-[#8FAEC7] font-bold">visual storyteller</span>, crafting experiences that <span className="text-[#4E3629] font-bold">connect deeply</span> and spark creativity.
                                 </motion.p>
                                 
                                 {/* Mobile Image Preview */}
@@ -293,12 +293,12 @@ const About = () => {
                             >
                                 <motion.h3
                                     variants={slideUp}
-                                    className="text-[40px] sm:text-[60px] md:text-[75px] lg:text-[85px] leading-[0.9] font-black text-slate-950 mb-6 font-[family-name:var(--font-headline)] tracking-tight uppercase"
+                                    className="text-[40px] sm:text-[60px] md:text-[75px] lg:text-[85px] leading-[0.95] font-black text-[#4E3629] mb-6 font-[family-name:var(--font-headline)] tracking-tight uppercase"
                                 >
-                                    MY TECH STACK
+                                    MY <span className="text-[#8FAEC7] font-[family-name:var(--font-cursive)] normal-case pl-1">Tech Stack</span>
                                 </motion.h3>
                                 <motion.p variants={slideUp} className="text-base md:text-lg text-slate-700 leading-[1.6] font-[400] max-w-xl mb-8">
-                                    I build with intention. Framer for fast, interactive web design. Figma for clean interfaces. Custom code for complex logic. Each tool supports how I think and design.
+                                    I build with <span className="text-[#8FAEC7] font-bold">intention</span>. Framer for fast, interactive web design. Figma for clean interfaces. Custom code for complex logic. Each tool supports how I <span className="text-[#4E3629] font-bold">think and design</span>.
                                 </motion.p>
 
                                 {/* Mobile Image Preview */}
@@ -389,15 +389,15 @@ const About = () => {
                         >
                             <motion.h3
                                 variants={slideUp}
-                                className="text-[45px] sm:text-[65px] md:text-[85px] lg:text-[100px] leading-[0.95] font-black text-slate-950 mb-6 font-[family-name:var(--font-headline)] max-w-[900px] tracking-tight uppercase"
+                                className="text-[45px] sm:text-[65px] md:text-[85px] lg:text-[100px] leading-[0.95] font-black text-[#4E3629] mb-6 font-[family-name:var(--font-headline)] max-w-[900px] tracking-tight uppercase"
                             >
-                                DESIGN WITH STRATEGY & CREATIVITY
+                                DESIGN WITH <br /><span className="text-[#8FAEC7] font-[family-name:var(--font-cursive)] normal-case pl-1">Strategy & Creativity</span>
                             </motion.h3>
                             <motion.p variants={slideUp} className="text-lg md:text-xl text-slate-700 leading-[1.6] max-w-2xl">
-                                My process blends strategy and creativity to address challenges, craft solutions, and deliver designs that effectively communicate your message.
+                                My process blends <span className="text-[#8FAEC7] font-bold">strategy and creativity</span> to address challenges, craft solutions, and deliver designs that <span className="text-[#4E3629] font-bold">effectively communicate</span> your message.
                             </motion.p>
                         </motion.div>
-
+ 
                         <motion.div
                             initial="hidden"
                             whileInView="visible"
@@ -414,14 +414,14 @@ const About = () => {
                             <motion.div variants={slideUp} className="w-full">
                                 <ProcessCard {...processes[1]} />
                             </motion.div>
-
+ 
                              <motion.div variants={slideUp} className="relative w-full min-h-[440px] rounded-[32px] overflow-hidden group">
                                 <Image src="/about/strategy/2-concept/concept.jpg" alt="Concept & Ideation" fill className="object-cover group-hover:scale-105 transition-transform duration-[1.5s]" />
                             </motion.div>
                             <motion.div variants={slideUp} className="w-full md:col-span-2">
                                 <ProcessCard {...processes[2]} />
                             </motion.div>
-
+ 
                             <motion.div variants={slideUp} className="w-full">
                                 <ProcessCard {...processes[3]} />
                             </motion.div>
@@ -433,7 +433,7 @@ const About = () => {
                             </motion.div>
                         </motion.div>
                     </div>
-
+ 
                     {/* 6. Let's Work Together PRO FORM */}
                     <div className="flex flex-col w-full gap-8 relative z-10 pt-24 pb-16">
                         <motion.div
@@ -443,11 +443,11 @@ const About = () => {
                             transition={{ duration: 0.8 }}
                             className="flex flex-col items-start w-full mb-8"
                         >
-                            <h3 className="text-[45px] sm:text-[65px] md:text-[85px] lg:text-[100px] leading-[0.9] font-black text-slate-950 mb-6 font-[family-name:var(--font-headline)] tracking-tighter uppercase">
-                                LET&apos;S WORK TOGETHER
+                            <h3 className="text-[45px] sm:text-[65px] md:text-[85px] lg:text-[100px] leading-[0.95] font-black text-[#4E3629] mb-6 font-[family-name:var(--font-headline)] tracking-tighter uppercase">
+                                LET&apos;S <span className="text-[#8FAEC7] font-[family-name:var(--font-cursive)] normal-case pl-3">Work Together</span>
                             </h3>
                             <p className="text-base md:text-lg text-slate-700 leading-[1.6] max-w-xl">
-                                Let&apos;s build something impactful together—whether it&apos;s your brand, your website, or your next big idea.
+                                Let&apos;s build something <span className="text-[#8FAEC7] font-bold">impactful</span> together—whether it&apos;s your brand, your website, or your <span className="text-[#4E3629] font-bold">next big idea</span>.
                             </p>
                         </motion.div>
 
@@ -480,7 +480,7 @@ const About = () => {
                                     />
                                 </div>
                                 {/* Blue Hand Bubble Overlay */}
-                                <div className="absolute -left-6 -bottom-6 md:-left-8 md:-bottom-8 w-24 h-24 md:w-32 md:h-32 bg-[#0d9488] rounded-full flex items-center justify-center shadow-2xl">
+                                <div className="absolute -left-6 -bottom-6 md:-left-8 md:-bottom-8 w-24 h-24 md:w-32 md:h-32 bg-[#8FAEC7] rounded-full flex items-center justify-center shadow-2xl">
                                     <AnimatePresence mode="wait">
                                         {!showGreeting ? (
                                             <motion.div
@@ -532,19 +532,19 @@ const About = () => {
                                 <form className="flex flex-col gap-6 w-full">
                                     <div className="flex flex-col md:flex-row gap-6 w-full">
                                         <div className="flex flex-col w-full gap-3">
-                                            <label className="text-[#0d9488] text-sm md:text-base ml-4 font-medium">Name :</label>
-                                            <input type="text" placeholder="John Smith" className="w-full bg-[#F5F5F5] placeholder:text-gray-400 border border-transparent rounded-full px-6 md:px-8 py-4 outline-none focus:border-[#0d9488] transition-all text-slate-950" />
+                                            <label className="text-[#4E3629] text-sm md:text-base ml-4 font-bold tracking-wider">Name :</label>
+                                            <input type="text" placeholder="John Smith" className="w-full bg-[#F5F5F5] placeholder:text-gray-400 border border-transparent rounded-full px-6 md:px-8 py-4 outline-none focus:border-[#8FAEC7] focus:bg-white focus:shadow-md transition-all text-slate-950" />
                                         </div>
                                         <div className="flex flex-col w-full gap-3">
-                                            <label className="text-[#0d9488] text-sm md:text-base ml-4 font-medium">Email :</label>
-                                            <input type="email" placeholder="johnsmith@gmail.com" className="w-full bg-[#F5F5F5] placeholder:text-gray-400 border border-transparent rounded-full px-6 md:px-8 py-4 outline-none focus:border-[#0d9488] transition-all text-slate-950" />
+                                            <label className="text-[#4E3629] text-sm md:text-base ml-4 font-bold tracking-wider">Email :</label>
+                                            <input type="email" placeholder="johnsmith@gmail.com" className="w-full bg-[#F5F5F5] placeholder:text-gray-400 border border-transparent rounded-full px-6 md:px-8 py-4 outline-none focus:border-[#8FAEC7] focus:bg-white focus:shadow-md transition-all text-slate-950" />
                                         </div>
                                     </div>
-
+ 
                                     <div className="flex flex-col gap-3 w-full mt-2">
-                                        <label className="text-[#0d9488] text-sm md:text-base ml-4 font-medium">Service Needed ?</label>
+                                        <label className="text-[#4E3629] text-sm md:text-base ml-4 font-bold tracking-wider">Service Needed ?</label>
                                         <div className="relative w-full">
-                                            <select defaultValue="" className="w-full appearance-none bg-[#F5F5F5] border border-transparent rounded-full px-6 md:px-8 py-4 outline-none focus:border-[#0d9488] transition-all text-slate-600 cursor-pointer">
+                                            <select defaultValue="" className="w-full appearance-none bg-[#F5F5F5] border border-transparent rounded-full px-6 md:px-8 py-4 outline-none focus:border-[#8FAEC7] focus:bg-white focus:shadow-md transition-all text-slate-600 cursor-pointer">
                                                 <option value="" disabled>Select...</option>
                                                 <option value="uiux">UI / UX Design</option>
                                                 <option value="web">Web Design</option>
@@ -556,14 +556,14 @@ const About = () => {
                                             </div>
                                         </div>
                                     </div>
-
+ 
                                     <div className="flex flex-col gap-3 w-full mt-2">
-                                        <label className="text-[#0d9488] text-sm md:text-base ml-4 font-medium">What Can I Help You...</label>
-                                        <textarea placeholder="Hello, I'd like to enquire about..." className="w-full bg-[#F5F5F5] placeholder:text-gray-400 border border-transparent rounded-[32px] px-6 md:px-8 py-6 h-[180px] resize-none outline-none focus:border-[#0d9488] transition-all text-slate-950"></textarea>
+                                        <label className="text-[#4E3629] text-sm md:text-base ml-4 font-bold tracking-wider">What Can I Help You...</label>
+                                        <textarea placeholder="Hello, I'd like to enquire about..." className="w-full bg-[#F5F5F5] placeholder:text-gray-400 border border-transparent rounded-[32px] px-6 md:px-8 py-6 h-[180px] resize-none outline-none focus:border-[#8FAEC7] focus:bg-white focus:shadow-md transition-all text-slate-950"></textarea>
                                     </div>
-
+ 
                                     <div className="mt-4">
-                                        <button type="submit" className="bg-gradient-to-r from-teal-600 to-emerald-500 text-white rounded-full px-10 py-3 md:px-12 md:py-4 uppercase tracking-[0.05em] font-medium hover:scale-105 transition-transform duration-400 w-auto inline-block shadow-lg">
+                                        <button type="submit" className="group relative px-12 py-5 bg-[#4E3629] text-[#FAF9F6] border border-[#3D2B1F] rounded-full font-bold text-xl flex items-center justify-center gap-4 overflow-hidden shadow-xl hover:shadow-2xl hover:bg-[#3D2B1F] transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer uppercase tracking-wider">
                                             SUBMIT
                                         </button>
                                     </div>

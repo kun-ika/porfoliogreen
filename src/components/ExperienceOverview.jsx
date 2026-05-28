@@ -27,7 +27,7 @@ const ExperienceOverview = () => {
     ];
 
     return (
-        <section id="experience-overview" className="relative py-24 md:py-32 bg-white overflow-hidden">
+        <section id="experience-overview" className="relative py-24 md:py-32 bg-[#FAF9F6] overflow-hidden">
             {/* Background Orbs */}
             <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-[#8FAEC7]/5 rounded-full blur-[120px] -z-10"></div>
             
@@ -55,14 +55,14 @@ const ExperienceOverview = () => {
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true, amount: 0.2 }}
                                 transition={{ delay: index * 0.1 }}
-                                className="group h-full relative p-8 rounded-[32px] bg-[#FAF9F6] border-2 border-[#8FAEC7]/30 shadow-sm hover:shadow-xl hover:shadow-[#4E3629]/5 transition-all duration-500 cursor-pointer overflow-hidden"
+                                className="group h-full relative p-8 rounded-[32px] bg-white border-2 border-[#8FAEC7]/30 shadow-sm hover:shadow-xl hover:shadow-[#4E3629]/5 transition-all duration-500 cursor-pointer overflow-hidden"
                             >
                                 {/* Inner Glow */}
                                 <div className={`absolute -right-10 -top-10 w-40 h-40 bg-gradient-to-br ${item.gradient} opacity-0 group-hover:opacity-10 rounded-full blur-[40px] transition-opacity duration-700`}></div>
                                 
                                 <div className="relative z-10">
                                     <div className="flex items-center gap-4 mb-6">
-                                        <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center shadow-md text-slate-400 group-hover:scale-110 transition-transform">
+                                        <div className="w-12 h-12 rounded-xl bg-[#E9F0F6] flex items-center justify-center shadow-inner text-[#8FAEC7] group-hover:scale-110 transition-transform">
                                             {item.icon}
                                         </div>
                                         <span className="text-sm font-black text-slate-300 uppercase tracking-[0.2em]">{item.type}</span>

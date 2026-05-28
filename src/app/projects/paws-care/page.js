@@ -35,17 +35,17 @@ const SectionHeader = ({ title, subtitle, light = false }) => (
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
     >
-        <h2 className={`text-[35px] md:text-[55px] font-[800] ${light ? 'text-white' : 'text-slate-900'} leading-[1] font-[family-name:var(--font-headline)] tracking-tight mb-4 uppercase`}>
+        <h2 className={`text-[35px] md:text-[55px] font-[800] ${light ? 'text-[#FAF9F6]' : 'text-[#4E3629]'} leading-[1] font-[family-name:var(--font-headline)] tracking-tight mb-4 uppercase`}>
             {title}
         </h2>
-        {subtitle && <p className={`text-lg ${light ? 'text-slate-300' : 'text-slate-500'} font-medium tracking-wide`}>{subtitle}</p>}
-        <div className="w-20 h-1.5 bg-teal-600 mt-6 rounded-full"></div>
+        {subtitle && <p className={`text-lg ${light ? 'text-[#8FAEC7]' : 'text-[#6B5548]'} font-[family-name:var(--font-cursive)] text-2xl font-bold italic mt-2`}>{subtitle}</p>}
+        <div className="w-20 h-1.5 bg-[#8FAEC7] mt-6 rounded-full"></div>
     </motion.div>
 );
 
 const ImageBox = ({ src, alt, caption }) => (
     <div className="w-full relative group">
-        <div className="absolute inset-0 bg-gradient-to-br from-teal-500/10 to-emerald-500/10 rounded-[40px] blur-[60px] -z-10 group-hover:bg-teal-500/20 transition-all duration-700"></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-[#8FAEC7]/10 to-[#4E3629]/10 rounded-[40px] blur-[60px] -z-10 group-hover:bg-[#8FAEC7]/20 transition-all duration-700"></div>
         <div className="relative w-full rounded-[40px] overflow-hidden bg-slate-50 border-[4px] border-white shadow-xl hover:shadow-2xl transition-all duration-500">
             <Image 
                 src={src} 
@@ -68,12 +68,12 @@ const PawsCarePage = () => {
     };
 
     const techStack = [
-        { name: "Next.js (App Router)", type: "Frontend Framework", icon: <Laptop className="text-teal-600" />, desc: "React framework with robust static rendering & server actions." },
-        { name: "PostgreSQL", type: "Relational Database", icon: <Database className="text-emerald-500" />, desc: "Enterprise SQL database ensuring reliable asset & booking logs." },
-        { name: "Prisma ORM", type: "Database Layer", icon: <Layers className="text-teal-500" />, desc: "Type-safe database client representing linked pet schema relations." },
-        { name: "NextAuth.js", type: "Secure Auth", icon: <Key className="text-emerald-600" />, desc: "JWT & Credentials credentials and credential provider flows." },
-        { name: "Tailwind CSS", type: "Styling System", icon: <Sparkles className="text-teal-500" />, desc: "Custom configuration supporting the portfolio's signature teal palette." },
-        { name: "Framer Motion", type: "Fluid Animations", icon: <Activity className="text-emerald-500" />, desc: "Smooth micro-interactions and premium backdrop transitions." }
+        { name: "Next.js (App Router)", type: "Frontend Framework", icon: <Laptop className="text-[#8FAEC7]" />, desc: "React framework with robust static rendering & server actions." },
+        { name: "PostgreSQL", type: "Relational Database", icon: <Database className="text-[#4E3629]" />, desc: "Enterprise SQL database ensuring reliable asset & booking logs." },
+        { name: "Prisma ORM", type: "Database Layer", icon: <Layers className="text-[#8FAEC7]" />, desc: "Type-safe database client representing linked pet schema relations." },
+        { name: "NextAuth.js", type: "Secure Auth", icon: <Key className="text-[#4E3629]" />, desc: "JWT & Credentials credentials and credential provider flows." },
+        { name: "Tailwind CSS", type: "Styling System", icon: <Sparkles className="text-[#8FAEC7]" />, desc: "Custom configuration supporting the portfolio's signature blue-brown palette." },
+        { name: "Framer Motion", type: "Fluid Animations", icon: <Activity className="text-[#4E3629]" />, desc: "Smooth micro-interactions and premium backdrop transitions." }
     ];
 
     const pricingTiers = [
@@ -93,7 +93,7 @@ const PawsCarePage = () => {
             desc: "Perfect for regular pet parents",
             features: ["Unlimited active bookings", "24/7 Veterinary chat support", "Priority sitter matching", "0% platform booking fees", "Exclusive Pro Badge search filter"],
             popular: true,
-            color: "border-teal-400 bg-white ring-2 ring-teal-400/20 text-slate-900"
+            color: "border-[#8FAEC7] bg-white ring-2 ring-[#8FAEC7]/20 text-slate-900"
         },
         {
             name: "Ultimate Care",
@@ -102,7 +102,7 @@ const PawsCarePage = () => {
             desc: "The ultimate royal treatment",
             features: ["Premium Pet features included", "Expert custom diet plans", "Monthly free grooming sessions", "Direct video consults with vets", "VIP emergency matching priority"],
             popular: false,
-            color: "border-emerald-400 bg-slate-900 text-white"
+            color: "border-[#8FAEC7]/40 bg-[#2D1E16] text-[#FAF9F6]"
         }
     ];
 
@@ -140,7 +140,7 @@ const PawsCarePage = () => {
     ];
 
     return (
-        <main className="bg-[#FAF9F6] min-h-screen font-sans pb-32 overflow-x-hidden">
+        <main className="bg-[#FAF9F6] min-h-screen font-sans pb-32 overflow-x-hidden notebook-stripes">
             {/* 1. HERO SECTION */}
             <section className="relative pt-40 pb-24 md:pt-56 md:pb-40 container max-w-7xl mx-auto px-6 lg:px-12 flex flex-col lg:flex-row items-center gap-16 md:gap-24">
                 <motion.div 
@@ -149,27 +149,27 @@ const PawsCarePage = () => {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ duration: 1 }}
                 >
-                    <div className="inline-block px-4 py-2 bg-teal-50 border border-teal-100 rounded-full text-teal-600 font-bold tracking-[0.2em] text-xs uppercase mb-4 shadow-sm">
+                    <div className="inline-block px-6 py-2 bg-[#8FAEC7] border-2 border-white rounded-full text-white font-bold tracking-[0.2em] text-xs uppercase mb-4 shadow-sm rotate-[-3deg]">
                         Full-Stack bidirectional marketplace
                     </div>
-                    <h1 className="text-[60px] md:text-[90px] lg:text-[110px] leading-[0.85] font-[900] text-slate-950 font-[family-name:var(--font-headline)] tracking-tight uppercase">
-                        Paws &<br/>
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal-600 via-emerald-600 to-teal-700">Care Web App</span>
+                    <h1 className="text-[60px] md:text-[90px] lg:text-[110px] leading-[0.85] font-[900] text-[#4E3629] font-[family-name:var(--font-headline)] tracking-tight uppercase">
+                        <span className="text-[#8FAEC7] font-[family-name:var(--font-cursive)] normal-case pr-2 select-none">Paws &</span><br/>
+                        <span className="text-[#4E3629]">Care Web App</span>
                     </h1>
-                    <p className="text-xl md:text-2xl text-slate-600 font-medium max-w-xl leading-relaxed">
+                    <p className="text-xl md:text-2xl text-[#6B5548] font-medium max-w-xl leading-relaxed">
                         Connecting passionate pet owners with professional local sitters. A comprehensive trust-based marketplace.
                     </p>
                     <div className="flex flex-wrap gap-4 pt-4">
                         <Link 
                             href="https://pet-care-app-sigma.vercel.app/" 
                             target="_blank"
-                            className="flex items-center gap-2 px-6 py-3.5 bg-gradient-to-r from-teal-600 to-emerald-600 hover:from-teal-700 hover:to-emerald-700 text-white font-bold rounded-2xl shadow-lg hover:shadow-xl transition-all hover:scale-[1.02]"
+                            className="flex items-center gap-2 px-6 py-3.5 bg-[#4E3629] text-[#FAF9F6] border border-[#3D2B1F] hover:bg-[#3D2B1F] font-bold rounded-2xl shadow-lg hover:shadow-xl transition-all hover:scale-[1.02]"
                         >
                             <ExternalLink size={20} />
                             <span>Launch Live Site</span>
                         </Link>
-                        <div className="flex items-center gap-2 px-6 py-3.5 bg-white rounded-2xl shadow-sm border border-slate-100 font-bold text-slate-700">
-                           <ShieldCheck size={20} className="text-teal-500" />
+                        <div className="flex items-center gap-2 px-6 py-3.5 bg-[#FAF9F6] text-[#4E3629] border-2 border-[#8FAEC7]/30 shadow-md font-bold text-slate-700">
+                           <ShieldCheck size={20} className="text-[#8FAEC7]" />
                            <span>Aadhar Verified</span>
                         </div>
                     </div>
@@ -186,11 +186,11 @@ const PawsCarePage = () => {
             </section>
 
             {/* 2. OVERVIEW & RESPONSIBILITIES */}
-            <section className="py-24 bg-teal-50/10 border-y border-teal-100/30 relative">
+            <section className="py-24 bg-[#E9F0F6]/30 border-y border-[#8FAEC7]/20 relative">
                 <div className="container max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32">
                     <motion.div variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: true }}>
                         <SectionHeader title="Overview" subtitle="Connecting Hearts & Paws" />
-                        <p className="text-xl text-slate-600 leading-relaxed font-medium mb-6">
+                        <p className="text-xl text-[#6B5548] leading-relaxed font-medium mb-6">
                             Paws & Care solves a vital challenge for Indian pet parents: finding secure, reliable, Aadhar-verified caregivers when traveling. 
                             It serves as a fully functional, bidirectional marketplace bridging pet caregivers (who gain tools to manage bookings and set rates) 
                             and owners (who gain complete digital records, simulated wallets, and 24/7 matching support).
@@ -204,12 +204,12 @@ const PawsCarePage = () => {
                         <SectionHeader title="Tech Stack" subtitle="Core Systems & Frameworks" />
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                             {techStack.map((tech, i) => (
-                                <div key={i} className="flex gap-4 p-5 bg-white rounded-3xl border border-slate-100 hover:border-teal-200 hover:shadow-md transition-all">
-                                    <div className="p-3 rounded-2xl bg-slate-50 shrink-0 h-fit">
+                                <div key={i} className="flex gap-4 p-5 bg-white rounded-3xl border-2 border-[#8FAEC7]/20 hover:border-[#8FAEC7]/40 hover:shadow-md transition-all">
+                                    <div className="p-3 rounded-2xl bg-[#E9F0F6]/50 shrink-0 h-fit">
                                         {tech.icon}
                                     </div>
                                     <div>
-                                        <h4 className="font-bold text-slate-900 leading-tight">{tech.name}</h4>
+                                        <h4 className="font-bold text-[#4E3629] leading-tight">{tech.name}</h4>
                                         <p className="text-xs font-bold text-slate-400 mt-1 uppercase tracking-wider">{tech.type}</p>
                                         <p className="text-xs text-slate-500 mt-2 leading-relaxed">{tech.desc}</p>
                                     </div>
@@ -224,7 +224,7 @@ const PawsCarePage = () => {
             <section className="py-32 container max-w-7xl mx-auto px-6">
                 <div className="text-center max-w-2xl mx-auto mb-16">
                     <SectionHeader title="Dual Dashboards" subtitle="Tailored experiences for owners & caregivers" />
-                    <p className="text-lg text-slate-600 font-medium">
+                    <p className="text-lg text-[#6B5548] font-medium">
                         The application adapts dynamically to the current authenticated role, rendering fully separate ecosystems with specialized workflows.
                     </p>
                 </div>
@@ -232,21 +232,21 @@ const PawsCarePage = () => {
                 <div className="flex justify-center gap-4 mb-12">
                     <button 
                         onClick={() => setActiveTab('owners')}
-                        className={`px-8 py-3.5 rounded-full font-bold text-lg shadow-sm border transition-all ${activeTab === 'owners' ? 'bg-slate-950 border-slate-950 text-white scale-[1.02]' : 'bg-white border-slate-200 text-slate-600 hover:border-slate-300'}`}
+                        className={`px-8 py-3.5 rounded-full font-bold text-lg shadow-sm border transition-all ${activeTab === 'owners' ? 'bg-[#4E3629] border-[#4E3629] text-[#FAF9F6] scale-[1.02]' : 'bg-white border-[#8FAEC7]/20 text-[#6B5548] hover:border-[#8FAEC7]/40'}`}
                     >
                         🐶 Pet Owners Experience
                     </button>
                     <button 
                         onClick={() => setActiveTab('sitters')}
-                        className={`px-8 py-3.5 rounded-full font-bold text-lg shadow-sm border transition-all ${activeTab === 'sitters' ? 'bg-slate-950 border-slate-950 text-white scale-[1.02]' : 'bg-white border-slate-200 text-slate-600 hover:border-slate-300'}`}
+                        className={`px-8 py-3.5 rounded-full font-bold text-lg shadow-sm border transition-all ${activeTab === 'sitters' ? 'bg-[#4E3629] border-[#4E3629] text-[#FAF9F6] scale-[1.02]' : 'bg-white border-[#8FAEC7]/20 text-[#6B5548] hover:border-[#8FAEC7]/40'}`}
                     >
                         💼 Professional Caregivers
                     </button>
                 </div>
 
-                <div className="bg-white border border-slate-100 rounded-[48px] p-8 md:p-12 shadow-xl relative overflow-hidden">
-                    <div className="absolute top-0 right-0 w-80 h-80 bg-teal-500/5 rounded-full blur-[100px] -z-10"></div>
-                    <div className="absolute bottom-0 left-0 w-80 h-80 bg-emerald-500/5 rounded-full blur-[100px] -z-10"></div>
+                <div className="bg-white border-2 border-[#8FAEC7]/30 rounded-[48px] p-8 md:p-12 shadow-xl relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-80 h-80 bg-[#8FAEC7]/5 rounded-full blur-[100px] -z-10"></div>
+                    <div className="absolute bottom-0 left-0 w-80 h-80 bg-[#4E3629]/5 rounded-full blur-[100px] -z-10"></div>
 
                     <AnimatePresence mode="wait">
                         {activeTab === 'owners' ? (
@@ -259,8 +259,8 @@ const PawsCarePage = () => {
                                 className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
                             >
                                 <div className="space-y-6">
-                                    <h3 className="text-3xl font-black text-slate-900 leading-tight">Complete Control Over Your Pet&apos;s Wellness</h3>
-                                    <p className="text-lg text-slate-600 leading-relaxed font-medium">
+                                    <h3 className="text-3xl font-black text-[#4E3629] leading-tight">Complete Control Over Your Pet&apos;s Wellness</h3>
+                                    <p className="text-lg text-[#6B5548] leading-relaxed font-medium">
                                         Pet parents gain access to an intuitive dashboard designed to take the friction out of booking sitters:
                                     </p>
                                     <ul className="space-y-4 pt-2">
@@ -271,35 +271,35 @@ const PawsCarePage = () => {
                                             "Comprehensive Transaction log tracking precise costs, history, and status updates."
                                         ].map((item, i) => (
                                             <li key={i} className="flex gap-4">
-                                                <CheckCircle2 size={24} className="text-teal-600 shrink-0 mt-0.5" />
-                                                <span className="font-bold text-slate-700 leading-relaxed">{item}</span>
+                                                <CheckCircle2 size={24} className="text-[#8FAEC7] shrink-0 mt-0.5" />
+                                                <span className="font-bold text-[#6B5548] leading-relaxed">{item}</span>
                                             </li>
                                         ))}
                                     </ul>
                                 </div>
-                                <div className="p-6 bg-teal-50/10 rounded-[32px] border border-teal-100/20 space-y-6">
-                                    <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100/80">
+                                <div className="p-6 bg-[#E9F0F6]/30 rounded-[32px] border border-[#8FAEC7]/20 space-y-6">
+                                    <div className="bg-white p-6 rounded-2xl shadow-sm border border-[#8FAEC7]/20">
                                         <div className="flex justify-between items-center mb-4">
                                             <div className="flex items-center gap-3">
-                                                <div className="w-10 h-10 rounded-full bg-teal-50 flex items-center justify-center font-bold text-teal-600">🐕</div>
+                                                <div className="w-10 h-10 rounded-full bg-[#E9F0F6] flex items-center justify-center font-bold text-[#8FAEC7]">🐕</div>
                                                 <div>
-                                                    <h5 className="font-bold text-slate-900">Sherlock</h5>
+                                                    <h5 className="font-bold text-[#4E3629]">Sherlock</h5>
                                                     <p className="text-xs text-slate-400 font-bold">Golden Retriever • 2 Years</p>
                                                 </div>
                                             </div>
-                                            <span className="px-2.5 py-1 bg-emerald-50 text-emerald-700 text-xs font-bold rounded-md">Vaccinated</span>
+                                            <span className="px-2.5 py-1 bg-amber-100 text-amber-800 text-xs font-bold rounded-md">Vaccinated</span>
                                         </div>
-                                        <p className="text-xs text-slate-500 leading-relaxed">Diet: Strict chicken & rice. Prefers evening walks around 6:00 PM.</p>
+                                        <p className="text-xs text-[#6B5548] leading-relaxed">Diet: Strict chicken & rice. Prefers evening walks around 6:00 PM.</p>
                                     </div>
-                                    <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100/80">
+                                    <div className="bg-white p-6 rounded-2xl shadow-sm border border-[#8FAEC7]/20">
                                         <div className="flex justify-between items-center mb-2">
-                                            <span className="text-sm font-bold text-slate-500 uppercase tracking-wider">Wallet Balance</span>
+                                            <span className="text-sm font-bold text-[#6B5548] uppercase tracking-wider">Wallet Balance</span>
                                             <Zap size={16} className="text-amber-500" />
                                         </div>
-                                        <div className="text-3xl font-black text-slate-900">₹4,250.00</div>
+                                        <div className="text-3xl font-black text-[#4E3629]">₹4,250.00</div>
                                         <div className="mt-4 flex gap-2">
-                                            <button className="flex-1 py-2 bg-slate-900 text-white font-bold rounded-xl text-xs hover:bg-slate-800 transition-colors">+ Add Funds</button>
-                                            <button className="flex-1 py-2 bg-slate-50 text-slate-700 font-bold rounded-xl text-xs hover:bg-slate-100 transition-colors">History</button>
+                                            <button className="flex-1 py-2 bg-[#4E3629] text-[#FAF9F6] font-bold rounded-xl text-xs hover:bg-[#3D2B1F] transition-colors">+ Add Funds</button>
+                                            <button className="flex-1 py-2 bg-[#FAF9F6] border border-[#8FAEC7]/20 text-[#4E3629] font-bold rounded-xl text-xs hover:bg-[#E9F0F6] transition-colors">History</button>
                                         </div>
                                     </div>
                                 </div>
@@ -314,8 +314,8 @@ const PawsCarePage = () => {
                                 className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
                             >
                                 <div className="space-y-6">
-                                    <h3 className="text-3xl font-black text-slate-900 leading-tight">Elevating Caregivers into Professional Sitters</h3>
-                                    <p className="text-lg text-slate-600 leading-relaxed font-medium">
+                                    <h3 className="text-3xl font-black text-[#4E3629] leading-tight">Elevating Caregivers into Professional Sitters</h3>
+                                    <p className="text-lg text-[#6B5548] leading-relaxed font-medium">
                                         Professional sitters can fully run their micro-businesses directly through their localized profile dashboard:
                                     </p>
                                     <ul className="space-y-4 pt-2">
@@ -326,19 +326,19 @@ const PawsCarePage = () => {
                                             "Caregiver Revenue graphs tracking active bookings, deposits, and payouts."
                                         ].map((item, i) => (
                                             <li key={i} className="flex gap-4">
-                                                <CheckCircle2 size={24} className="text-emerald-600 shrink-0 mt-0.5" />
-                                                <span className="font-bold text-slate-700 leading-relaxed">{item}</span>
+                                                <CheckCircle2 size={24} className="text-[#8FAEC7] shrink-0 mt-0.5" />
+                                                <span className="font-bold text-[#6B5548] leading-relaxed">{item}</span>
                                             </li>
                                         ))}
                                     </ul>
                                 </div>
-                                <div className="p-6 bg-emerald-50/10 rounded-[32px] border border-emerald-100/20 space-y-6">
-                                    <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100/80">
+                                <div className="p-6 bg-[#E9F0F6]/30 rounded-[32px] border border-[#8FAEC7]/20 space-y-6">
+                                    <div className="bg-white p-6 rounded-2xl shadow-sm border border-[#8FAEC7]/20">
                                         <div className="flex justify-between items-center mb-4">
                                             <div className="flex items-center gap-3">
-                                                <div className="w-10 h-10 rounded-full bg-emerald-50 flex items-center justify-center font-bold text-emerald-600">👩‍⚕️</div>
+                                                <div className="w-10 h-10 rounded-full bg-[#E9F0F6] flex items-center justify-center font-bold text-[#8FAEC7]">👩‍⚕️</div>
                                                 <div>
-                                                    <h5 className="font-bold text-slate-900">Dr. Priya Sharma</h5>
+                                                    <h5 className="font-bold text-[#4E3629]">Dr. Priya Sharma</h5>
                                                     <p className="text-xs text-slate-400 font-bold">Bangalore • Veterinary Specialist</p>
                                                 </div>
                                             </div>
@@ -347,26 +347,26 @@ const PawsCarePage = () => {
                                                 <span>4.9</span>
                                             </div>
                                         </div>
-                                        <div className="flex justify-between items-center pt-2 border-t border-slate-100">
+                                        <div className="flex justify-between items-center pt-2 border-t border-[#8FAEC7]/10">
                                             <div>
                                                 <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Hourly Rate</p>
-                                                <p className="text-lg font-black text-slate-900">₹650/hr</p>
+                                                <p className="text-lg font-black text-[#4E3629]">₹650/hr</p>
                                             </div>
                                             <div>
                                                 <p className="text-[10px] text-slate-400 font-bold uppercase tracking-wider">Availability</p>
-                                                <span className="px-2 py-0.5 bg-emerald-100 text-emerald-800 text-[10px] font-bold rounded-full uppercase tracking-wider">Active</span>
+                                                <span className="px-2 py-0.5 bg-[#FAF9F6] text-[#8FAEC7] border border-[#8FAEC7]/30 text-[10px] font-bold rounded-full uppercase tracking-wider">Active</span>
                                             </div>
                                         </div>
                                     </div>
-                                    <div className="bg-white p-6 rounded-2xl shadow-sm border border-slate-100/80">
+                                    <div className="bg-white p-6 rounded-2xl shadow-sm border border-[#8FAEC7]/20">
                                         <div className="flex justify-between items-center mb-2">
-                                            <span className="text-sm font-bold text-slate-500 uppercase tracking-wider">Caregiver Earnings</span>
-                                            <DollarSign size={16} className="text-emerald-600" />
+                                            <span className="text-sm font-bold text-[#6B5548] uppercase tracking-wider">Caregiver Earnings</span>
+                                            <DollarSign size={16} className="text-[#8FAEC7]" />
                                         </div>
-                                        <div className="text-3xl font-black text-slate-900">₹14,920.00</div>
+                                        <div className="text-3xl font-black text-[#4E3629]">₹14,920.00</div>
                                         <div className="mt-4 flex gap-2">
-                                            <button className="flex-1 py-2 bg-slate-900 text-white font-bold rounded-xl text-xs hover:bg-slate-800 transition-colors">Request Payout</button>
-                                            <button className="flex-1 py-2 bg-slate-50 text-slate-700 font-bold rounded-xl text-xs hover:bg-slate-100 transition-colors">Review Logs</button>
+                                            <button className="flex-1 py-2 bg-[#4E3629] text-[#FAF9F6] font-bold rounded-xl text-xs hover:bg-[#3D2B1F] transition-colors">Request Payout</button>
+                                            <button className="flex-1 py-2 bg-[#FAF9F6] border border-[#8FAEC7]/20 text-[#4E3629] font-bold rounded-xl text-xs hover:bg-[#E9F0F6] transition-colors">Review Logs</button>
                                         </div>
                                     </div>
                                 </div>
@@ -377,8 +377,8 @@ const PawsCarePage = () => {
             </section>
 
             {/* 4. DATABASE SCHEMA RELATIONS SECTION */}
-            <section className="py-24 bg-slate-950 text-white rounded-[60px] mx-6 md:mx-12 overflow-hidden relative my-12">
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-teal-500/10 rounded-full blur-[150px] -z-10"></div>
+            <section className="py-24 bg-[#1E140F] text-[#FAF9F6] rounded-[60px] mx-6 md:mx-12 overflow-hidden relative my-12">
+                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#8FAEC7]/10 rounded-full blur-[150px] -z-10"></div>
                 <div className="container max-w-7xl mx-auto px-6 lg:px-12 text-center flex flex-col items-center">
                     <SectionHeader title="Database Architecture" subtitle="Complex PostgreSQL Relational Schema" light />
                     <p className="text-xl text-slate-300 font-medium max-w-3xl mb-16 leading-relaxed">
@@ -389,21 +389,21 @@ const PawsCarePage = () => {
                         {schemaTables.map((table, i) => (
                             <motion.div 
                                 key={i}
-                                className="bg-slate-900 border border-slate-800/80 p-8 rounded-[32px] space-y-4 hover:border-teal-500/30 transition-all duration-300"
+                                className="bg-[#2D1E16] border border-[#8FAEC7]/20 p-8 rounded-[32px] space-y-4 hover:border-[#8FAEC7]/40 transition-all duration-300"
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
                             >
                                 <div className="flex justify-between items-center">
-                                    <h4 className="text-2xl font-black text-teal-400 font-[family-name:var(--font-headline)]">{table.name}</h4>
+                                    <h4 className="text-2xl font-black text-[#8FAEC7] font-[family-name:var(--font-headline)]">{table.name}</h4>
                                     <Database size={20} className="text-slate-500" />
                                 </div>
                                 <p className="text-slate-400 text-sm leading-relaxed">{table.desc}</p>
-                                <div className="pt-4 border-t border-slate-800 space-y-2">
+                                <div className="pt-4 border-t border-[#8FAEC7]/20 space-y-2">
                                     <p className="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Relational Connections</p>
                                     <div className="flex flex-wrap gap-2">
                                         {table.connections.map((conn, idx) => (
-                                            <span key={idx} className="px-2.5 py-1 bg-slate-800 text-teal-300 text-xs font-mono rounded-md font-bold font-sans">
+                                            <span key={idx} className="px-2.5 py-1 bg-[#1E140F] text-[#8FAEC7] border border-[#8FAEC7]/20 text-xs font-mono rounded-md font-bold font-sans">
                                                 {conn}
                                             </span>
                                         ))}
@@ -419,7 +419,7 @@ const PawsCarePage = () => {
             <section className="py-32 container max-w-7xl mx-auto px-6">
                 <div className="text-center max-w-2xl mx-auto mb-20">
                     <SectionHeader title="Micro-SaaS Subscriptions" subtitle="Optimized for direct platform monetization" />
-                    <p className="text-lg text-slate-600 font-medium">
+                    <p className="text-lg text-[#6B5548] font-medium">
                         Paws & Care caps free bookings to restrict usage, driving upgrades into premium plan limits featuring priority medical matching.
                     </p>
                 </div>
@@ -434,7 +434,7 @@ const PawsCarePage = () => {
                             viewport={{ once: true }}
                         >
                             {tier.popular && (
-                                <div className="absolute top-5 right-5 px-4 py-1.5 bg-teal-600 text-white text-xs font-bold uppercase tracking-widest rounded-full">
+                                <div className="absolute top-5 right-5 px-4 py-1.5 bg-[#8FAEC7] text-white text-xs font-bold uppercase tracking-widest rounded-full">
                                     Popular
                                 </div>
                             )}
@@ -445,11 +445,11 @@ const PawsCarePage = () => {
                                     <span className="text-slate-400 font-bold">{tier.period}</span>
                                 </div>
                                 <p className="text-sm text-slate-400 font-bold mb-8">{tier.desc}</p>
-                                <div className="w-full h-px bg-slate-100 my-6"></div>
+                                <div className="w-full h-px bg-[#8FAEC7]/10 my-6"></div>
                                 <ul className="space-y-4">
                                     {tier.features.map((feat, idx) => (
-                                        <li key={idx} className="flex gap-3 text-sm font-bold">
-                                            <CheckCircle2 size={18} className="text-emerald-500 shrink-0 mt-0.5" />
+                                        <li key={idx} className="flex gap-3 text-sm font-bold text-[#6B5548]">
+                                            <CheckCircle2 size={18} className="text-[#8FAEC7] shrink-0 mt-0.5" />
                                             <span className="leading-relaxed opacity-90">{feat}</span>
                                         </li>
                                     ))}
@@ -459,7 +459,7 @@ const PawsCarePage = () => {
                                 <Link 
                                     href="https://pet-care-app-sigma.vercel.app/subscription"
                                     target="_blank"
-                                    className={`w-full py-4 rounded-2xl font-bold transition-all text-sm block text-center ${tier.name === 'Ultimate Care' ? 'bg-emerald-600 hover:bg-emerald-700 text-white' : 'bg-slate-900 hover:bg-slate-800 text-white'}`}
+                                    className={`w-full py-4 rounded-2xl font-bold transition-all text-sm block text-center ${tier.name === 'Ultimate Care' ? 'bg-[#4E3629] hover:bg-[#3D2B1F] text-[#FAF9F6]' : 'bg-[#FAF9F6] border border-[#8FAEC7]/30 text-[#4E3629] hover:bg-[#E9F0F6]'}`}
                                 >
                                     Choose Plan
                                 </Link>
@@ -471,8 +471,8 @@ const PawsCarePage = () => {
 
             {/* 6. BUSINESS IMPACT & DESIGN */}
             <section className="container max-w-7xl mx-auto px-6 mb-32">
-                <div className="p-12 md:p-20 rounded-[60px] bg-slate-950 text-white shadow-2xl relative overflow-hidden">
-                    <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-teal-600/10 rounded-full blur-[120px] -z-0"></div>
+                <div className="p-12 md:p-20 rounded-[60px] bg-[#1E140F] text-[#FAF9F6] shadow-2xl relative overflow-hidden">
+                    <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-[#8FAEC7]/10 rounded-full blur-[120px] -z-0"></div>
                     
                     <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
                         <div className="space-y-8">
@@ -488,7 +488,7 @@ const PawsCarePage = () => {
                                     "Aadhar Verification trust badges driving peer-to-peer transaction volumes in safety."
                                 ].map((res, i) => (
                                     <div key={i} className="flex gap-4">
-                                        <CheckCircle2 size={24} className="text-teal-400 shrink-0 mt-1" />
+                                        <CheckCircle2 size={24} className="text-[#8FAEC7] shrink-0 mt-1" />
                                         <span className="font-bold text-lg leading-relaxed">{res}</span>
                                     </div>
                                 ))}
@@ -496,21 +496,21 @@ const PawsCarePage = () => {
                         </div>
                         <div className="relative lg:pl-12 pt-8 lg:pt-0">
                             <motion.div 
-                                className="bg-white/5 border border-white/10 backdrop-blur-xl rounded-[48px] p-10 md:p-14 space-y-10 relative overflow-hidden"
+                                className="bg-[#2D1E16] border border-[#8FAEC7]/20 backdrop-blur-xl rounded-[48px] p-10 md:p-14 space-y-10 relative overflow-hidden"
                                 initial={{ opacity: 0, scale: 0.95 }}
                                 whileInView={{ opacity: 1, scale: 1 }}
                                 viewport={{ once: true }}
                             >
-                                <div className="absolute top-0 right-0 w-64 h-64 bg-teal-500/10 rounded-full blur-[80px] -z-10"></div>
+                                <div className="absolute top-0 right-0 w-64 h-64 bg-[#8FAEC7]/10 rounded-full blur-[80px] -z-10"></div>
                                 <h4 className="text-3xl md:text-4xl font-black tracking-tighter uppercase leading-none mb-8">
-                                    Premium <span className="text-teal-400">UI/UX Decisions</span>
+                                    Premium <span className="text-[#8FAEC7]">UI/UX Decisions</span>
                                 </h4>
                                 <ul className="space-y-8">
                                     <li className="flex gap-4 items-center">
                                         <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center shrink-0">🎨</div>
                                         <div>
                                             <h5 className="text-xl font-bold tracking-tight">Soft Palette</h5>
-                                            <p className="text-sm text-slate-400 leading-relaxed font-bold mt-1">Teal and emerald theme accents replacing basic flat browser colors.</p>
+                                            <p className="text-sm text-slate-400 leading-relaxed font-bold mt-1">Dusty blue and chocolate cocoa theme accents replacing basic flat browser colors.</p>
                                         </div>
                                     </li>
                                     <li className="flex gap-4 items-center">
@@ -540,9 +540,9 @@ const PawsCarePage = () => {
                     variants={fadeIn} initial="hidden" whileInView="visible" viewport={{ once: true }}
                     className="pt-12"
                 >
-                    <Link href="/projects" className="inline-flex items-center gap-6 text-[28px] md:text-[42px] font-black text-slate-900 hover:text-teal-600 transition-all group">
+                    <Link href="/projects" className="inline-flex items-center gap-6 text-[28px] md:text-[42px] font-black text-[#4E3629] hover:text-[#8FAEC7] transition-all group">
                         Explore More Projects
-                        <ArrowRight size={48} className="group-hover:translate-x-6 transition-transform text-teal-500" />
+                        <ArrowRight size={48} className="group-hover:translate-x-6 transition-transform text-[#8FAEC7]" />
                     </Link>
                 </motion.div>
             </section>
@@ -551,3 +551,5 @@ const PawsCarePage = () => {
 };
 
 export default PawsCarePage;
+
+

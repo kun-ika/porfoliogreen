@@ -21,7 +21,7 @@ const Contact = () => {
     };
 
     return (
-        <section id="contact" className="relative font-sans pt-24 pb-16 bg-white min-h-[80vh] flex items-center">
+        <section id="contact" className="relative font-sans pt-24 pb-16 bg-[#FAF9F6] min-h-[80vh] flex items-center">
             <div className="container max-w-[1200px] mx-auto px-6 md:px-12 w-full">
                 {/* 6. Let's Work Together PRO FORM */}
                 <div className="flex flex-col w-full gap-8 relative z-10">
@@ -32,11 +32,11 @@ const Contact = () => {
                         transition={{ duration: 0.8 }}
                         className="flex flex-col items-start w-full mb-8"
                     >
-                        <h3 className="text-[45px] sm:text-[65px] md:text-[85px] lg:text-[100px] leading-[0.9] font-black text-slate-950 mb-6 font-[family-name:var(--font-headline)] tracking-tighter uppercase">
-                            LET&apos;S WORK TOGETHER
+                        <h3 className="text-[45px] sm:text-[65px] md:text-[85px] lg:text-[100px] leading-[0.95] font-black text-[#4E3629] mb-6 font-[family-name:var(--font-headline)] tracking-tighter uppercase">
+                            LET&apos;S <span className="text-[#8FAEC7] font-[family-name:var(--font-cursive)] normal-case pl-3 select-none">Work Together</span>
                         </h3>
                         <p className="text-base md:text-lg text-slate-700 leading-[1.6] max-w-xl">
-                            Let&apos;s build something impactful together—whether it&apos;s your brand, your website, or your next big idea.
+                            Let&apos;s build something <span className="text-[#8FAEC7] font-bold">impactful</span> together—whether it&apos;s your brand, your website, or your <span className="text-[#4E3629] font-bold">next big idea</span>.
                         </p>
                     </motion.div>
 
@@ -120,19 +120,19 @@ const Contact = () => {
                             <form className="flex flex-col gap-6 w-full">
                                 <div className="flex flex-col md:flex-row gap-6 w-full">
                                     <div className="flex flex-col w-full gap-3">
-                                        <label className="text-[#4E3629] text-sm md:text-base ml-4 font-bold">Name :</label>
-                                        <input type="text" placeholder="John Smith" className="w-full bg-[#E9F0F6]/40 border border-[#8FAEC7]/20 placeholder:text-slate-400 rounded-full px-6 md:px-8 py-4 outline-none focus:border-[#8FAEC7] transition-all text-[#4E3629]" />
+                                        <label className="text-[#4E3629] text-sm md:text-base ml-4 font-bold tracking-wider">Name :</label>
+                                        <input type="text" placeholder="John Smith" className="w-full bg-[#F5F5F5] placeholder:text-gray-400 border border-transparent rounded-full px-6 md:px-8 py-4 outline-none focus:border-[#8FAEC7] focus:bg-white focus:shadow-md transition-all text-slate-950" />
                                     </div>
                                     <div className="flex flex-col w-full gap-3">
-                                        <label className="text-[#4E3629] text-sm md:text-base ml-4 font-bold">Email :</label>
-                                        <input type="email" placeholder="johnsmith@gmail.com" className="w-full bg-[#E9F0F6]/40 border border-[#8FAEC7]/20 placeholder:text-slate-400 rounded-full px-6 md:px-8 py-4 outline-none focus:border-[#8FAEC7] transition-all text-[#4E3629]" />
+                                        <label className="text-[#4E3629] text-sm md:text-base ml-4 font-bold tracking-wider">Email :</label>
+                                        <input type="email" placeholder="johnsmith@gmail.com" className="w-full bg-[#F5F5F5] placeholder:text-gray-400 border border-transparent rounded-full px-6 md:px-8 py-4 outline-none focus:border-[#8FAEC7] focus:bg-white focus:shadow-md transition-all text-slate-950" />
                                     </div>
                                 </div>
 
                                 <div className="flex flex-col gap-3 w-full mt-2">
-                                    <label className="text-[#4E3629] text-sm md:text-base ml-4 font-bold">Service Needed ?</label>
+                                    <label className="text-[#4E3629] text-sm md:text-base ml-4 font-bold tracking-wider">Service Needed ?</label>
                                     <div className="relative w-full">
-                                        <select defaultValue="" className="w-full appearance-none bg-[#E9F0F6]/40 border border-[#8FAEC7]/20 rounded-full px-6 md:px-8 py-4 outline-none focus:border-[#8FAEC7] transition-all text-[#4E3629]/70 cursor-pointer">
+                                        <select defaultValue="" className="w-full appearance-none bg-[#F5F5F5] border border-transparent rounded-full px-6 md:px-8 py-4 outline-none focus:border-[#8FAEC7] focus:bg-white focus:shadow-md transition-all text-slate-600 cursor-pointer">
                                             <option value="" disabled>Select...</option>
                                             <option value="uiux">UI / UX Design</option>
                                             <option value="web">Web Design</option>
@@ -146,12 +146,12 @@ const Contact = () => {
                                 </div>
 
                                 <div className="flex flex-col gap-3 w-full mt-2">
-                                    <label className="text-[#4E3629] text-sm md:text-base ml-4 font-bold">What Can I Help You...</label>
-                                    <textarea placeholder="Hello, I'd like to enquire about..." className="w-full bg-[#E9F0F6]/40 border border-[#8FAEC7]/20 placeholder:text-slate-400 rounded-[32px] px-6 md:px-8 py-6 h-[180px] resize-none outline-none focus:border-[#8FAEC7] transition-all text-[#4E3629]"></textarea>
+                                    <label className="text-[#4E3629] text-sm md:text-base ml-4 font-bold tracking-wider">What Can I Help You...</label>
+                                    <textarea placeholder="Hello, I'd like to enquire about..." className="w-full bg-[#F5F5F5] placeholder:text-gray-400 border border-transparent rounded-[32px] px-6 md:px-8 py-6 h-[180px] resize-none outline-none focus:border-[#8FAEC7] focus:bg-white focus:shadow-md transition-all text-slate-950"></textarea>
                                 </div>
 
                                 <div className="mt-4">
-                                    <button type="submit" className="bg-[#4E3629] text-[#FAF9F6] border border-[#3D2B1F] rounded-full px-10 py-3 md:px-12 md:py-4 uppercase tracking-[0.05em] font-bold hover:scale-105 transition-transform duration-400 w-auto inline-block shadow-lg">
+                                    <button type="submit" className="group relative px-12 py-5 bg-[#4E3629] text-[#FAF9F6] border border-[#3D2B1F] rounded-full font-bold text-xl flex items-center justify-center gap-4 overflow-hidden shadow-xl hover:shadow-2xl hover:bg-[#3D2B1F] transition-all duration-300 hover:scale-105 active:scale-95 cursor-pointer uppercase tracking-wider">
                                         SUBMIT
                                     </button>
                                 </div>
