@@ -16,7 +16,10 @@ import {
     LineChart,
     Sparkles,
     Settings,
-    FileText
+    FileText,
+    Layers,
+    ChevronLeft,
+    ChevronRight
 } from 'lucide-react';
 
 const SectionHeader = ({ title, subtitle, light = false }) => (
@@ -33,6 +36,121 @@ const SectionHeader = ({ title, subtitle, light = false }) => (
         <div className="w-20 h-1.5 bg-[#8FAEC7] mt-5 rounded-full"></div>
     </motion.div>
 );
+
+const CompanionAppMockups = () => {
+    const [activeIndex, setActiveIndex] = React.useState(0);
+    const mockups = [
+        {
+            title: "Onboarding Flow",
+            subtitle: "Splash Screen & Sign-up Verification",
+            desc: "Designed with simplified forms and OTP entry. Seamlessly introduces parents to the screen-free ecosystem.",
+            image: "/projects/screen-free/app-mockup-1.png"
+        },
+        {
+            title: "Identity & Profile Setup",
+            subtitle: "Sign-in Screen & Children Profile details",
+            desc: "Collects early age demographics (name, age, gender) to customize specific tactile tasks dynamically.",
+            image: "/projects/screen-free/app-mockup-2.png"
+        },
+        {
+            title: "Device Connection",
+            subtitle: "QR Scan Screen & Parent's Main Dashboard",
+            desc: "Synchronizes the physical toy with the cloud database using a quick and easy QR Code pairing interface.",
+            image: "/projects/screen-free/app-mockup-3.png"
+        },
+        {
+            title: "Analytics & History",
+            subtitle: "Detailed Learning Logs & Activity Charts",
+            desc: "Allows parents to analyze round-by-round correct answers, total active play duration, and child accuracy metrics.",
+            image: "/projects/screen-free/app-mockup-4.png"
+        },
+        {
+            title: "Custom Learning Creator",
+            subtitle: "Creating customized task configurations",
+            desc: "Enables parents to build personalized learning sessions by choosing custom targets, shape lists, and active levels.",
+            image: "/projects/screen-free/app-mockup-5.png"
+        }
+    ];
+
+    const next = () => setActiveIndex((prev) => (prev + 1) % mockups.length);
+    const prev = () => setActiveIndex((prev) => (prev - 1 + mockups.length) % mockups.length);
+
+    return (
+        <section className="py-24 bg-white border-y border-[#8FAEC7]/20">
+            <div className="container max-w-7xl mx-auto px-6 lg:px-12">
+                <SectionHeader title="High Fidelity App Mockups" subtitle="Smart Learning Companion Mobile Application" />
+
+                <div className="grid grid-cols-1 lg:grid-cols-[1.2fr_0.8fr] gap-16 items-center mt-12">
+                    
+                    {/* Active Mockup Image Display */}
+                    <div className="relative w-full aspect-[16/10] bg-[#FAF9F6] rounded-[36px] overflow-hidden border-4 border-[#8FAEC7]/30 shadow-2xl p-6 group">
+                        <motion.div 
+                            key={activeIndex}
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            className="relative w-full h-full"
+                        >
+                            <Image 
+                                src={mockups[activeIndex].image} 
+                                alt={mockups[activeIndex].title} 
+                                fill 
+                                className="object-contain"
+                            />
+                        </motion.div>
+
+                        {/* Arrows */}
+                        <button onClick={prev} className="absolute left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/80 border border-[#8FAEC7]/20 flex items-center justify-center text-[#4E3629] shadow-lg hover:bg-[#8FAEC7] hover:text-white transition-all">
+                            <ChevronLeft size={24} />
+                        </button>
+                        <button onClick={next} className="absolute right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-white/80 border border-[#8FAEC7]/20 flex items-center justify-center text-[#4E3629] shadow-lg hover:bg-[#8FAEC7] hover:text-white transition-all">
+                            <ChevronRight size={24} />
+                        </button>
+                    </div>
+
+                    {/* Meta/Description Details */}
+                    <div className="space-y-8">
+                        <div className="flex gap-2">
+                            {mockups.map((_, i) => (
+                                <button 
+                                    key={i} 
+                                    onClick={() => setActiveIndex(i)}
+                                    className={`h-2 rounded-full transition-all duration-300 ${i === activeIndex ? 'w-10 bg-[#8FAEC7]' : 'w-2 bg-[#FAF9F6] border border-[#8FAEC7]/30'}`}
+                                />
+                            ))}
+                        </div>
+
+                        <div className="space-y-4">
+                            <span className="px-4 py-1.5 bg-[#FAF9F6] border border-[#8FAEC7]/20 rounded-full text-xs font-bold uppercase tracking-widest text-[#4E3629]">
+                                Screen 0{activeIndex + 1} of 0{mockups.length}
+                            </span>
+                            <h3 className="text-3xl font-black text-[#4E3629] uppercase leading-none tracking-tight">
+                                {mockups[activeIndex].title}
+                            </h3>
+                            <h4 className="text-[#8FAEC7] font-[family-name:var(--font-cursive)] text-2xl font-bold italic">
+                                {mockups[activeIndex].subtitle}
+                            </h4>
+                            <p className="text-[#6B5548] text-lg font-medium leading-relaxed pt-2">
+                                {mockups[activeIndex].desc}
+                            </p>
+                        </div>
+
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-[#8FAEC7]/20">
+                            <div className="p-4 bg-[#FAF9F6] rounded-2xl border border-[#8FAEC7]/10">
+                                <span className="block text-xs uppercase tracking-wider text-slate-500 font-bold">Platform</span>
+                                <span className="font-bold text-[#4E3629]">React Native (iOS & Android)</span>
+                            </div>
+                            <div className="p-4 bg-[#FAF9F6] rounded-2xl border border-[#8FAEC7]/10">
+                                <span className="block text-xs uppercase tracking-wider text-slate-500 font-bold">Design Assets</span>
+                                <span className="font-bold text-[#4E3629]">Figma UX Kit</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    );
+};
 
 const ScreenFreePage = () => {
     const fadeIn = {
@@ -240,6 +358,9 @@ const ScreenFreePage = () => {
                     />
                 </div>
             </section>
+
+            {/* HIGH FIDELITY COMPANION APP MOCKUPS */}
+            <CompanionAppMockups />
 
             {/* DESIGN PROCESS & MY ROLE */}
             <section className="py-24 bg-white border-y border-[#8FAEC7]/20">
