@@ -31,6 +31,14 @@ const featuredProjects = [
         description: "Mobile application for salon bookings with user authentication and appointment scheduling."
     },
     {
+        id: "screen-free",
+        title: "Screen-Free Learning",
+        category: "IoT & UX Research",
+        image: "/projects/screen-free/ideation-concept.png",
+        icon: <Box size={24} className="text-[#8FAEC7]" />,
+        description: "An IoT-enabled educational shape & coloring toy system designed to reduce early childhood screen dependency."
+    },
+    {
         id: "medicare",
         title: "Medicare App",
         category: "UI/UX Design",
@@ -124,8 +132,8 @@ const FeaturedProjects = () => {
     });
     
     // Smooth horizontal translation based on vertical scroll
-    // -88% accommodates the 5-project slide to ensure the last item is visible at the end
-    const x = useTransform(scrollYProgress, [0, 1], ["0%", "-88%"]);
+    // -115% accommodates the 6-project slide to ensure the last item is visible at the end
+    const x = useTransform(scrollYProgress, [0, 1], ["0%", "-115%"]);
     
     return (
         <section ref={targetRef} className="relative h-[250vh] md:h-[300vh] bg-[#1E140F] font-sans">

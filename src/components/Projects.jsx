@@ -40,6 +40,17 @@ const projects = [
         description: "Mobile application for salon bookings with user authentication and appointment scheduling."
     },
     {
+        id: "screen-free",
+        title: "Screen-Free Learning",
+        subtitle: "IoT-Based Learning System",
+        type: "IoT & UX Research",
+        tags: ["IoT Hardware", "UX Research", "Child Psychology", "Product Design"],
+        icon: <Box size={28} className="text-[#8FAEC7]" />,
+        image: "/projects/screen-free/ideation-concept.png",
+        link: "/projects/screen-free",
+        description: "A research-driven interactive technology project designed to reduce screen dependency among children aged 1–6 years through physical interaction."
+    },
+    {
         id: "medicare",
         title: "Medicare App",
         subtitle: "UI/UX Concept",
